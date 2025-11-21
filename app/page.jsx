@@ -143,7 +143,7 @@ export default function Page() {
           </div>
         </Section>
 
-        {/* INSIGHTS / ARTICLES */}
+        {/* INSIGHTS / ARTICLES SECTION ON HOME */}
         <Section id="insights" className="section-alt">
           <div className="container insights-grid">
             <Reveal className="insights-main">
@@ -153,12 +153,7 @@ export default function Page() {
                 <p key={para}>{para}</p>
               ))}
               <div className="hero-actions">
-                <a
-                  href="https://www.capitalcharacterconviction.com"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="/blog" className="btn btn-primary">
                   Go to the blog
                 </a>
               </div>

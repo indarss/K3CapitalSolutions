@@ -220,7 +220,7 @@ main {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: var(--gold);
   margin-bottom: 12px;
 }
@@ -285,7 +285,7 @@ main {
 .hero-card {
   background: linear-gradient(145deg, #0e251f, #081814);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 0, 0.06);
   padding: 20px 20px 18px;
   box-shadow: var(--shadow-soft);
 }

@@ -62,6 +62,9 @@ export default function Nav() {
                     <a href={`#${s.id}`}>{s.label}</a>
                   </li>
                 ))}
+                <li>
+                  <a href="/blog">Blog Index</a>
+                </li>
               </ul>
             </details>
           </nav>
