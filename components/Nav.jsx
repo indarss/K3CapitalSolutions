@@ -65,6 +65,9 @@ export default function Nav() {
                 <li>
                   <a href="/blog">Blog Index</a>
                 </li>
+                <li>
+                  <a href="/admin">CMS Login</a>
+                </li>
               </ul>
             </details>
           </nav>

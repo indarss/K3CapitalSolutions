@@ -152,8 +152,17 @@ export default function Page() {
               {branding.insightsIntro.map((para) => (
                 <p key={para}>{para}</p>
               ))}
-              <div className="hero-actions">
-                <a href="/blog" className="btn btn-primary">
+
+              <form action="/api/subscribe" method="POST" className="subscribe-form">
+                <input name="name" type="text" placeholder="Your Name" required />
+                <input name="email" type="email" placeholder="Your Email" required />
+                <button className="btn btn-primary" type="submit">
+                  Subscribe
+                </button>
+              </form>
+
+              <div className="hero-actions" style={{ marginTop: "18px" }}>
+                <a href="/blog" className="btn btn-ghost">
                   Go to the blog
                 </a>
               </div>

@@ -285,7 +285,7 @@ main {
 .hero-card {
   background: linear-gradient(145deg, #0e251f, #081814);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 20px 20px 18px;
   box-shadow: var(--shadow-soft);
 }
@@ -489,6 +489,24 @@ main {
   content: "•";
   color: var(--green-light);
   margin-right: 6px;
+}
+
+/* Subscription form */
+.subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.subscribe-form input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  flex: 1;
+  min-width: 220px;
 }
 
 /* Footer */

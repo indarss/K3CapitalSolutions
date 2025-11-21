@@ -1,0 +1,19 @@
+name: Send Blog Email
+on:
+  push:
+    paths:
+      - "app/blog/posts/*.mdx"
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Extract slug
+        id: blog
+        run: echo "slug=$(basename $(git diff --name-only HEAD^ HEAD | grep '.mdx') .mdx)" >> $GITHUB_OUTPUT
+
+      - name: Trigger endpoint
+        run: |
+          curl -X POST https://k3capitalsolutions.com/api/send-blog-update           -H "Content-Type: application/json"           -d '{"slug": "${{ steps.blog.outputs.slug }}"}'
