@@ -220,7 +220,7 @@ main {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--gold);
   margin-bottom: 12px;
 }
