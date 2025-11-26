@@ -1,4 +1,3 @@
-import Nav from "../components/Nav";
 import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
@@ -8,7 +7,6 @@ import SubscribeForm from "../components/SubscribeForm";
 export default function Page() {
   return (
     <>
-      <Nav />
       <main>
         {/* HERO */}
         <Section id="home" className="hero">
