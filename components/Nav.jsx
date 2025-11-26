@@ -1,13 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  Home,
+  List,
+  User,
+  FileText,
+  NotebookPen
+} from "lucide-react";
+
 
 const sections = [
-  { id: "home", label: "Home" },
-  { id: "services", label: "Service List" },
-  { id: "about", label: "About Me" },
-  { id: "insights", label: "Insights / Articles" }
+  { id: "home", label: "Home", icon: Home },
+  { id: "services", label: "Service List", icon: List },
+  { id: "about", label: "About Me", icon: User },
+  { id: "insights", label: "Insights / Articles", icon: FileText }
 ];
+
 
 export default function Nav() {
   const [theme, setTheme] = useState("dark");
@@ -56,19 +65,35 @@ export default function Nav() {
           <nav className="menu">
             <details className="menu-root">
               <summary>Menu</summary>
-              <ul>
-                {sections.map((s) => (
-                  <li key={s.id}>
-                    <a href={`#${s.id}`}>{s.label}</a>
-                  </li>
-                ))}
+              <ul className="menu-dropdown">
+                {sections.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <li key={s.id}>
+                      <a href={`#${s.id}`}>
+                        <Icon size={16} />
+                        {s.label}
+                      </a>
+                    </li>
+                  );
+                })}
+
                 <li>
-                  <a href="/blog">Blog Index</a>
+                  <a href="/blog">
+                    <NotebookPen size={16} />
+                    Blog Index
+                  </a>
                 </li>
+
                 <li>
-                  <a href="/admin">CMS Login</a>
+                  <a href="/admin">
+                    <User size={16} />
+                    CMS Login
+                  </a>
                 </li>
               </ul>
+
+
             </details>
           </nav>
         </div>

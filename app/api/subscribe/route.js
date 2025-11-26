@@ -20,5 +20,5 @@ export async function POST(req) {
     return NextResponse.json({ error: true }, { status: 400 });
   }
 
-  return NextResponse.redirect("/#insights");
+  return NextResponse.json({ success: true });
 }

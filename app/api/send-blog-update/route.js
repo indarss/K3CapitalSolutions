@@ -26,7 +26,8 @@ export async function POST(req) {
   await Promise.all(
     subscribers.map((sub) =>
       resend.emails.send({
-        from: "K3 Capital Solutions <no-reply@k3capitalsolutions.com>",
+       // from: "K3 Capital Solutions <no-reply@k3capitalsolutions.com>",
+        from: "K3 Capital Solutions <no-reply@resend.dev>",
         to: sub.email,
         subject: data.title,
         html: `

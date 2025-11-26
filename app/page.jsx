@@ -3,6 +3,7 @@ import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
 import "./globals.css";
+import SubscribeForm from "../components/SubscribeForm";
 
 export default function Page() {
   return (
@@ -153,13 +154,7 @@ export default function Page() {
                 <p key={para}>{para}</p>
               ))}
 
-              <form action="/api/subscribe" method="POST" className="subscribe-form">
-                <input name="name" type="text" placeholder="Your Name" required />
-                <input name="email" type="email" placeholder="Your Email" required />
-                <button className="btn btn-primary" type="submit">
-                  Subscribe
-                </button>
-              </form>
+              <SubscribeForm />
 
               <div className="hero-actions" style={{ marginTop: "18px" }}>
                 <a href="/blog" className="btn btn-ghost">
