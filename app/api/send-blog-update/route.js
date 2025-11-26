@@ -36,7 +36,7 @@ export async function POST(req) {
           <hr/>
           <div>${content.replace(/\n/g, "<br/>")}</div>
           <br/>
-          <a href="https://k3capitalsolutions.com/blog/${slug}">Read online</a>
+          <a href="https://k3-capital-solutions.vercel.app/blog/${slug}">Read online</a>
         `
       })
     )

@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "K3 Capital Solutions — Independent Wealth Advisory",
   description:

@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/k3-capital-solutions
+  repo: indarss/k3-capital-solutions
   branch: main
 
 media_folder: "public/uploads"

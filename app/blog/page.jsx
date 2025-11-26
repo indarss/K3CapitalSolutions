@@ -4,7 +4,6 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { Section } from "../../components/Section";
 import { Reveal } from "../../components/Reveal";
-import "../../globals.css";
 
 export const metadata = {
   title: "Blog — K3 Capital Solutions",

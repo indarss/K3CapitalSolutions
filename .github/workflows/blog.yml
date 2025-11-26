@@ -16,4 +16,4 @@ jobs:
 
       - name: Trigger endpoint
         run: |
-          curl -X POST https://k3capitalsolutions.com/api/send-blog-update           -H "Content-Type: application/json"           -d '{"slug": "${{ steps.blog.outputs.slug }}"}'
+          curl -X POST https://k3-capital-solutions.vercel.app/api/send-blog-update -H "Content-Type: application/json" -d '{"slug": "${{ steps.blog.outputs.slug }}"}'
