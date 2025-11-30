@@ -1,15 +1,24 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { Menu, X, NotebookPen } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Home,
+  List,
+  User,
+  FileText,
+  NotebookPen,
+  Menu,
+  X
+} from "lucide-react";
+
 import { useRouter, usePathname } from "next/navigation";
 import K3Logo from "./K3Logo";
 
 const sections = [
-  { id: "home", label: "Home" },
-  { id: "services", label: "Service List" },
-  { id: "about", label: "About Me" },
-  { id: "insights", label: "Insights / Articles" },
+  { id: "home", label: "Home", icon: Home },
+  { id: "services", label: "Service List", icon: List },
+  { id: "about", label: "About Me", icon: User },
+  { id: "insights", label: "Insights / Articles", icon: FileText },
 ];
 
 export default function Nav() {
@@ -19,33 +28,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const panelRef = useRef(null);
-
-  //
-  // Smooth scrolling / redirect
-  //
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    setOpen(false);
-
-    if (pathname === "/") {
-      const el = document.getElementById(targetId);
-      if (el) {
-        window.scrollTo({
-          top: el.offsetTop - 90,
-          behavior: "smooth",
-        });
-      }
-    } else {
-      router.push(`/?scroll=${targetId}`);
-    }
-  };
-
-  //
-  // Scroll listeners (shadow + hide + scrollspy)
-  //
+  // Desktop/Mobile scroll spy + hide on scroll
   useEffect(() => {
     let lastY = window.scrollY;
     const ids = sections.map((s) => s.id);
@@ -53,23 +38,20 @@ export default function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
 
-      // Shadow
       setScrolled(y > 10);
 
-      // Hide on scroll down
       if (y > lastY && y > 80) setHidden(true);
       else setHidden(false);
+
       lastY = y;
 
-      // Scrollspy on homepage only
       if (pathname !== "/") return;
+      const pos = y + 150;
 
-      const pos = y + 160;
       for (let id of ids) {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
           setActiveSection(id);
-          break;
         }
       }
     };
@@ -78,93 +60,88 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
-  //
-  // Close mobile panel on outside click
-  //
-  useEffect(() => {
-    function handleOutside(e) {
-      if (panelRef.current && !panelRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleOutside);
-    return () => document.removeEventListener("mousedown", handleOutside);
-  }, []);
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    setMobileOpen(false);
 
-  //
-  // Close on Escape
-  //
-  useEffect(() => {
-    const handler = (e) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, []);
+    if (pathname === "/") {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      window.scrollTo({
+        top: el.offsetTop - 90,
+        behavior: "smooth",
+      });
+    } else {
+      router.push(`/?scroll=${id}`);
+    }
+  };
 
   return (
-    <div
+    <header
       className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""
         }`}
     >
       <nav className="container nav-inner">
-        {/* BRAND WITH LOGO */}
+
+        {/* LOGO + BRAND */}
         <div className="brand">
-          <K3Logo size={40} />
+          <K3Logo size={38} />
           <div className="brand-text">
             <strong className="brand-name">K3 Capital Solutions</strong>
+            <span className="brand-tagline">
+              Independent Wealth Advisory
+            </span>
           </div>
         </div>
 
-        {/* DESKTOP LINKS */}
+        {/* DESKTOP NAV */}
         <div className="nav-links desktop-only">
           {sections.map((s) => (
             <a
               key={s.id}
               href={`/#${s.id}`}
               onClick={(e) => handleNavClick(e, s.id)}
-              className={`nav-link ${activeSection === s.id ? "active" : ""}`}
+              className={activeSection === s.id ? "active" : ""}
             >
               {s.label}
             </a>
           ))}
 
-          <a href="/blog" className="nav-link">Blog</a>
-          <a href="/admin" className="nav-link">Login</a>
+          <a href="/blog">Blog</a>
+          <a href="/admin">Login</a>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE BUTTON */}
         <button
-          className="mobile-menu-button mobile-only"
-          onClick={() => setOpen((v) => !v)}
+          className="mobile-menu-btn mobile-only"
+          onClick={() => setMobileOpen((v) => !v)}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
-
       </nav>
 
-      {/* MOBILE PANEL */}
-      {open && (
-        <div className="mobile-nav-panel mobile-only" ref={panelRef}>
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={`/#${s.id}`}
-              onClick={(e) => handleNavClick(e, s.id)}
-              className={`mobile-nav-link ${activeSection === s.id ? "active" : ""
-                }`}
-            >
-              {s.label}
-            </a>
-          ))}
-
-          <a href="/blog" className="mobile-nav-link">
-            <NotebookPen size={16} /> Blog
-          </a>
-
-          <a href="/admin" className="mobile-nav-link">
-            Login
-          </a>
+      {/* MOBILE MENU */}
+      {mobileOpen && (
+        <div className="mobile-nav">
+          {sections.map((s) => {
+            const Icon = s.icon;
+            return (
+              <a
+                key={s.id}
+                href={`/#${s.id}`}
+                onClick={(e) => handleNavClick(e, s.id)}
+                className={activeSection === s.id ? "active" : ""}
+              >
+                <Icon size={16} />
+                {s.label}
+              </a>
+            );
+          })}
+          <a href="/blog"><NotebookPen size={16} /> Blog</a>
+          <a href="/admin"><User size={16} /> Login</a>
         </div>
       )}
-    </div>
+    </header>
   );
 }
