@@ -5,8 +5,6 @@ import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
 import "./globals.css";
 import SubscribeForm from "../components/SubscribeForm";
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
 export default function Page() {
   const params = useSearchParams();
