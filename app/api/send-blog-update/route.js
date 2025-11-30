@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; //Do NOT evaluate this handler during build. (allows local builds to succeed)
 import { Resend } from "resend";
 import fs from "fs";
 import path from "path";
