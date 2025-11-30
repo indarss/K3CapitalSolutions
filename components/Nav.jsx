@@ -1,23 +1,15 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import {
-  Home,
-  List,
-  User,
-  FileText,
-  NotebookPen,
-  Menu,
-  X
-} from "lucide-react";
+import { Menu, X, NotebookPen } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import K3Logo from "./K3Logo";
 
-// Dropdown sections
 const sections = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "services", label: "Service List", icon: List },
-  { id: "about", label: "About Me", icon: User },
-  { id: "insights", label: "Insights / Articles", icon: FileText }
+  { id: "home", label: "Home" },
+  { id: "services", label: "Service List" },
+  { id: "about", label: "About Me" },
+  { id: "insights", label: "Insights / Articles" },
 ];
 
 export default function Nav() {
@@ -29,22 +21,21 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState("home");
   const [open, setOpen] = useState(false);
 
-  const menuRef = useRef(null);
+  const panelRef = useRef(null);
 
   //
-  // 🔹 Smooth scroll + cross-page navigation logic
+  // Smooth scrolling / redirect
   //
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-
-    setOpen(false); // close dropdown on click
+    setOpen(false);
 
     if (pathname === "/") {
       const el = document.getElementById(targetId);
       if (el) {
         window.scrollTo({
           top: el.offsetTop - 90,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     } else {
@@ -53,10 +44,7 @@ export default function Nav() {
   };
 
   //
-  // 🔹 Scroll listener for:
-  //   1) Shadow toggle
-  //   2) Hide-on-scroll
-  //   3) ScrollSpy active section
+  // Scroll listeners (shadow + hide + scrollspy)
   //
   useEffect(() => {
     let lastY = window.scrollY;
@@ -65,22 +53,18 @@ export default function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
 
-      // 1) GS shadow effect
+      // Shadow
       setScrolled(y > 10);
 
-      // 2) Hide nav on scroll down
-      if (y > lastY && y > 80) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
+      // Hide on scroll down
+      if (y > lastY && y > 80) setHidden(true);
+      else setHidden(false);
       lastY = y;
 
+      // Scrollspy on homepage only
       if (pathname !== "/") return;
 
-      // 3) ScrollSpy (homepage only)
-      const pos = y + 160; // offset
-
+      const pos = y + 160;
       for (let id of ids) {
         const el = document.getElementById(id);
         if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
@@ -95,101 +79,92 @@ export default function Nav() {
   }, [pathname]);
 
   //
-  // 🔹 Close menu on outside click
+  // Close mobile panel on outside click
   //
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    function handleOutside(e) {
+      if (panelRef.current && !panelRef.current.contains(e.target)) {
         setOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
   //
-  // 🔹 Close dropdown on Escape
+  // Close on Escape
   //
   useEffect(() => {
-    const handler = (e) => {
-      if (e.key === "Escape") setOpen(false);
-    };
+    const handler = (e) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
-
-  //
-  // 🔹 For dropdown keyboard navigation
-  //
-  const handleKeyDown = (e) => {
-    if (!open) return;
-    if (e.key === "ArrowDown") {
-      const links = [...document.querySelectorAll(".menu-dropdown a")];
-      links[0]?.focus();
-    }
-  };
 
   return (
     <div
       className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""
         }`}
-      onKeyDown={handleKeyDown}
     >
-      <nav className="menu container">
-        {/* === BRAND (optional area for logo later) === */}
-        <div className="brand-text" style={{ paddingLeft: "4px" }}>
-          <strong>K3 Capital Solutions</strong>
+      <nav className="container nav-inner">
+        {/* BRAND WITH LOGO */}
+        <div className="brand">
+          <K3Logo size={40} />
+          <div className="brand-text">
+            <strong className="brand-name">K3 Capital Solutions</strong>
+          </div>
         </div>
 
-        {/* === MENU BUTTON === */}
-        <div
-          className="menu-root"
-          ref={menuRef}
+        {/* DESKTOP LINKS */}
+        <div className="nav-links desktop-only">
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              onClick={(e) => handleNavClick(e, s.id)}
+              className={`nav-link ${activeSection === s.id ? "active" : ""}`}
+            >
+              {s.label}
+            </a>
+          ))}
+
+          <a href="/blog" className="nav-link">Blog</a>
+          <a href="/admin" className="nav-link">Login</a>
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="mobile-menu-button mobile-only"
+          onClick={() => setOpen((v) => !v)}
         >
-          <button
-            className="menu-button"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-            <span style={{ marginLeft: "6px" }}>Menu</span>
-          </button>
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
 
-          {open && (
-            <ul className="menu-dropdown">
-              {sections.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <li key={s.id}>
-                    <a
-                      href={`/#${s.id}`}
-                      onClick={(e) => handleNavClick(e, s.id)}
-                      className={activeSection === s.id ? "active" : ""}
-                    >
-                      <Icon size={16} />
-                      {s.label}
-                    </a>
-                  </li>
-                );
-              })}
-
-              <li>
-                <a href="/blog">
-                  <NotebookPen size={16} />
-                  Blog Index
-                </a>
-              </li>
-
-              <li>
-                <a href="/admin">
-                  <User size={16} />
-                  CMS Login
-                </a>
-              </li>
-            </ul>
-          )}
-        </div>
       </nav>
+
+      {/* MOBILE PANEL */}
+      {open && (
+        <div className="mobile-nav-panel mobile-only" ref={panelRef}>
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              onClick={(e) => handleNavClick(e, s.id)}
+              className={`mobile-nav-link ${activeSection === s.id ? "active" : ""
+                }`}
+            >
+              {s.label}
+            </a>
+          ))}
+
+          <a href="/blog" className="mobile-nav-link">
+            <NotebookPen size={16} /> Blog
+          </a>
+
+          <a href="/admin" className="mobile-nav-link">
+            Login
+          </a>
+        </div>
+      )}
     </div>
   );
 }
