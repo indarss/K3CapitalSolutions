@@ -3,6 +3,76 @@
    ============================================================ */
 
 /* ==============================================
+   TYPOGRAPHY — GOLDMAN SACHS SCALE
+   ============================================== */
+
+:root {
+  --font-sans: 'Inter', 'Segoe UI', sans-serif;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.15rem;
+
+  --fs-section-title: clamp(1.8rem, 3vw, 2.3rem);
+  --fs-hero-title: clamp(2.6rem, 3.4vw, 3.3rem);
+
+  --lh-tight: 1.15;
+  --lh-base: 1.55;
+  --lh-loose: 1.8;
+
+  --tracking-wide: 0.12em;
+}
+
+/* Global typography */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  margin-bottom: 0.65em;
+  line-height: var(--lh-tight);
+  color: var(--text);
+}
+
+p {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text-muted);
+  margin-bottom: 1em;
+}
+
+/* ==============================================
+   SPACING SYSTEM — GS
+   ============================================== */
+
+:root {
+  --space-xxs: 6px;
+  --space-xs: 12px;
+  --space-sm: 18px;
+  --space-md: 28px;
+  --space-lg: 46px;
+  --space-xl: 72px;
+  --space-xxl: 110px;
+}
+
+/* Section spacing */
+.section {
+  padding: var(--space-xxl) 0 var(--space-xl);
+}
+
+.section-alt {
+  padding: var(--space-xxl) 0 var(--space-xl);
+}
+
+
+/* ==============================================
    COLOR SYSTEM — LIGHT THEME
    ============================================== */
 :root {
@@ -204,49 +274,58 @@ body.app-root {
   font-size: 1rem;
 }
 
-/* ============================================================
-   HERO — CONVERTED TO GS WHITE PANEL STYLE
-   ============================================================ */
+/* ==============================================
+   HERO — INVESTMENT BANK STYLE
+   ============================================== */
 
 .hero {
-  padding-top: 140px;
+  padding-top: calc(var(--nav-height) + var(--space-lg));
+  padding-bottom: var(--space-xxl);
   background: var(--surface);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-lg);
   align-items: center;
 }
 
 .eyebrow {
   text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--fs-xs);
   color: var(--primary-accent);
-  margin-bottom: 12px;
+  margin-bottom: var(--space-xs);
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+  font-size: var(--fs-hero-title);
+  font-weight: 600;
+  color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 18px;
+  margin-bottom: var(--space-sm);
 }
 
 .intro {
+  font-size: var(--fs-lg);
   color: var(--text-muted);
-  font-size: 1.05rem;
-  margin-bottom: 22px;
+  max-width: 42rem;
+  margin-bottom: var(--space-md);
 }
 
-/* Hero card — replace dark gradient */
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Premium side card */
 .hero-card {
   background: var(--surface-alt);
+  border-radius: 20px;
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  padding: var(--space-md);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Metric card — remove neon green */
@@ -322,4 +401,27 @@ body.app-root {
   .insights-grid {
     grid-template-columns: 1fr;
   }
+
+.btn-primary {
+  padding: 14px 26px;
+  font-size: var(--fs-sm);
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  transition: 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--primary);
+  background: transparent;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
 }

@@ -11,17 +11,22 @@ export default function Page() {
         {/* HERO */}
         <Section id="home" className="hero">
           <div className="container hero-grid">
+
+            {/* LEFT COLUMN — TEXT */}
             <Reveal className="hero-copy">
               <p className="eyebrow">{branding.tagline}</p>
+
               <h1 className="hero-title">
-                Institutional-grade investment guidance for
-                <span className="accent"> high–net–worth</span> capital.
+                Institutional-grade investment guidance<br />
+                for sophisticated private capital.
               </h1>
+
               <p className="intro">
-                K3 Capital Solutions provides independent, research-driven
-                investment advisory built on global market experience, large-scale
-                infrastructure, and multi-billion-euro portfolio management.
+                K3 Capital Solutions provides independent, research-driven investment
+                advisory built on global market experience, large-scale infrastructure,
+                and multi-billion-euro portfolio management.
               </p>
+
               <div className="hero-actions">
                 <a href="#services" className="btn btn-primary">
                   View Service List
@@ -30,14 +35,15 @@ export default function Page() {
                   About the Founder
                 </a>
               </div>
+
               <p className="hero-detail">
                 Our work integrates engineering-level precision, global market
-                expertise, and disciplined portfolio execution for clients who
-                value independence, selectivity, and long-term capital
-                stewardship.
+                expertise, and disciplined portfolio execution for clients who value
+                independence, selectivity, and long-term capital stewardship.
               </p>
             </Reveal>
 
+            {/* RIGHT COLUMN — CARD */}
             <Reveal delay={0.15} className="hero-card">
               <div className="metric-card">
                 <span className="metric-label">Portfolios Managed</span>
@@ -46,17 +52,20 @@ export default function Page() {
                   Multi-asset mandates across EU & international markets
                 </span>
               </div>
+
               <div className="stat-grid">
                 <div className="stat-item">15+ yrs experience</div>
                 <div className="stat-item">EU · US markets</div>
                 <div className="stat-item">Bespoke mandates</div>
                 <div className="stat-item">Research-driven</div>
               </div>
+
               <p className="hero-note">
                 For illustrative purposes only. Figures reflect representative
                 advisory exposure; this is not a performance guarantee.
               </p>
             </Reveal>
+
           </div>
         </Section>
 
