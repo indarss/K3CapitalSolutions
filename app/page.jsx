@@ -7,23 +7,6 @@ import "./globals.css";
 import SubscribeForm from "../components/SubscribeForm";
 
 export default function Page() {
-  const params = useSearchParams();
-
-  useEffect(() => {
-    const target = params.get("scroll");
-    if (!target) return;
-
-    // Delay slightly to allow layout + Reveal animations to initialize
-    setTimeout(() => {
-      const el = document.getElementById(target);
-      if (el) {
-        window.scrollTo({
-          top: el.offsetTop - 90,
-          behavior: "smooth"
-        });
-      }
-    }, 300); // 200–300ms is ideal with Framer Motion
-  }, [params]);
 
   return (
     <>
