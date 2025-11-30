@@ -1,5 +1,6 @@
 // app/layout.jsx
 import "./globals.css";
+import Nav from "../components/Nav";
 
 export const metadata = {
   title: "K3 Capital Solutions",
@@ -13,8 +14,13 @@ export default function RootLayout({ children }) {
       <body className="app-root">
 
         {/* ===========================================================
+             GLOBAL NAVIGATION (must load BEFORE content)
+        ============================================================ */}
+        <Nav />
+
+        {/* ===========================================================
              SAFE SCROLL-ON-LOAD SCRIPT
-           =========================================================== */}
+        ============================================================ */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -25,7 +31,7 @@ export default function RootLayout({ children }) {
                     const target = params.get("scroll");
                     if (!target) return;
 
-                    // Delay ensures layout, CSS and framer-motion are all hydrated
+                    // Delay ensures layout, CSS and framer-motion animations are ready
                     setTimeout(() => {
                       const el = document.getElementById(target);
                       if (el) {
@@ -40,19 +46,16 @@ export default function RootLayout({ children }) {
                   }
                 };
 
-                // Run on page load
                 window.addEventListener("load", runScroll);
-
-                // Run again on browser back/forward navigation
                 window.addEventListener("popstate", runScroll);
               })();
             `,
           }}
         />
 
-        {/* ======================
-            MAIN APPLICATION
-           ====================== */}
+        {/* ===========================================================
+             MAIN CONTENT
+        ============================================================ */}
         {children}
 
       </body>
