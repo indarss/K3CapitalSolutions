@@ -424,4 +424,8 @@ body.app-root {
   border-radius: 8px;
 }
 
+section[id] {
+  scroll-margin-top: 120px;
+  /* Perfect for your nav height + animation slack - fixes Menu on Insights*/
+}
 }

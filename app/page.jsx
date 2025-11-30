@@ -151,36 +151,61 @@ export default function Page() {
           </div>
         </Section>
 
-        {/* INSIGHTS / ARTICLES SECTION ON HOME */}
+        {/* INSIGHTS / ARTICLES SECTION — INSTITUTIONAL */}
         <Section id="insights" className="section-alt">
           <div className="container insights-grid">
-            <Reveal className="insights-main">
-              <p className="eyebrow">Insights & Articles</p>
-              <h2>Capital · Character · Conviction</h2>
-              {branding.insightsIntro.map((para) => (
-                <p key={para}>{para}</p>
-              ))}
 
+            {/* LEFT SIDE — MAIN COPY */}
+            <Reveal className="insights-main">
+              <p className="eyebrow">Insights & Research</p>
+              <h2>Capital · Character · Conviction</h2>
+
+              <p>
+                K3 Capital Solutions publishes long-form research, regime analysis, and
+                practitioner-level commentary at the intersection of markets, risk, and
+                long-term portfolio construction.
+              </p>
+
+              <p>
+                Similar to institutional research desks, our perspective emphasizes
+                structural forces, macro regimes, market microstructure, and the behavioral
+                dynamics that drive capital allocation—especially in environments of
+                uncertainty, tightening liquidity, or shifting risk premia.
+              </p>
+
+              <p>
+                These insights are written for sophisticated investors who value clarity,
+                discipline, and frameworks grounded in real-world mandate experience. The
+                goal is not prediction, but perspective: helping investors make better
+                decisions by understanding how markets evolve and how capital behaves across
+                cycles.
+              </p>
+
+              {/* Subscription form */}
               <SubscribeForm />
 
-              <div className="hero-actions" style={{ marginTop: "18px" }}>
+              <div className="hero-actions" style={{ marginTop: "20px" }}>
                 <a href="/blog" className="btn btn-ghost">
-                  Go to the blog
+                  Go to the Blog
                 </a>
               </div>
             </Reveal>
 
+            {/* RIGHT SIDE — FEATURED CARD */}
             <Reveal delay={0.15} className="insights-card">
-              <h3>What you’ll find on the blog</h3>
+              <h3>What You’ll Find Inside</h3>
               <ul>
-                <li>Long-form reflections on markets and regimes</li>
-                <li>Frameworks for decision-making under uncertainty</li>
-                <li>Case-based insights grounded in real-world mandates</li>
-                <li>Commentary at the intersection of capital and character</li>
+                <li>Macro & regime analysis grounded in institutional frameworks</li>
+                <li>Portfolio construction principles across market cycles</li>
+                <li>Risk, liquidity, and behavioral insights for serious allocators</li>
+                <li>Case-based commentary drawn from real investment mandates</li>
+                <li>Perspectives on decision-making when uncertainty is highest</li>
               </ul>
             </Reveal>
+
           </div>
         </Section>
+
 
         <footer className="footer">
           <div className="container footer-inner">
