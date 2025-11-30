@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
                       const el = document.getElementById(target);
                       if (el) {
                         window.scrollTo({
-                          top: el.offsetTop - 90,
+                          top: el.offsetTop,
                           behavior: "smooth"
                         });
                       }

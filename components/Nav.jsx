@@ -69,7 +69,7 @@ export default function Nav() {
       if (!el) return;
 
       window.scrollTo({
-        top: el.offsetTop - 90,
+        top: el.offsetTop,
         behavior: "smooth",
       });
     } else {
