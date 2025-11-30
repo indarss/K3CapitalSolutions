@@ -18,7 +18,7 @@ const sections = [
   { id: "home", label: "Home", icon: Home },
   { id: "services", label: "Service List", icon: List },
   { id: "about", label: "About Me", icon: User },
-  { id: "insights", label: "Insights / Articles", icon: FileText },
+  { id: "insights", label: "Insights / Articles", icon: FileText }
 ];
 
 export default function Nav() {
@@ -30,28 +30,33 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Desktop/Mobile scroll spy + hide on scroll
+  /* ---------------------------------------------------------
+     Scroll behavior: shadow, hide-on-scroll, scroll spy
+     --------------------------------------------------------- */
   useEffect(() => {
     let lastY = window.scrollY;
-    const ids = sections.map((s) => s.id);
 
     const onScroll = () => {
       const y = window.scrollY;
 
+      // Goldman Sachs shadow
       setScrolled(y > 10);
 
-      if (y > lastY && y > 80) setHidden(true);
-      else setHidden(false);
-
+      // Hide nav on scroll down
+      setHidden(y > lastY && y > 80);
       lastY = y;
 
+      // ScrollSpy only on homepage
       if (pathname !== "/") return;
-      const pos = y + 150;
 
-      for (let id of ids) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
-          setActiveSection(id);
+      const pos = y + 120; // matches scroll-margin-top
+
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (!el) continue;
+        if (el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+          setActiveSection(section.id);
+          break;
         }
       }
     };
@@ -60,40 +65,45 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
+  /* ---------------------------------------------------------
+     Handle nav clicks (cross-page + smooth scroll)
+     --------------------------------------------------------- */
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setMobileOpen(false);
 
+    // Already on homepage → smooth scroll
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
-
       window.scrollTo({
-        top: el.offsetTop,
-        behavior: "smooth",
+        top: el.offsetTop - 70, // matches nav-height
+        behavior: "smooth"
       });
-    } else {
-      router.push(`/?scroll=${id}`);
+      return;
     }
+
+    // Coming from Blog → redirect with scroll param
+    router.push(`/?scroll=${id}`);
   };
 
+  /* ---------------------------------------------------------
+     Render
+     --------------------------------------------------------- */
   return (
     <header
-      className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""
-        }`}
+      className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}
     >
       <nav className="container nav-inner">
 
-        {/* LOGO + BRAND */}
-        <div className="brand">
+        {/* BRAND / LOGO */}
+        <a href="/" className="brand" onClick={() => setMobileOpen(false)}>
           <K3Logo size={38} />
           <div className="brand-text">
             <strong className="brand-name">K3 Capital Solutions</strong>
-            <span className="brand-tagline">
-              Independent Wealth Advisory
-            </span>
+            <span className="brand-tagline">Independent Wealth Advisory</span>
           </div>
-        </div>
+        </a>
 
         {/* DESKTOP NAV */}
         <div className="nav-links desktop-only">
@@ -112,7 +122,7 @@ export default function Nav() {
           <a href="/admin">Login</a>
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE MENU BUTTON */}
         <button
           className="mobile-menu-btn mobile-only"
           onClick={() => setMobileOpen((v) => !v)}
@@ -121,7 +131,7 @@ export default function Nav() {
         </button>
       </nav>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE NAV PANEL */}
       {mobileOpen && (
         <div className="mobile-nav">
           {sections.map((s) => {
@@ -133,13 +143,17 @@ export default function Nav() {
                 onClick={(e) => handleNavClick(e, s.id)}
                 className={activeSection === s.id ? "active" : ""}
               >
-                <Icon size={16} />
-                {s.label}
+                <Icon size={16} /> {s.label}
               </a>
             );
           })}
-          <a href="/blog"><NotebookPen size={16} /> Blog</a>
-          <a href="/admin"><User size={16} /> Login</a>
+
+          <a href="/blog" onClick={() => setMobileOpen(false)}>
+            <NotebookPen size={16} /> Blog
+          </a>
+          <a href="/admin" onClick={() => setMobileOpen(false)}>
+            <User size={16} /> Login
+          </a>
         </div>
       )}
     </header>

@@ -21,6 +21,9 @@
   --lh-base: 1.55;
 
   --tracking-wide: 0.12em;
+
+  /* NAV */
+  --nav-height: 70px;
 }
 
 /* =========================
@@ -97,6 +100,7 @@ body.app-root {
 /* ============================
    TYPOGRAPHY
    ============================ */
+
 body {
   font-size: var(--fs-base);
   line-height: var(--lh-base);
@@ -118,7 +122,7 @@ p {
 }
 
 /* ============================================================
-   NAVIGATION — TOP BAR (FINAL CLEAN VERSION)
+   NAVIGATION — TOP BAR
    ============================================================ */
 
 .nav-wrapper {
@@ -127,10 +131,7 @@ p {
   z-index: 3000;
   background: var(--surface);
   border-bottom: 1px solid var(--divider);
-  transition:
-    box-shadow 0.25s ease,
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  transition: box-shadow 0.25s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nav-wrapper.scrolled {
@@ -144,7 +145,7 @@ p {
 
 /* Layout */
 .nav-inner {
-  height: 70px;
+  height: var(--nav-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,7 +175,7 @@ p {
   margin-top: -3px;
 }
 
-/* Desktop Menu */
+/* Desktop menu */
 .nav-links {
   display: flex;
   align-items: center;
@@ -198,7 +199,7 @@ p {
   font-weight: 600;
 }
 
-/* Mobile Controls */
+/* Mobile */
 .mobile-only {
   display: none;
 }
@@ -213,7 +214,6 @@ p {
   padding: 6px;
 }
 
-/* Mobile panel */
 .mobile-nav {
   background: var(--surface);
   border-top: 1px solid var(--border);
@@ -238,7 +238,6 @@ p {
   font-weight: 600;
 }
 
-/* Responsive break */
 @media (max-width: 860px) {
   .desktop-only {
     display: none;
@@ -250,16 +249,28 @@ p {
 }
 
 /* ============================================================
-   SECTIONS
+   SECTIONS (REDUCED WHITE SPACE)
    ============================================================ */
 
-.section {
-  padding: var(--space-xxl) 0 var(--space-xl);
-  background: var(--surface);
+.section,
+.section-alt {
+  padding: 60px 0 80px;
+  /* tightened spacing */
 }
 
 .section-alt {
   background: var(--surface-alt);
+}
+
+/* Correct scroll anchoring (fixes big white gap) */
+section[id] {
+  scroll-margin-top: 70px;
+  /* nav-height + small offset */
+}
+
+/* Remove ghost whitespace from Reveal sections */
+.section .eyebrow:first-child {
+  margin-top: 0;
 }
 
 .section-intro {
@@ -273,8 +284,8 @@ p {
 
 .hero {
   background: var(--surface);
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xxl);
+  padding-top: 60px;
+  padding-bottom: 90px;
 }
 
 .hero-grid {
@@ -300,8 +311,8 @@ p {
 
 .intro {
   font-size: var(--fs-lg);
-  color: var(--text-muted);
   margin-bottom: var(--space-md);
+  color: var(--text-muted);
 }
 
 .hero-actions {
@@ -310,7 +321,7 @@ p {
 }
 
 /* ============================================================
-   CARDS / COMPONENTS
+   COMPONENTS / CARDS
    ============================================================ */
 
 .hero-card,
@@ -349,7 +360,7 @@ p {
 }
 
 /* ============================================================
-   RESPONSIVE (UNIFIED)
+   RESPONSIVE LAYOUT
    ============================================================ */
 
 @media (max-width: 900px) {
@@ -360,8 +371,16 @@ p {
   .insights-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  section[id] {
-    scroll-margin-top: 86px;
-  }
+/* ============================================================
+   INSIGHTS — TEXT WIDTH FIX
+   ============================================================ */
+.insights-main p {
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+.insights-main {
+  max-width: none !important;
 }
