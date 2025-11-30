@@ -9,7 +9,7 @@ import {
   NotebookPen
 } from "lucide-react";
 
-
+// Sections used in dropdown (your original structure)
 const sections = [
   { id: "home", label: "Home", icon: Home },
   { id: "services", label: "Service List", icon: List },
@@ -17,87 +17,95 @@ const sections = [
   { id: "insights", label: "Insights / Articles", icon: FileText }
 ];
 
-
 export default function Nav() {
-  const [theme, setTheme] = useState("dark");
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
+  // Shadow toggle + hide-on-scroll + active section highlighting
   useEffect(() => {
-    const stored = window.localStorage.getItem("k3-theme");
-    const initial = stored || "dark";
-    setTheme(initial);
-    document.documentElement.dataset.theme = initial;
+    let lastY = window.scrollY;
+
+    const sectionIds = sections.map((s) => s.id);
+
+    const onScroll = () => {
+      const currentY = window.scrollY;
+
+      //
+      // 1. Shadow toggle (Goldman Sachs effect)
+      //
+      setScrolled(currentY > 10);
+
+      //
+      // 2. Hide nav on scroll down, show on scroll up
+      //
+      if (currentY > lastY && currentY > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastY = currentY;
+
+      //
+      // 3. Active section highlighting (scroll spy)
+      //
+      const scrollPos = currentY + 150; // offset for nicer feel
+
+      for (let id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.dataset.theme = next;
-    window.localStorage.setItem("k3-theme", next);
-  };
+
 
   return (
-    <header className="nav">
-      <div className="container nav-inner">
-        <div className="brand">
-          <img
-            src="/logo.svg"
-            alt="K3 Capital Solutions"
-            className="brand-logo-img"
-          />
-          <div className="brand-text">
-            <span className="brand-name">K3 Capital Solutions</span>
-            <span className="brand-tagline">
-              Independent Wealth & Capital Advisory
-            </span>
-          </div>
-        </div>
+    <div className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
+      <nav className="menu">
 
-        <div className="nav-actions">
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? "☾" : "☼"}
-          </button>
+        <details className="menu-root">
+          <summary>Menu</summary>
 
-          <nav className="menu">
-            <details className="menu-root">
-              <summary>Menu</summary>
-              <ul className="menu-dropdown">
-                {sections.map((s) => {
-                  const Icon = s.icon;
-                  return (
-                    <li key={s.id}>
-                      <a href={`#${s.id}`}>
-                        <Icon size={16} />
-                        {s.label}
-                      </a>
-                    </li>
-                  );
-                })}
-
-                <li>
-                  <a href="/blog">
-                    <NotebookPen size={16} />
-                    Blog Index
+          <ul className="menu-dropdown">
+            {sections.map((s) => {
+              const Icon = s.icon;
+              return (
+                <li key={s.id}>
+                  <a
+                    href={`#${s.id}`}
+                    className={activeSection === s.id ? "active" : ""}
+                  >
+                    <Icon size={16} />
+                    {s.label}
                   </a>
                 </li>
+              );
+            })}
 
-                <li>
-                  <a href="/admin">
-                    <User size={16} />
-                    CMS Login
-                  </a>
-                </li>
-              </ul>
+            <li>
+              <a href="/blog">
+                <NotebookPen size={16} />
+                Blog Index
+              </a>
+            </li>
 
+            <li>
+              <a href="/admin">
+                <User size={16} />
+                CMS Login
+              </a>
+            </li>
+          </ul>
+        </details>
 
-            </details>
-          </nav>
-        </div>
-      </div>
-    </header>
+      </nav>
+    </div>
   );
 }

@@ -1,40 +1,38 @@
 :root {
-  --green: #0c7c52;
-  --green-light: #1aa36f;
-  --gold: #f3c969;
+  --primary: #0C2D48;
+  /* deep GS blue */
+  --primary-light: #1C4E80;
+  --primary-accent: #3A7CA5;
 
-  --bg-dark: #020605;
-  --bg-dark-alt: #071813;
-  --bg-card-dark: #0f2520;
+  --gold-accent: #C7B783;
+  /* subtle champagne gold */
 
-  --bg-light: #f7faf9;
-  --bg-light-alt: #edf3f1;
-  --bg-card-light: #ffffff;
+  --background: #F7F7F9;
+  /* site background */
+  --surface: #FFFFFF;
+  --surface-dark: #07141F;
+  /* for dark mode */
 
-  --text-dark: #ecf5f3;
-  --text-muted-dark: #a3b5b0;
+  --border: #C8CDD2;
 
-  --text-light: #12201b;
-  --text-muted-light: #5b6b64;
-
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --radius-pill: 999px;
-
-  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-
-  --max-width: 1120px;
-  --nav-height: 76px;
+  --text: #0A0A0C;
+  /* charcoal black */
+  --text-muted: #435361;
 }
 
 /* Theme mapping */
-html[data-theme="dark"],
-html:not([data-theme]) {
-  --bg: var(--bg-dark);
-  --bg-alt: var(--bg-dark-alt);
-  --bg-card: var(--bg-card-dark);
-  --text: var(--text-dark);
-  --text-muted: var(--text-muted-dark);
+[data-theme="dark"] {
+  --background: #07141F;
+  --surface: #0D1A27;
+  --text: #F2F4F7;
+  --text-muted: #D1D5DB;
+
+  --primary: #3A7CA5;
+  --border: #22303C;
+
+  .nav-wrapper {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
 }
 
 html[data-theme="light"] {
@@ -59,8 +57,7 @@ html {
 body.app-root {
   background: radial-gradient(circle at top left, #113c30 0, #020706 45%, #020504 100%);
   color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -270,9 +267,18 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #1aa36f, #0c7c52);
-  color: #04130d;
-  box-shadow: 0 12px 32px rgba(10, 125, 83, 0.5);
+  background: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
 }
 
 .btn-ghost {
@@ -587,61 +593,101 @@ main {
        Luxury K3 Dropdown Styling
     ================================== */
     
-        .menu-dropdown {
-          position: absolute;
-          right: 0;
-          margin-top: 12px;
-          padding: 12px 0;
-    
-          background: rgba(4, 12, 10, 0.92);
-          backdrop-filter: blur(14px);
-          border-radius: 18px;
-    
-          border: 1px solid rgba(0, 255, 180, 0.12);
-          /* subtle green sheen */
-          box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.5),
-            0 0 28px rgba(26, 163, 111, 0.18);
-          /* green glow */
-    
-          white-space: nowrap;
-          min-width: 210px;
-          z-index: 2000;
-        }
-    
-        /* Items */
-        .menu-dropdown li a {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-    
-          padding: 10px 18px;
-          font-size: 0.9rem;
-          color: var(--text);
-          text-decoration: none;
-          border-radius: 10px;
-    
-          transition: all 0.18s ease-in-out;
-        }
-    
-        /* Hover effect */
-        .menu-dropdown li a:hover {
-          background: rgba(26, 163, 111, 0.12);
-          /* soft green tint */
-          color: var(--green-light);
-          box-shadow:
-            inset 0 0 12px rgba(26, 163, 111, 0.25),
-            0 0 10px rgba(26, 163, 111, 0.15);
-        }
-    
-        /* Icon color */
-        .menu-dropdown li a svg {
-          stroke: var(--green-light);
-          opacity: 0.85;
-          transition: opacity 0.18s ease;
-        }
-    
-        .menu-dropdown li a:hover svg {
-          opacity: 1;
-        }
+    .menu-dropdown {
+      position: absolute;
+      right: 0;
+      margin-top: 12px;
+      padding: 12px 0;
+        
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+                  
+      border-radius: 16px;
+      border: 1px solid var(--border);
+                  
+      box-shadow:
+      0 4px 22px rgba(0, 0, 0, 0.12),
+      0 0 12px rgba(0, 0, 0, 0.06);
+                  
+      min-width: none;
+      width: auto;
+      white-space: nowrap;
+      z-index: 2000;
+      }
+                  
+    .menu-dropdown li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+                  
+      padding: 10px 18px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+                  
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+                  
+    .menu-dropdown li a:hover {
+      color: var(--primary);
+    }
+  
+    .menu-dropdown li a {
+      position: relative;
+    }
+  
+    .menu-dropdown li a::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      bottom: 4px;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.25s ease;
+    }
+  
+    .menu-dropdown li a:hover::after {
+      width: calc(100% - 36px);
+    }
+                  
+    .menu-dropdown li a svg {
+      stroke: var(--primary);
+      opacity: 0.85;
+    }
+                  
+    .menu-dropdown li a:hover svg {
+      opacity: 1;
+    } 
+
+    .menu-dropdown a.active {
+      background: rgba(12, 45, 72, 0.12);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+     /* Sticky wrapper */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 3000;
+      background: var(--surface);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  
+      transition:
+        box-shadow 0.25s ease,
+        backdrop-filter 0.25s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+  
+    .nav-wrapper.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+     /* Shadow appears only after scrolling */
+     .nav-wrapper.scrolled {
+       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+       backdrop-filter: blur(12px);
+     }
 }
