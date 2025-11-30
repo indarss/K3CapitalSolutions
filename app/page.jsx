@@ -1,13 +1,36 @@
+"use client";
+
 import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
 import "./globals.css";
 import SubscribeForm from "../components/SubscribeForm";
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Page() {
+  const params = useSearchParams();
+
+  useEffect(() => {
+    const target = params.get("scroll");
+    if (!target) return;
+
+    // Delay slightly to allow layout + Reveal animations to initialize
+    setTimeout(() => {
+      const el = document.getElementById(target);
+      if (el) {
+        window.scrollTo({
+          top: el.offsetTop - 90,
+          behavior: "smooth"
+        });
+      }
+    }, 300); // 200–300ms is ideal with Framer Motion
+  }, [params]);
+
   return (
     <>
       <main>
+
         {/* HERO */}
         <Section id="home" className="hero">
           <div className="container hero-grid">
@@ -151,11 +174,11 @@ export default function Page() {
           </div>
         </Section>
 
-        {/* INSIGHTS / ARTICLES SECTION — INSTITUTIONAL */}
+        {/* INSIGHTS — INSTITUTIONAL */}
         <Section id="insights" className="section-alt">
           <div className="container insights-grid">
 
-            {/* LEFT SIDE — MAIN COPY */}
+            {/* LEFT SIDE */}
             <Reveal className="insights-main">
               <p className="eyebrow">Insights & Research</p>
               <h2>Capital · Character · Conviction</h2>
@@ -181,7 +204,6 @@ export default function Page() {
                 cycles.
               </p>
 
-              {/* Subscription form */}
               <SubscribeForm />
 
               <div className="hero-actions" style={{ marginTop: "20px" }}>
@@ -206,7 +228,7 @@ export default function Page() {
           </div>
         </Section>
 
-
+        {/* FOOTER */}
         <footer className="footer">
           <div className="container footer-inner">
             <span>© 2025 K3 Capital Solutions.</span>
@@ -214,6 +236,7 @@ export default function Page() {
             <span>This website provides general information only and does not constitute regulated investment advice.</span>
           </div>
         </footer>
+
       </main>
     </>
   );

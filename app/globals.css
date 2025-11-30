@@ -393,39 +393,44 @@ body.app-root {
    RESPONSIVE — Works unchanged
    ============================================================ */
 
-@media (max-width: 900px) {
+  @media (max-width: 900px) {
 
-  .hero-grid,
-  .about-grid,
-  .service-grid,
-  .insights-grid {
-    grid-template-columns: 1fr;
+    .hero-grid,
+    .about-grid,
+    .service-grid,
+    .insights-grid {
+      grid-template-columns: 1fr;
+    }
+
+  .btn-primary {
+    padding: 14px 26px;
+    font-size: var(--fs-sm);
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    transition: 0.2s ease;
+    letter-spacing: 0.02em;
   }
 
-.btn-primary {
-  padding: 14px 26px;
-  font-size: var(--fs-sm);
-  border-radius: 8px;
-  background: var(--primary);
-  color: white;
-  transition: 0.2s ease;
-  letter-spacing: 0.02em;
-}
+  .btn-primary:hover {
+    background: var(--primary-light);
+  }
 
-.btn-primary:hover {
-  background: var(--primary-light);
-}
+  .btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--primary);
+    background: transparent;
+    padding: 12px 24px;
+    border-radius: 8px;
+  }
 
-.btn-ghost {
-  border: 1px solid var(--border);
-  color: var(--primary);
-  background: transparent;
-  padding: 12px 24px;
-  border-radius: 8px;
-}
+  section[id] {
+    scroll-margin-top: 120px;
+    /* Perfect for your nav height + animation slack - fixes Menu on Insights*/
+  }
 
-section[id] {
-  scroll-margin-top: 120px;
-  /* Perfect for your nav height + animation slack - fixes Menu on Insights*/
-}
+  section[id] {
+    scroll-margin-top: 120px;
+  }
+
 }
