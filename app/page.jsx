@@ -5,6 +5,7 @@ import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
 import "./globals.css";
 import SubscribeForm from "../components/SubscribeForm";
+import K3Logo from "../components/K3Logo";
 
 export default function Page() {
 
