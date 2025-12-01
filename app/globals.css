@@ -215,11 +215,6 @@ p {
   background: var(--surface-alt);
 }
 
-/* Fix anchor jumps (removes large white gap) */
-section[id] {
-  scroll-margin-top: var(--nav-height);
-}
-
 /* Intro text */
 .section-intro {
   max-width: 600px;
