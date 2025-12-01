@@ -321,17 +321,15 @@ p {
 
 .badge-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .badge {
-  display: inline-block;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  white-space: nowrap;
+  background: #f0f4f8;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--primary);
 }
 
 /* Prevent Reveal elements from being blocked */
@@ -339,4 +337,39 @@ p {
 .hero-grid,
 .section {
   overflow: visible !important;
+}
+
+.founder-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.founder-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-k3 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--primary-accent);
+  text-transform: uppercase;
+  margin-bottom: -2px;
+}
+
+.founder-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0;
+}
+
+.founder-title {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 2px;
 }

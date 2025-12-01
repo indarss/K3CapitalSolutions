@@ -134,22 +134,27 @@ export default function Page() {
                 </p>
               </div>
             </Reveal>
-
             <Reveal delay={0.15} className="profile-card">
-              <div className="profile-avatar">K3</div>
-              <div>
-                <h3>Krists Eiduks</h3>
-                <p className="role">Founder & Managing Partner</p>
-                <p className="meta">
-                  Engineering discipline, global finance experience, and
-                  multi-asset portfolio management expertise dedicated to
-                  high-net-worth individuals and sophisticated investors.
-                </p>
-                <div className="badge-row">
-                  <span className="badge">Independent</span>
-                  <span className="badge">Research-driven</span>
-                  <span className="badge">Client-selective</span>
+              <div className="founder-header">
+                <K3Logo size={48} />
+
+                <div className="founder-text">
+                  <div className="founder-k3">K3</div>
+                  <h3 className="founder-name">Krists Eiduks</h3>
+                  <p className="founder-title">Founder & Managing Partner</p>
                 </div>
+              </div>
+
+              <p className="meta">
+                Engineering discipline, global finance experience, and multi-asset
+                portfolio management expertise dedicated to high-net-worth individuals
+                and sophisticated investors.
+              </p>
+
+              <div className="badge-row">
+                <span className="badge">Independent</span>
+                <span className="badge">Research-driven</span>
+                <span className="badge">Client-selective</span>
               </div>
             </Reveal>
           </div>
