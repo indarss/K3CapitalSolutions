@@ -76,7 +76,7 @@ export default function Nav() {
 
       const navHeight = document.querySelector(".nav-wrapper")?.offsetHeight || 70;
       // Custom extra offset for Insights section
-      const extraOffset = id === "insights" ? 80 : 0;
+      const extraOffset = id === "insights" ? 100 : 0;
 
 
       window.scrollTo({
