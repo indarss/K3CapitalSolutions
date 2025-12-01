@@ -72,20 +72,28 @@ export default function Nav() {
     e.preventDefault();
     setMobileOpen(false);
 
-    // Already on homepage → smooth scroll
+    // On homepage → smooth scroll
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
+
       window.scrollTo({
-        top: el.offsetTop - 70, // matches nav-height
+        top: el.offsetTop, // better offset for sticky nav
         behavior: "smooth"
       });
+
+      // Clean URL after scroll animation finishes
+      setTimeout(() => {
+        history.replaceState(null, "", `/#${id}`);
+      }, 450);
+
       return;
     }
 
-    // Coming from Blog → redirect with scroll param
+    // Coming from /blog or any other page
     router.push(`/?scroll=${id}`);
   };
+
 
   /* ---------------------------------------------------------
      Render
@@ -97,13 +105,15 @@ export default function Nav() {
       <nav className="container nav-inner">
 
         {/* BRAND / LOGO */}
-        <a href="/" className="brand" onClick={() => setMobileOpen(false)}>
+        <div className="brand">
           <K3Logo size={38} />
           <div className="brand-text">
-            <strong className="brand-name">K3 Capital Solutions</strong>
-            <span className="brand-tagline">Independent Wealth Advisory</span>
+            <div className="brand-name">K3 Capital Solutions</div>
+            <div className="brand-tagline">Independent Wealth Advisory</div>
           </div>
-        </a>
+        </div>
+
+
 
         {/* DESKTOP NAV */}
         <div className="nav-links desktop-only">
