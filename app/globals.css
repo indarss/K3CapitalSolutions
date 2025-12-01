@@ -22,7 +22,6 @@
 
   --tracking-wide: 0.12em;
 
-  /* NAV */
   --nav-height: 70px;
 }
 
@@ -100,7 +99,6 @@ body.app-root {
 /* ============================
    TYPOGRAPHY
    ============================ */
-
 body {
   font-size: var(--fs-base);
   line-height: var(--lh-base);
@@ -143,7 +141,6 @@ p {
   opacity: 0;
 }
 
-/* Layout */
 .nav-inner {
   height: var(--nav-height);
   display: flex;
@@ -171,11 +168,11 @@ p {
 
 .brand-tagline {
   font-size: 0.75rem;
-  color: var(--text-muted);
   margin-top: -3px;
+  color: var(--text-muted);
 }
 
-/* Desktop menu */
+/* ALWAYS-VISIBLE TOP NAV */
 .nav-links {
   display: flex;
   align-items: center;
@@ -199,80 +196,31 @@ p {
   font-weight: 600;
 }
 
-/* Mobile */
-.mobile-only {
-  display: none;
-}
-
+/* REMOVE ALL MOBILE NAV STYLES */
+.mobile-only,
+.mobile-nav,
 .mobile-menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  padding: 6px;
-}
-
-.mobile-nav {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  gap: 14px;
-}
-
-.mobile-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  text-decoration: none;
-  color: var(--text);
-}
-
-.mobile-nav a.active {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-@media (max-width: 860px) {
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: block;
-  }
+  display: none !important;
 }
 
 /* ============================================================
-   SECTIONS (REDUCED WHITE SPACE)
+   SECTIONS — REDUCED WHITE SPACE
    ============================================================ */
-
 .section,
 .section-alt {
   padding: 60px 0 80px;
-  /* tightened spacing */
 }
 
 .section-alt {
   background: var(--surface-alt);
 }
 
-/* Correct scroll anchoring (fixes big white gap) */
+/* Fix anchor jumps (removes large white gap) */
 section[id] {
-  scroll-margin-top: 40px;
-  /* nav-height + small offset */
+  scroll-margin-top: var(--nav-height);
 }
 
-/* Remove ghost whitespace from Reveal sections */
-.section .eyebrow:first-child {
-  margin-top: 0;
-}
-
+/* Intro text */
 .section-intro {
   max-width: 600px;
   color: var(--text-muted);
@@ -281,7 +229,6 @@ section[id] {
 /* ============================================================
    HERO
    ============================================================ */
-
 .hero {
   background: var(--surface);
   padding-top: 60px;
@@ -311,19 +258,13 @@ section[id] {
 
 .intro {
   font-size: var(--fs-lg);
-  margin-bottom: var(--space-md);
   color: var(--text-muted);
-}
-
-.hero-actions {
-  display: flex;
-  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 /* ============================================================
    COMPONENTS / CARDS
    ============================================================ */
-
 .hero-card,
 .service-card,
 .insights-card,
@@ -349,9 +290,20 @@ section[id] {
 }
 
 /* ============================================================
+   INSIGHTS LAYOUT FIX
+   ============================================================ */
+.insights-main {
+  max-width: 1100px;
+}
+
+.insights-main p {
+  max-width: 1100px;
+  line-height: 1.6;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
-
 .footer {
   background: var(--surface-alt);
   border-top: 1px solid var(--border);
@@ -362,7 +314,6 @@ section[id] {
 /* ============================================================
    RESPONSIVE LAYOUT
    ============================================================ */
-
 @media (max-width: 900px) {
 
   .hero-grid,
@@ -371,17 +322,4 @@ section[id] {
   .insights-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ============================================================
-   INSIGHTS — TEXT WIDTH FIX
-   ============================================================ */
-/* INSIGHTS — Widen text column for desktop */
-.insights-main {
-  max-width: 1100px;
-}
-
-.insights-main p {
-  max-width: 1100px;
-  line-height: 1.6;
 }
