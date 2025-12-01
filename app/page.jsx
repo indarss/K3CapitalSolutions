@@ -48,7 +48,7 @@ export default function Page() {
             </Reveal>
 
             {/* RIGHT COLUMN — CARD */}
-            <Reveal delay={0.15} className="hero-card">
+            <Reveal delay={0.15} className="hero-card" viewport={{ once: true, amount: 0.1 }}>
               <div className="metric-card">
                 <span className="metric-label">Portfolios Managed</span>
                 <span className="metric-value">€145M → €3.2Bn</span>

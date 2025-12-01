@@ -338,3 +338,10 @@ section[id] {
   font-size: 0.75rem;
   white-space: nowrap;
 }
+
+/* Prevent Reveal elements from being blocked */
+.hero,
+.hero-grid,
+.section {
+  overflow: visible !important;
+}
