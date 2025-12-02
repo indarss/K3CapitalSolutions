@@ -252,6 +252,20 @@ p {
   margin-bottom: var(--space-md);
 }
 
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  max-width: 100%;
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 /* ============================================================
    COMPONENTS / CARDS
    ============================================================ */
