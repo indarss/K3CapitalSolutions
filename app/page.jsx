@@ -181,12 +181,6 @@ export default function Page() {
               </p>
 
               <SubscribeForm />
-
-              <div className="hero-actions" style={{ marginTop: "20px" }}>
-                <a href="/blog" className="btn btn-ghost">
-                  Go to the Blog
-                </a>
-              </div>
             </Reveal>
 
             {/* RIGHT SIDE — FEATURED CARD */}
