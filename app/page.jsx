@@ -103,12 +103,12 @@ export default function Page() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={0.15} className="profile-card founder-card">
-              <div className="founder-header">
+            <Reveal delay={0.15}>
+              <div className="profile-card profile-grid">
 
                 {/* LEFT SIDE — TEXT */}
-                <div className="founder-info">
-                  <div className="founder-k3">K3</div>
+                <div className="profile-left">
+                  <div className="profile-avatar">K3</div>
 
                   <h3>Krists Eiduks</h3>
                   <p className="role">Founder & Managing Partner</p>
@@ -127,11 +127,13 @@ export default function Page() {
                 </div>
 
                 {/* RIGHT SIDE — PHOTO */}
-                <img
-                  src="/img/krists.webp"
-                  alt="Krists Eiduks"
-                  className="founder-photo"
-                />
+                <div className="profile-photo-wrapper">
+                  <img
+                    src="/krists.webp"
+                    alt="Krists Eiduks"
+                    className="profile-photo"
+                  />
+                </div>
               </div>
             </Reveal>
 

@@ -413,3 +413,46 @@ p {
   color: var(--text-muted);
   margin-top: 2px;
 }
+
+/* PROFILE GRID LAYOUT */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  /* text | photo */
+  gap: 32px;
+  align-items: start;
+}
+
+/* Ensure photo container is right-aligned */
+.profile-photo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+/* Photo styling */
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  /* rounded same as cards */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo-wrapper {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+  }
+}
