@@ -127,7 +127,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 3000;
-  background: var(--surface);
+  background: #6eb3e4;
   border-bottom: 1px solid var(--divider);
   transition: box-shadow 0.25s ease, transform 0.3s ease, opacity 0.3s ease;
 }

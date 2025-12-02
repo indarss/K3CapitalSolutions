@@ -22,8 +22,7 @@ export default function Page() {
               <p className="eyebrow">{branding.tagline}</p>
 
               <h1 className="hero-title">
-                Institutional-grade investment guidance<br />
-                for sophisticated private capital.
+                Institutional-grade investment guidance for sophisticated private capital.
               </h1>
 
               <p className="intro">
@@ -37,6 +36,15 @@ export default function Page() {
                 expertise, and disciplined portfolio execution for clients who value
                 independence, selectivity, and long-term capital stewardship.
               </p>
+            </Reveal>
+
+            {/* RIGHT COLUMN — IMAGE */}
+            <Reveal delay={0.15} className="hero-image">
+              <img
+                src="/img/krists.webp"
+                alt="Krists Eiduks"
+                className="hero-img"
+              />
             </Reveal>
 
           </div>
@@ -108,7 +116,9 @@ export default function Page() {
 
                 {/* LEFT SIDE — TEXT */}
                 <div className="profile-left">
-                  <div className="profile-avatar">K3</div>
+                  <div className="profile-avatar">
+                    <K3Logo size={48} />
+                  </div>
 
                   <h3>Krists Eiduks</h3>
                   <p className="role">Founder & Managing Partner</p>
@@ -129,7 +139,7 @@ export default function Page() {
                 {/* RIGHT SIDE — PHOTO */}
                 <div className="profile-photo-wrapper">
                   <img
-                    src="/krists.webp"
+                    src="/img/krists.webp"
                     alt="Krists Eiduks"
                     className="profile-photo"
                   />
