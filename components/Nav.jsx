@@ -31,17 +31,14 @@ export default function Nav() {
      Scroll behavior: shadow, hide-on-scroll, scroll spy
      --------------------------------------------------------- */
   useEffect(() => {
-    let lastY = window.scrollY;
-
     const onScroll = () => {
       const y = window.scrollY;
 
-      // Shadow on scroll
+      // Apply shadow effect
       setScrolled(y > 10);
 
-      // Hide nav on scroll down
-      setHidden(y > lastY && y > 80);
-      lastY = y;
+      // Never hide the navbar
+      setHidden(false);
 
       // ScrollSpy only on homepage
       if (pathname !== "/") return;
@@ -94,9 +91,7 @@ export default function Nav() {
      Render
      --------------------------------------------------------- */
   return (
-    <header
-      className={`nav-wrapper ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}
-    >
+    <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       <nav className="container nav-inner">
 
         {/* BRAND */}
@@ -122,7 +117,6 @@ export default function Nav() {
           ))}
 
           <a href="/blog">Blog</a>
-          <a href="/admin">Login</a>
         </div>
 
       </nav>

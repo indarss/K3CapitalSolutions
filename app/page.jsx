@@ -32,42 +32,10 @@ export default function Page() {
                 and multi-billion-euro portfolio management.
               </p>
 
-              <div className="hero-actions">
-                <a href="#services" className="btn btn-primary">
-                  View Service List
-                </a>
-                <a href="#about" className="btn btn-ghost">
-                  About the Founder
-                </a>
-              </div>
-
               <p className="hero-detail">
                 Our work integrates engineering-level precision, global market
                 expertise, and disciplined portfolio execution for clients who value
                 independence, selectivity, and long-term capital stewardship.
-              </p>
-            </Reveal>
-
-            {/* RIGHT COLUMN — CARD */}
-            <Reveal delay={0.15} className="hero-card" viewport={{ once: true, amount: 0.1 }}>
-              <div className="metric-card">
-                <span className="metric-label">Portfolios Managed</span>
-                <span className="metric-value">€145M → €3.2Bn</span>
-                <span className="metric-foot">
-                  Multi-asset mandates across EU & international markets
-                </span>
-              </div>
-
-              <div className="stat-grid">
-                <div className="stat-item">15+ yrs experience</div>
-                <div className="stat-item">EU · US markets</div>
-                <div className="stat-item">Bespoke mandates</div>
-                <div className="stat-item">Research-driven</div>
-              </div>
-
-              <p className="hero-note">
-                For illustrative purposes only. Figures reflect representative
-                advisory exposure; this is not a performance guarantee.
               </p>
             </Reveal>
 
@@ -135,29 +103,38 @@ export default function Page() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={0.15} className="profile-card">
+            <Reveal delay={0.15} className="profile-card founder-card">
               <div className="founder-header">
-                <K3Logo size={48} />
 
-                <div className="founder-text">
+                {/* LEFT SIDE — TEXT */}
+                <div className="founder-info">
                   <div className="founder-k3">K3</div>
-                  <h3 className="founder-name">Krists Eiduks</h3>
-                  <p className="founder-title">Founder & Managing Partner</p>
+
+                  <h3>Krists Eiduks</h3>
+                  <p className="role">Founder & Managing Partner</p>
+
+                  <p className="meta">
+                    Engineering discipline, global finance experience, and multi-asset
+                    portfolio management expertise dedicated to high-net-worth individuals
+                    and sophisticated investors.
+                  </p>
+
+                  <div className="badge-row">
+                    <span className="badge">Independent</span>
+                    <span className="badge">Research-driven</span>
+                    <span className="badge">Client-selective</span>
+                  </div>
                 </div>
-              </div>
 
-              <p className="meta">
-                Engineering discipline, global finance experience, and multi-asset
-                portfolio management expertise dedicated to high-net-worth individuals
-                and sophisticated investors.
-              </p>
-
-              <div className="badge-row">
-                <span className="badge">Independent</span>
-                <span className="badge">Research-driven</span>
-                <span className="badge">Client-selective</span>
+                {/* RIGHT SIDE — PHOTO */}
+                <img
+                  src="/img/krists.webp"
+                  alt="Krists Eiduks"
+                  className="founder-photo"
+                />
               </div>
             </Reveal>
+
           </div>
         </Section>
 
