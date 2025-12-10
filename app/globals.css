@@ -25,6 +25,12 @@
 
   --nav-height: 78px;
 
+  --rock-green: #3A5547;
+  --rock-rust: #9B4F3D;
+  --rock-blue: #2E4C52;
+  --rock-text-light: #F5F5F2;
+  --rock-divider: rgba(255, 255, 255, 0.35);
+
   /* RockCo-style palette */
   --brand-navy: #0a2342;
   --brand-navy-light: #1d3557;
@@ -41,6 +47,7 @@
 
   --text: #0a0a0c;
   --text-muted: #4e5a65;
+  --highlight-bar: #c7b783; /* gold for light theme */
 }
 
 /* Dark theme hook (if ever used) */
@@ -51,6 +58,7 @@
   --text: #f9fafb;
   --text-muted: #d1d5db;
   --border: rgba(255, 255, 255, 0.15);
+  --highlight-bar: #6eb3e4; /* soft blue for dark mode */
 }
 
 /* ============================
@@ -236,12 +244,24 @@ section[id] {
 }
 
 .highlight-bar {
-  width: 48px;
-  height: 4px;
-  background: #c7b783;
-  /* gold — matches nav underline */
+  width: 0;
+  height: 5px;
+  background: var(--highlight-bar);
   border-radius: 2px;
   margin-bottom: 18px;
+  animation: barGrow 0.7s ease forwards;
+}
+
+@keyframes barGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 48px;
+    opacity: 1;
+  }
 }
 
 /* ============================================================
@@ -541,6 +561,52 @@ section[id] {
   background: #ffffff;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+
+/* Base styling for colored service cards */
+.service-card--color {
+  color: var(--rock-text-light);
+  border: none;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.service-card--color h3 {
+  color: var(--rock-text-light);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  font-family: var(--font-serif);
+}
+
+.service-card--color p {
+  color: var(--rock-text-light);
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.service-card--color .underline {
+  width: 100%;
+  height: 1px;
+  background: var(--rock-divider);
+  margin: 14px 0 18px;
+}
+
+/* Colored variants */
+.service-card--green {
+  background: var(--rock-green);
+}
+
+.service-card--rust {
+  background: var(--rock-rust);
+}
+
+.service-card--blue {
+  background: var(--rock-blue);
 }
 
 /* First card highlight */

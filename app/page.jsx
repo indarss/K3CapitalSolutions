@@ -9,6 +9,18 @@ import K3Logo from "../components/K3Logo";
 
 export default function Page() {
 
+  const scrollToId = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navHeight = 90;
+
+    window.scrollTo({
+      top: el.offsetTop - navHeight,
+      behavior: "smooth"
+    });
+  };
+
+
   return (
     <>
       <main>
@@ -35,8 +47,12 @@ export default function Page() {
               </p>
 
               <div className="hero-actions">
-                <a href="#services" className="btn btn-primary">Explore Services</a>
-                <a href="#about" className="btn btn-ghost">Meet the Founder</a>
+                <button className="btn btn-primary" onClick={() => scrollToId("services")}>
+                  Explore Services
+                </button>
+                <button className="btn btn-ghost" onClick={() => scrollToId("about")}>
+                  Meet the Founder
+                </button>
               </div>
 
               {/* RockCo credibility row */}
@@ -81,27 +97,25 @@ export default function Page() {
             </div>
 
             {/* RockCo-style services grid */}
-            <div className="services-grid">
-              {branding.services.map((s, i) => (
-                <div
-                  key={s.title}
-                  className={`service-card card ${i === 0 ? "service-card--primary" : ""}`}
-                >
-                  <div className="service-card-pill">
-                    {i === 0 ? "Core Advisory" : "Specialised Mandate"}
-                  </div>
+            <div
+              key={s.title}
+              className={`service-card service-card--color 
+              ${i === 0 ? "service-card--green" : ""}
+              ${i === 1 ? "service-card--rust" : ""}
+              ${i === 2 ? "service-card--blue" : ""}
+            `}
+            >
+              <h3>{s.title}</h3>
 
-                  <h3 className="service-card-title">{s.title}</h3>
+              <div className="underline"></div>
 
-                  <p className="service-card-text">{s.desc}</p>
+              <p>{s.desc}</p>
 
-                  <ul className="service-card-list">
-                    {s.points.map((p) => (
-                      <li key={p}>{p}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              <ul className="service-card-list">
+                {s.points.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
             </div>
 
             {/* Disclaimer under grid */}

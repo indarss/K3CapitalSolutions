@@ -25,8 +25,14 @@ export default function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
 
-      // Add soft shadow after scrolling
+      // Soft shadow after scrolling
       setScrolled(y > 20);
+
+      // If on blog page → force Blog as active (no scroll-spy)
+      if (pathname === "/blog") {
+        setActiveSection("blog");
+        return;
+      }
 
       // ScrollSpy only on homepage
       if (pathname !== "/") return;
@@ -36,12 +42,19 @@ export default function Nav() {
       for (const s of sections) {
         const el = document.getElementById(s.id);
         if (!el) continue;
-        if (el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+
+        const inView =
+          el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos;
+
+        if (inView) {
           setActiveSection(s.id);
-          break;
+          return;
         }
       }
     };
+
+    // Run once immediately to set correct state on load
+    onScroll();
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -100,7 +113,7 @@ export default function Nav() {
             </a>
           ))}
 
-          <a href="/blog">Blog</a>
+          <a href="/blog" className={activeSection === "blog" ? "active" : ""}>Blog</a>
         </div>
       </nav>
     </header>
