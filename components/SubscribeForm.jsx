@@ -49,7 +49,7 @@ export default function SubscribeForm() {
       )}
 
       {status === "error" && (
-        <p style={{ color: "var(--gold)", marginTop: "10px" }}>
+        <p style={{ color: "#d32f2f", marginTop: "10px", fontWeight: "500" }}>
           Something went wrong — please try again.
         </p>
       )}

@@ -807,16 +807,30 @@ section[id] {
 .insights-card {
   border-radius: 16px;
   padding: 28px;
-  background: #ffffff;
-  border: 1px solid rgba(165, 175, 190, 0.35);
+  background: var(--rock-green);
+  border: 1px solid rgba(12, 45, 72, 0.2);
   box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.05),
-    0 3px 8px rgba(0, 0, 0, 0.03);
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
 .insights-card h3 {
   font-size: 1.25rem;
   margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.insights-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.insights-card li {
+  color: #c3ddf6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 /* ============================================================
