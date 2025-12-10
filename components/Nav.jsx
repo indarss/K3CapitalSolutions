@@ -101,7 +101,6 @@ export default function Nav() {
           ))}
 
           <a href="/blog">Blog</a>
-          <a href="/admin">Login</a>
         </div>
       </nav>
     </header>
