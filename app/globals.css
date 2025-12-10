@@ -136,15 +136,22 @@ p {
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
+  width: 100%;
+  gap: 60px;
 }
 
-/* Brand block */
+/* Brand block — stays on far left */
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
+}
+
+.brand-left {
+  margin-right: 0;
 }
 
 .brand-text {
@@ -165,11 +172,17 @@ p {
   margin-top: -2px;
 }
 
-/* Desktop nav links */
+/* Desktop nav links — centered */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 26px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-center {
+  justify-content: center;
 }
 
 .nav-links a {
@@ -804,6 +817,46 @@ section[id] {
 .insights-card h3 {
   font-size: 1.25rem;
   margin-bottom: 12px;
+}
+
+/* ============================================================
+   SUBSCRIBE FORM — RockCo Aesthetic
+   ============================================================ */
+
+.subscribe-form {
+  display: flex;
+  gap: 12px;
+  margin: 28px 0;
+  flex-wrap: wrap;
+}
+
+.subscribe-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 11px 16px;
+  border: 1px solid rgba(12, 45, 72, 0.15);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: var(--text);
+  font-family: var(--font-sans);
+  transition: all 0.2s ease;
+}
+
+.subscribe-form input::placeholder {
+  color: #a0aab5;
+}
+
+.subscribe-form input:focus {
+  outline: none;
+  border-color: #0c2d48;
+  box-shadow: 0 0 0 3px rgba(12, 45, 72, 0.08);
+  background: #ffffff;
+}
+
+.subscribe-form button {
+  flex-shrink: 0;
+  min-width: 140px;
 }
 
 /* ============================================================

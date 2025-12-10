@@ -79,8 +79,8 @@ export default function Nav() {
     <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       <nav className="container nav-inner">
 
-        {/* LEFT SIDE — LOGO + TEXT */}
-        <div className="brand">
+        {/* LEFT SIDE — LOGO + TEXT (far left) */}
+        <div className="brand brand-left">
           <K3Logo size={48} />
           <div className="brand-text">
             <div className="brand-name">K3 Capital Solutions</div>
@@ -90,8 +90,8 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* RIGHT SIDE — LINKS */}
-        <div className="nav-links">
+        {/* CENTER — STATIC MENU ITEMS */}
+        <div className="nav-links nav-center">
           {sections.map((s) => (
             <a
               key={s.id}
@@ -111,8 +111,8 @@ export default function Nav() {
           >
             Blog
           </a>
-
         </div>
+
       </nav>
     </header>
   );
