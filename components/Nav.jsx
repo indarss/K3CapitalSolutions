@@ -24,35 +24,30 @@ export default function Nav() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-
-      // Shadow on scroll
       setScrolled(y > 20);
 
-      // Blog pages force Blog highlight
+      // Blog page → force highlight on Blog
       if (pathname === "/blog") {
         setActiveSection("blog");
         return;
       }
 
-      // ScrollSpy only on homepage
-      if (pathname !== "/") return;
-
-      const pos = y + 140;
-
-      for (const s of sections) {
-        const el = document.getElementById(s.id);
-        if (!el) continue;
-
-        if (el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
-          setActiveSection(s.id);   // <— FIXED HERE
-          break;
-        }
+      // Home page: highlight based on scroll position
+      if (pathname === "/") {
+        const pos = y + 140;
+        sections.forEach((section) => {
+          const el = document.getElementById(section.id);
+          if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+            setActiveSection(section.id);
+          }
+        });
       }
     };
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
+
 
 
   /* ---------------------------------------------
@@ -108,7 +103,15 @@ export default function Nav() {
             </a>
           ))}
 
-          <a href="/blog" className={activeSection === "blog" ? "active" : ""}>Blog</a>
+          <a href="/blog"
+            className={activeSection === "blog" || pathname === "/blog" ? "active" : ""}
+            onClick={() => {
+              setActiveSection("blog");
+            }}
+          >
+            Blog
+          </a>
+
         </div>
       </nav>
     </header>

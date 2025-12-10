@@ -39,18 +39,14 @@ export default function Page() {
               </h1>
 
               <p className="hero-subtext">
-                K3 Capital Solutions provides institutional-grade investment strategy,
+                K3 Capital Solutions provides institutional<div className="nav-links"></div>-grade investment strategy,
                 portfolio architecture, and research-driven insight for sophisticated
                 private clients across global markets.
               </p>
 
               <div className="hero-actions">
-                <button className="btn btn-primary" onClick={() => scrollToId("services")}>
-                  Explore Services
-                </button>
-                <button className="btn btn-ghost" onClick={() => scrollToId("about")}>
-                  Meet the Founder
-                </button>
+                <a onClick={() => scrollToId("services")} className="btn btn-primary">Explore Services</a>
+                <a onClick={() => scrollToId("about")} className="btn btn-ghost">Meet the Founder</a>
               </div>
 
               {/* RockCo credibility row */}
