@@ -24,8 +24,6 @@ export default function Page() {
   return (
     <>
       <main>
-
-        {/* HERO */}
         {/* HERO */}
         <section id="home" className="hero rockco-hero">
           <div className="container hero-grid">
@@ -97,25 +95,29 @@ export default function Page() {
             </div>
 
             {/* RockCo-style services grid */}
-            <div
-              key={s.title}
-              className={`service-card service-card--color 
-              ${i === 0 ? "service-card--green" : ""}
-              ${i === 1 ? "service-card--rust" : ""}
-              ${i === 2 ? "service-card--blue" : ""}
-            `}
-            >
-              <h3>{s.title}</h3>
+            <div className="services-grid">
+              {branding.services.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`service-card service-card--color 
+                  ${i === 0 ? "service-card--green" : ""}
+                  ${i === 1 ? "service-card--rust" : ""}
+                  ${i === 2 ? "service-card--blue" : ""}
+                `}
+                >
+                  <h3>{s.title}</h3>
 
-              <div className="underline"></div>
+                  <div className="underline"></div>
 
-              <p>{s.desc}</p>
+                  <p>{s.desc}</p>
 
-              <ul className="service-card-list">
-                {s.points.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
+                  <ul className="service-card-list">
+                    {s.points.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
 
             {/* Disclaimer under grid */}
