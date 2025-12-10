@@ -14,79 +14,109 @@ export default function Page() {
       <main>
 
         {/* HERO */}
-        <Section id="home" className="hero">
+        {/* HERO */}
+        <section id="home" className="hero rockco-hero">
           <div className="container hero-grid">
 
-            {/* LEFT COLUMN — TEXT */}
-            <Reveal className="hero-copy">
-              <p className="eyebrow">{branding.tagline}</p>
+            {/* LEFT SIDE — ROCKCO TEXT */}
+            <div className="hero-left">
+              <div className="highlight-bar"></div>
+              <span className="hero-eyebrow">Private Wealth · Independent Advisory</span>
 
-              <h1 className="hero-title">
-                Institutional-grade investment guidance for sophisticated private capital.
+
+              <h1 className="hero-title rockco-hero-title">
+                Clarity, Discipline & Institutional-Grade Insight for Private Capital
               </h1>
 
-              <p className="intro">
-                K3 Capital Solutions provides independent, research-driven investment
-                advisory built on global market experience, large-scale infrastructure,
-                and multi-billion-euro portfolio management.
+              <p className="hero-subtext">
+                K3 Capital Solutions provides institutional-grade investment strategy,
+                portfolio architecture, and research-driven insight for sophisticated
+                private clients across global markets.
               </p>
 
-              <p className="hero-detail">
-                Our work integrates engineering-level precision, global market
-                expertise, and disciplined portfolio execution for clients who value
-                independence, selectivity, and long-term capital stewardship.
-              </p>
-            </Reveal>
+              <div className="hero-actions">
+                <a href="#services" className="btn btn-primary">Explore Services</a>
+                <a href="#about" className="btn btn-ghost">Meet the Founder</a>
+              </div>
 
-            {/* RIGHT COLUMN — IMAGE */}
-            <Reveal delay={0.15} className="hero-image">
-              <img
-                src="/img/krists.webp"
-                alt="Krists Eiduks"
-                className="hero-img"
-              />
-            </Reveal>
+              {/* RockCo credibility row */}
+              <div className="hero-cred">
+                <span>Multi-asset research</span>
+                <span>Global market experience</span>
+                <span>Independent perspective</span>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE — PHOTO (RockCo framing) */}
+            <div className="hero-right">
+              <div className="hero-image-card">
+                <img
+                  src="/img/krists.webp"
+                  alt="Krists Eiduks"
+                  className="hero-image"
+                />
+              </div>
+            </div>
 
           </div>
-        </Section>
+        </section>
 
         {/* SERVICES */}
-        <Section id="services">
+        {/* SERVICES */}
+        <Section id="services" className="services-section">
           <div className="container">
-            <Reveal>
-              <p className="eyebrow">Service List</p>
-              <h2>Advisory built around sophisticated capital.</h2>
-              <p className="section-intro">
-                K3 Capital Solutions works with a limited number of clients to
-                provide deep, research-driven and execution-oriented support
-                across the full lifecycle of capital deployment.
-              </p>
-            </Reveal>
 
-            <div className="service-grid">
+            {/* RockCo-style header */}
+            <div className="services-header">
+               <div className="highlight-bar"></div>
+               <p className="eyebrow">Service List</p>
+              <h2 className="services-title">
+                Advisory built around sophisticated capital.
+              </h2>
+              <p className="services-intro">
+                K3 Capital Solutions works with a focused set of clients to design,
+                refine, and oversee investment architecture across public and private
+                markets — from strategy and structure to ongoing portfolio dialogue.
+              </p>
+            </div>
+
+            {/* RockCo-style services grid */}
+            <div className="services-grid">
               {branding.services.map((s, i) => (
-                <Reveal key={s.title} delay={0.05 * (i + 1)} className="service-card">
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                  <ul>
+                <div
+                  key={s.title}
+                  className={`service-card card ${i === 0 ? "service-card--primary" : ""}`}
+                >
+                  <div className="service-card-pill">
+                    {i === 0 ? "Core Advisory" : "Specialised Mandate"}
+                  </div>
+
+                  <h3 className="service-card-title">{s.title}</h3>
+
+                  <p className="service-card-text">{s.desc}</p>
+
+                  <ul className="service-card-list">
                     {s.points.map((p) => (
                       <li key={p}>{p}</li>
                     ))}
                   </ul>
-                </Reveal>
+                </div>
               ))}
             </div>
 
-            <Reveal delay={0.3}>
-              <p className="disclaimer">{branding.disclaimer}</p>
-            </Reveal>
+            {/* Disclaimer under grid */}
+            <p className="services-disclaimer">
+              {branding.disclaimer}
+            </p>
           </div>
         </Section>
+
 
         {/* ABOUT */}
         <Section id="about">
           <div className="container about-grid">
-            <Reveal className="about-main">
+            <Reveal className="profile-card card">
+              <div className="highlight-bar"></div>
               <p className="eyebrow">About the Founder</p>
               <h2>Independent perspective. Institutional discipline.</h2>
               <p>{branding.bio.p1}</p>
@@ -111,101 +141,151 @@ export default function Page() {
                 </p>
               </div>
             </Reveal>
-            <Reveal delay={0.15}>
-              <div className="profile-card profile-grid">
+            <Reveal delay={0.15} className="profile-card">
+              <div className="profile-grid">
 
-                {/* LEFT SIDE — TEXT */}
-                <div className="profile-left">
-                  <div className="profile-avatar">
-                    <K3Logo size={48} />
-                  </div>
+                {/* LEFT — TEXT */}
+                <div className="profile-text">
+                  <div className="highlight-bar"></div>
+                  <p className="eyebrow">About the Founder</p>
+                  <h2 className="profile-title">Independent perspective. Institutional discipline.</h2>
 
-                  <h3>Krists Eiduks</h3>
-                  <p className="role">Founder & Managing Partner</p>
+                  <p>{branding.bio.p1}</p>
+                  <p>{branding.bio.p2}</p>
+                  <p>{branding.bio.p3}</p>
+                  <p>{branding.bio.p4}</p>
+                  <p>{branding.bio.p5}</p>
 
-                  <p className="meta">
-                    Engineering discipline, global finance experience, and multi-asset
-                    portfolio management expertise dedicated to high-net-worth individuals
-                    and sophisticated investors.
-                  </p>
-
-                  <div className="badge-row">
+                  <div className="profile-badges">
                     <span className="badge">Independent</span>
                     <span className="badge">Research-driven</span>
                     <span className="badge">Client-selective</span>
                   </div>
+
+                  <div className="profile-contact">
+                    <h3>Contact</h3>
+                    <p>For confidential discussions regarding mandate availability, please reach out:</p>
+                    <p>
+                      Email: <a href="mailto:krists.eiduks@k3capitalsolutions.com">
+                        krists.eiduks@k3capitalsolutions.com
+                      </a>
+                      <br />
+                      Location: Latvia · International clients by arrangement
+                    </p>
+                  </div>
                 </div>
 
-                {/* RIGHT SIDE — PHOTO */}
+                {/* RIGHT — PHOTO */}
                 <div className="profile-photo-wrapper">
-                  <img
-                    src="/img/krists.webp"
-                    alt="Krists Eiduks"
-                    className="profile-photo"
-                  />
+                  <img src="/img/krists.webp" alt="Krists Eiduks" className="profile-photo" />
+                  <div className="profile-photo-caption">
+                    Krists Eiduks<br />
+                    Founder & Managing Partner
+                  </div>
                 </div>
+
               </div>
             </Reveal>
+
 
           </div>
         </Section>
 
         {/* INSIGHTS — INSTITUTIONAL */}
         <Section id="insights" className="section-alt">
-          <div className="container insights-grid">
+  <div className="container insights-grid">
 
-            {/* LEFT SIDE */}
-            <Reveal className="insights-main">
-              <p className="eyebrow">Insights & Research</p>
-              <h2>Capital · Character · Conviction</h2>
+    {/* LEFT SIDE — MAIN COPY + SUBSCRIBE */}
+    <Reveal className="insights-main">
+      <div className="highlight-bar"></div>
+      <p className="eyebrow">Insights & Research</p>
 
-              <p>
-                K3 Capital Solutions publishes long-form research, regime analysis, and
-                practitioner-level commentary at the intersection of markets, risk, and
-                long-term portfolio construction.
-              </p>
 
-              <p>
-                Similar to institutional research desks, our perspective emphasizes
-                structural forces, macro regimes, market microstructure, and the behavioral
-                dynamics that drive capital allocation—especially in environments of
-                uncertainty, tightening liquidity, or shifting risk premia.
-              </p>
+      <h2>Capital · Character · Conviction</h2>
 
-              <p>
-                These insights are written for sophisticated investors who value clarity,
-                discipline, and frameworks grounded in real-world mandate experience. The
-                goal is not prediction, but perspective: helping investors make better
-                decisions by understanding how markets evolve and how capital behaves across
-                cycles.
-              </p>
+      <p>
+        K3 Capital Solutions publishes long-form research, regime analysis, and
+        practitioner-level commentary at the intersection of markets, risk,
+        and long-term portfolio construction.
+      </p>
 
-              <SubscribeForm />
-            </Reveal>
+      <p>
+        Similar to institutional research desks, our perspective emphasizes
+        structural forces, macro regimes, market microstructure, and behavioral
+        dynamics that drive capital allocation—especially in environments of
+        uncertainty, tightening liquidity, or shifting risk premia.
+      </p>
 
-            {/* RIGHT SIDE — FEATURED CARD */}
-            <Reveal delay={0.15} className="insights-card">
-              <h3>What You’ll Find Inside</h3>
-              <ul>
-                <li>Macro & regime analysis grounded in institutional frameworks</li>
-                <li>Portfolio construction principles across market cycles</li>
-                <li>Risk, liquidity, and behavioral insights for serious allocators</li>
-                <li>Case-based commentary drawn from real investment mandates</li>
-                <li>Perspectives on decision-making when uncertainty is highest</li>
-              </ul>
-            </Reveal>
+      <p>
+        These insights are written for sophisticated investors who value
+        clarity, discipline, and frameworks grounded in real-world mandate
+        experience. Our goal is not prediction, but perspective—helping
+        investors make better decisions across cycles.
+      </p>
 
-          </div>
-        </Section>
+      {/* SUBSCRIBE FORM — KEEP EXACTLY AS IS */}
+      <SubscribeForm />
+
+      <div className="hero-actions" style={{ marginTop: "20px" }}>
+        <a href="/blog" className="btn btn-ghost">
+          Visit the Blog
+        </a>
+      </div>
+    </Reveal>
+
+    {/* RIGHT SIDE — ROCKCO CARD */}
+    <Reveal delay={0.15} className="insights-card card">
+      <h3>What You'll Find Inside</h3>
+      <ul>
+        <li>Macro & regime analysis using institutional frameworks</li>
+        <li>Portfolio construction principles across market cycles</li>
+        <li>Risk, liquidity & behavioral insights for serious allocators</li>
+        <li>Case-based commentary from real investment mandates</li>
+        <li>Decision-making frameworks for uncertain environments</li>
+      </ul>
+    </Reveal>
+
+  </div>
+</Section>
+
+
 
         {/* FOOTER */}
         <footer className="footer">
-          <div className="container footer-inner">
-            <span>© 2025 K3 Capital Solutions.</span>
-            <span>Independent investment advisory for sophisticated and high-net-worth clients.</span>
-            <span>This website provides general information only and does not constitute regulated investment advice.</span>
+          <div className="container footer-grid">
+
+            <div className="footer-col">
+              <h4>K3 Capital Solutions</h4>
+              <p>
+                Independent investment advisory for sophisticated and high-net-worth clients.
+              </p>
+            </div>
+
+            <div className="footer-col">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#insights">Insights</a></li>
+                <li><a href="/blog">Blog</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h4>Compliance</h4>
+              <p className="footer-disclaimer">
+                This website provides general information only and does not constitute regulated
+                investment advice. Engagements are subject to appropriate agreements and legal requirements.
+              </p>
+            </div>
+
+          </div>
+
+          <div className="footer-bottom">
+            © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved.
           </div>
         </footer>
+
 
       </main>
     </>

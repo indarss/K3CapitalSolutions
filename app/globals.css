@@ -1,77 +1,60 @@
 /* ============================================================
-   K3 CAPITAL SOLUTIONS — FINANCIAL UI SYSTEM (CLEAN VERSION)
-   Inspired by Goldman Sachs / BlackRock institutional design
+   K3 CAPITAL SOLUTIONS — ROCKCO-STYLE UI SYSTEM
+   Clean, consolidated, production-ready
    ============================================================ */
 
 /* ==============================
-   ROOT VARIABLES — TYPOGRAPHY
+   ROOT VARIABLES
    ============================== */
 :root {
+  /* Typography */
+  --font-serif: 'Merriweather', 'Georgia', serif;
   --font-sans: 'Inter', 'Segoe UI', sans-serif;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.9rem;
   --fs-base: 1rem;
   --fs-lg: 1.15rem;
+  --fs-section-title: clamp(1.9rem, 3vw, 2.5rem);
+  --fs-hero-title: clamp(2.8rem, 4vw, 3.6rem);
 
-  --fs-section-title: clamp(1.8rem, 3vw, 2.3rem);
-  --fs-hero-title: clamp(2.6rem, 3.4vw, 3.3rem);
-
-  --lh-tight: 1.15;
-  --lh-base: 1.55;
+  --lh-tight: 1.2;
+  --lh-base: 1.65;
 
   --tracking-wide: 0.12em;
 
-  --nav-height: 70px;
-}
+  --nav-height: 78px;
 
-/* =========================
-   SPACING SYSTEM (GS SCALE)
-   ========================= */
-:root {
-  --space-xxs: 6px;
-  --space-xs: 12px;
-  --space-sm: 18px;
-  --space-md: 28px;
-  --space-lg: 46px;
-  --space-xl: 72px;
-  --space-xxl: 110px;
-}
+  /* RockCo-style palette */
+  --brand-navy: #0a2342;
+  --brand-navy-light: #1d3557;
+  --brand-sand: #e8dfd0;
+  --brand-gray: #6c7a89;
+  --brand-gray-light: #f5f6f7;
 
-/* ==============================
-   COLOR SYSTEM — LIGHT THEME
-   ============================== */
-:root {
-  --primary: #0C2D48;
-  --primary-light: #1C4E80;
-  --primary-accent: #3A7CA5;
-  --gold-accent: #C7B783;
+  --background: #f5f6f7;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f4;
 
-  --background: #F7F7F9;
-  --surface: #FFFFFF;
-  --surface-alt: #EDF0F3;
-
-  --border: #C8CDD2;
+  --border: rgba(0, 0, 0, 0.08);
   --divider: rgba(0, 0, 0, 0.06);
 
-  --text: #0A0A0C;
-  --text-muted: #435361;
+  --text: #0a0a0c;
+  --text-muted: #4e5a65;
 }
 
-/* ============================
-   DARK THEME (OPTIONAL)
-   ============================ */
+/* Dark theme hook (if ever used) */
 [data-theme="dark"] {
-  --background: #07141F;
-  --surface: #0D1A27;
-  --surface-alt: #13202E;
-  --text: #F2F4F7;
-  --text-muted: #D1D5DB;
-  --border: #22303C;
+  --background: #07141f;
+  --surface: #101827;
+  --surface-alt: #111827;
+  --text: #f9fafb;
+  --text-muted: #d1d5db;
+  --border: rgba(255, 255, 255, 0.15);
 }
 
 /* ============================
-   GLOBAL RESET
+   GLOBAL RESET / BASE
    ============================ */
 * {
   box-sizing: border-box;
@@ -85,8 +68,10 @@ html {
 
 body.app-root {
   background: var(--background);
-  font-family: var(--font-sans);
   color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -96,54 +81,58 @@ body.app-root {
   padding: 0 24px;
 }
 
-/* ============================
-   TYPOGRAPHY
-   ============================ */
-body {
-  font-size: var(--fs-base);
-  line-height: var(--lh-base);
-}
-
+/* Typography */
 h1,
 h2,
-h3,
-h4 {
-  margin-bottom: 0.65em;
-  line-height: var(--lh-tight);
-  font-weight: 600;
-  color: var(--text);
+h3 {
+  font-family: var(--font-serif);
+  color: var(--brand-navy);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.6em;
 }
 
 p {
-  color: var(--text-muted);
   margin-bottom: 1em;
+  color: var(--text-muted);
+}
+
+/* Eyebrow */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--fs-xs);
+  color: var(--brand-navy-light);
+  margin-bottom: 8px;
 }
 
 /* ============================================================
-   NAVIGATION — TOP BAR
+   NAVIGATION — ROCKCO TOP BAR WITH U3 UNDERLINE
    ============================================================ */
-
 .nav-wrapper {
   position: sticky;
   top: 0;
   z-index: 3000;
-  background: #6eb3e4;
+  background: linear-gradient(135deg, #6eb3e4 0%, #5aa3d7 100%);
   border-bottom: 1px solid var(--divider);
-  transition: box-shadow 0.25s ease, transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-wrapper.scrolled {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.nav-inner {
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  transition: box-shadow 0.25s ease;
 }
 
-/* Brand */
+.nav-wrapper.scrolled {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Brand block */
 .brand {
   display: flex;
   align-items: center;
@@ -156,42 +145,67 @@ p {
 }
 
 .brand-name {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--text);
+  color: #f0f2f4;
+  /* N2 */
 }
 
 .brand-tagline {
-  font-size: 0.75rem;
-  margin-top: -3px;
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: rgba(240, 242, 244, 0.85);
+  margin-top: -2px;
 }
 
-/* ALWAYS-VISIBLE TOP NAV */
+/* Desktop nav links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 26px;
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
-  color: var(--text);
-  font-size: 0.95rem;
+  color: #f0f2f4;
+  /* N2 default */
+  font-size: 0.98rem;
   font-weight: 500;
+  padding: 0 8px;
   transition: color 0.2s ease;
 }
 
+/* U3 underline — expand from center, gold */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #c7b783;
+  /* gold */
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
 .nav-links a:hover {
-  color: var(--primary);
+  color: #ffffff;
+}
+
+.nav-links a:hover::after {
+  width: 60%;
 }
 
 .nav-links a.active {
-  color: var(--primary);
-  font-weight: 600;
+  color: #ffffff;
 }
 
-/* REMOVE ALL MOBILE NAV STYLES */
+.nav-links a.active::after {
+  width: 60%;
+}
+
+/* Explicitly disable mobile nav system (no hamburger) */
 .mobile-only,
 .mobile-nav,
 .mobile-menu-btn {
@@ -199,91 +213,274 @@ p {
 }
 
 /* ============================================================
-   SECTIONS — REDUCED WHITE SPACE
+   SECTIONS
    ============================================================ */
 .section,
 .section-alt {
-  padding: 42px 0 56px;
+  padding: 80px 0 96px;
 }
 
 .section-alt {
   background: var(--surface-alt);
 }
 
-/* Intro text */
 .section-intro {
-  max-width: 600px;
+  max-width: 640px;
   color: var(--text-muted);
+  font-size: 1.03rem;
+}
+
+/* Correct scroll anchoring for sticky nav */
+section[id] {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+
+.highlight-bar {
+  width: 48px;
+  height: 4px;
+  background: #c7b783;
+  /* gold — matches nav underline */
+  border-radius: 2px;
+  margin-bottom: 18px;
 }
 
 /* ============================================================
-   HERO
+   ROCKCO HERO — Premium Wealth Advisory
    ============================================================ */
-.hero {
-  background: var(--surface);
-  padding-top: 24px;
-  padding-bottom: 72px;
+
+.hero.rockco-hero {
+  background: linear-gradient(135deg, #f7fafe 0%, #eef4fb 100%);
+  padding: 80px 0 100px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 60px;
   align-items: center;
 }
 
-.eyebrow {
+/* Left column */
+.hero-left {
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  font-size: var(--fs-xs);
-  color: var(--primary-accent);
-  margin-bottom: var(--space-xs);
+  letter-spacing: 0.14em;
+  color: #3a7ca5;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: var(--fs-hero-title);
-  color: var(--primary);
-  margin-bottom: var(--space-sm);
+  font-size: clamp(2.4rem, 3.3vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 600;
+  color: #0c2d48;
+  margin-bottom: 22px;
 }
 
-.intro {
-  font-size: var(--fs-lg);
-  color: var(--text-muted);
-  margin-bottom: var(--space-md);
+.hero-subtext {
+  font-size: 1.15rem;
+  color: #4a5b6b;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+/* Hero actions */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Credibility row under buttons */
+.hero-cred {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #435361;
+}
+
+.hero-cred span {
+  padding-right: 12px;
+  border-right: 1px solid rgba(12, 45, 72, 0.25);
+}
+
+.hero-cred span:last-child {
+  border-right: none;
+}
+
+/* Right column — image card */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-img {
-  max-width: 100%;
-  width: 350px;
+  width: 100%;
+  max-width: 460px;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
 }
 
 /* ============================================================
-   COMPONENTS / CARDS
+   BUTTON SYSTEM — RockCo Soft Style
    ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* Primary */
+.btn-primary {
+  background: #0c2d48;
+  color: #ffffff;
+  border-color: #0c2d48;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary:hover {
+  background: #1c4e80;
+  border-color: #1c4e80;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Ghost / Secondary */
+.btn-ghost {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.16);
+  color: #0c2d48;
+}
+
+.btn-ghost:hover {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+/* Text-style */
+.btn-text {
+  background: transparent;
+  color: #0c2d48;
+  padding: 6px 0;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.btn-text:hover {
+  color: #3a7ca5;
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ============================================================
+   CARD SYSTEM — RockCo
+   ============================================================ */
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Shared cards */
 .hero-card,
 .service-card,
 .insights-card,
 .profile-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.05),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: 0.2s ease;
 }
 
+.service-card:hover,
+.insights-card:hover,
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Metric card (if used) */
 .metric-card {
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
+  background: #f9fafb;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 4px 0 6px;
+  color: var(--brand-navy);
+}
+
+.metric-foot {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Stat grid (hero side card) */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 12px 0;
 }
 
 .stat-item {
@@ -293,180 +490,380 @@ p {
   border-radius: 12px;
 }
 
-/* ============================================================
-   INSIGHTS LAYOUT FIX
-   ============================================================ */
-.insights-main {
-  max-width: 1100px;
-}
-
-.insights-main p {
-  max-width: 1100px;
-  line-height: 1.6;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer {
-  background: var(--surface-alt);
-  border-top: 1px solid var(--border);
-  padding: 24px 0;
-  color: var(--text-muted);
-}
-
-/* ============================================================
-   RESPONSIVE LAYOUT
-   ============================================================ */
-@media (max-width: 900px) {
-
-  .hero-grid,
-  .about-grid,
-  .service-grid,
-  .insights-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.badge-row {
-  display: flex;
-  gap: 8px;
-}
-
-.badge {
-  background: #f0f4f8;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    color: var(--primary);
-}
-
-/* Prevent Reveal elements from being blocked */
+/* Keep Reveal sections unclipped */
 .hero,
 .hero-grid,
 .section {
   overflow: visible !important;
 }
 
-/* ===================================
-   FOUNDER CARD — PHOTO ON THE RIGHT
-   =================================== */
+/* ============================================================
+   SERVICES — RockCo Grid
+   ============================================================ */
 
-.founder-card {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+.services-section {
+  background: #f4f6f8;
+  padding: 56px 0 72px;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.founder-header {
+/* Header block */
+.services-header {
+  max-width: 780px;
+  margin: 0 auto 32px;
+  text-align: left;
+}
+
+.services-title {
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  margin-bottom: 10px;
+}
+
+.services-intro {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Grid layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+/* Service cards */
+.service-card {
+  position: relative;
+  border-radius: 14px;
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* First card highlight */
+.service-card--primary {
+  border-color: #0c2d48;
+  box-shadow: 0 6px 18px rgba(12, 45, 72, 0.12);
+}
+
+/* Pill label */
+.service-card-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0c2d48;
+  background: #e2edf7;
+  margin-bottom: 12px;
+}
+
+/* Title & text */
+.service-card-title {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.service-card-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* Bullet list */
+.service-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #394b5d;
+}
+
+.service-card-list li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.service-card-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #3a7ca5;
+}
+
+/* Hover state */
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: rgba(12, 45, 72, 0.8);
+}
+
+/* Disclaimer under grid */
+.services-disclaimer {
+  margin-top: 26px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 800px;
+}
+
+/* ============================================================
+   ABOUT / FOUNDER — Profile with Photo
+   ============================================================ */
+
+.about-grid {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 32px;
 }
 
-.founder-info {
-  flex: 1;
+/* Profile grid (second card) */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.profile-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: #0c2d48;
+  margin-bottom: 18px;
+}
+
+.profile-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #435361;
+  margin-bottom: 14px;
+}
+
+/* Badges */
+.profile-badges {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0 26px;
+}
+
+.badge {
+  padding: 5px 12px;
+  background: #eef4fa;
+  color: #0c2d48;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* Contact block */
+.profile-contact h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #0c2d48;
+}
+
+.profile-contact a {
+  color: #1c4e80;
+  text-decoration: none;
+}
+
+.profile-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Photo column */
+.profile-photo-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
 }
 
-.founder-k3 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--primary-light);
-}
-
-.founder-photo {
-  width: 110px;
-  height: 110px;
-  border-radius: 14px;
+.profile-photo {
+  width: 260px;
+  height: 260px;
+  border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Founder badges spacing */
-.founder-card .badge-row {
+.profile-photo-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #435361;
+  line-height: 1.4;
   margin-top: 6px;
-  display: flex;
-  gap: 10px;
 }
 
-/* ========================
-   MOBILE RESPONSIVENESS
-   ======================== */
-@media (max-width: 780px) {
-  .founder-header {
-    flex-direction: column-reverse;
-    /* photo moves above text */
-    align-items: flex-start;
-  }
+/* ============================================================
+   INSIGHTS — Institutional Research Style
+   ============================================================ */
 
-  .founder-photo {
-    width: 90px;
-    height: 90px;
-  }
-}
-.founder-text {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.founder-name {
-  font-size: 1.35rem;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--text);
-  margin: 0;
-}
-
-.founder-title {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-/* PROFILE GRID LAYOUT */
-.profile-grid {
+.insights-grid {
   display: grid;
-  grid-template-columns: 1fr 240px;
-  /* text | photo */
-  gap: 32px;
-  align-items: start;
-}
-
-/* Ensure photo container is right-aligned */
-.profile-photo-wrapper {
-  display: flex;
-  justify-content: flex-end;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 48px;
   align-items: flex-start;
 }
 
-/* Photo styling */
-.profile-photo {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 16px;
-  /* rounded same as cards */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+.insights-main {
+  max-width: 1100px;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 900px) {
+.insights-main p {
+  line-height: 1.7;
+}
+
+/* Insights card */
+.insights-card {
+  border-radius: 16px;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(165, 175, 190, 0.35);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.05),
+    0 3px 8px rgba(0, 0, 0, 0.03);
+}
+
+.insights-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   FOOTER — RockCo Style
+   ============================================================ */
+
+.footer {
+  background: #eaf0f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 48px 0 20px;
+  margin-top: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0c2d48;
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #42505a;
+  max-width: 380px;
+}
+
+.footer-disclaimer {
+  font-size: 0.85rem;
+  color: #5f6b75;
+}
+
+/* Nav list */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #435361;
+  transition: color 0.15s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #0c2d48;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 18px;
+  font-size: 0.8rem;
+  color: #6c7a87;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-left {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .profile-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .profile-photo-wrapper {
-    justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero.rockco-hero {
+    padding: 70px 0 70px;
   }
 
   .profile-photo {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
 }

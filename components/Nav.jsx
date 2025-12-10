@@ -1,22 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  Home,
-  List,
-  User,
-  FileText,
-  NotebookPen,
-} from "lucide-react";
-
 import { useRouter, usePathname } from "next/navigation";
 import K3Logo from "./K3Logo";
 
 const sections = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "services", label: "Service List", icon: List },
-  { id: "about", label: "About Me", icon: User },
-  { id: "insights", label: "Insights / Articles", icon: FileText }
+  { id: "home", label: "Home" },
+  { id: "services", label: "Service List" },
+  { id: "about", label: "About Me" },
+  { id: "insights", label: "Insights" }
 ];
 
 export default function Nav() {
@@ -24,33 +16,28 @@ export default function Nav() {
   const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  /* ---------------------------------------------------------
-     Scroll behavior: shadow, hide-on-scroll, scroll spy
-     --------------------------------------------------------- */
+  /* ---------------------------------------------
+     RockCo-style scroll tracking (no hide-on-scroll)
+     --------------------------------------------- */
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
 
-      // Apply shadow effect
-      setScrolled(y > 10);
-
-      // Never hide the navbar
-      setHidden(false);
+      // Add soft shadow after scrolling
+      setScrolled(y > 20);
 
       // ScrollSpy only on homepage
       if (pathname !== "/") return;
 
-      const pos = y + 120; // matches scroll-margin-top
+      const pos = y + 140;
 
-      for (const section of sections) {
-        const el = document.getElementById(section.id);
+      for (const s of sections) {
+        const el = document.getElementById(s.id);
         if (!el) continue;
-
         if (el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
-          setActiveSection(section.id);
+          setActiveSection(s.id);
           break;
         }
       }
@@ -60,65 +47,62 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
-  /* ---------------------------------------------------------
-     Handle nav clicks (cross-page + smooth scroll)
-     --------------------------------------------------------- */
+  /* ---------------------------------------------
+     Smooth Nav Behavior
+     --------------------------------------------- */
   const handleNavClick = (e, id) => {
     e.preventDefault();
 
-    // Already on homepage
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
 
-      const navHeight = document.querySelector(".nav-wrapper")?.offsetHeight || 70;
-      // Custom extra offset for Insights section
-      const extraOffset = 0;
+      const offset = document.querySelector(".nav-wrapper")?.offsetHeight || 70;
 
       window.scrollTo({
-        top: el.offsetTop - navHeight + extraOffset,
+        top: el.offsetTop - offset,
         behavior: "smooth",
       });
 
       return;
     }
 
-    // Coming from blog or other page
     router.push(`/?scroll=${id}`);
   };
 
-  /* ---------------------------------------------------------
-     Render
-     --------------------------------------------------------- */
+  /* --------------------------------------------- */
+
   return (
     <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       <nav className="container nav-inner">
 
-        {/* BRAND */}
+        {/* LEFT SIDE — LOGO + TEXT */}
         <div className="brand">
-          <K3Logo size={38} />
+          <K3Logo size={48} />
           <div className="brand-text">
             <div className="brand-name">K3 Capital Solutions</div>
-            <div className="brand-tagline">Independent Wealth Advisory</div>
+            <div className="brand-tagline">
+              Independent Wealth & Capital Advisory
+            </div>
           </div>
         </div>
 
-        {/* ALWAYS-VISIBLE TOP NAV */}
+        {/* RIGHT SIDE — LINKS */}
         <div className="nav-links">
           {sections.map((s) => (
             <a
               key={s.id}
               href={`/#${s.id}`}
-              onClick={(e) => handleNavClick(e, s.id)}
               className={activeSection === s.id ? "active" : ""}
+              onClick={(e) => handleNavClick(e, s.id)}
             >
               {s.label}
             </a>
           ))}
 
           <a href="/blog">Blog</a>
+          <a href="/admin">Login</a>
         </div>
-
       </nav>
     </header>
   );
