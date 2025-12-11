@@ -37,6 +37,8 @@ export default function Nav() {
       });
     } else if (pathname === "/blog") {
       setActiveSection("blog");
+    } else if (pathname === "/terms") {
+      setActiveSection(null);
     }
   }, [pathname]);
 
@@ -68,18 +70,37 @@ export default function Nav() {
   // Handle navigation clicks and smooth scroll
   const handleNavClick = (e, id) => {
     e.preventDefault();
+    
+    // Set active section immediately so underline appears right away
+    setActiveSection(id);
+    
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
       const navHeight =
         document.querySelector(".nav-wrapper")?.offsetHeight || 78;
-      const extraPadding = 20;
+      const extraPadding = 5;
       window.scrollTo({
         top: el.offsetTop - navHeight - extraPadding,
         behavior: "smooth",
       });
     } else {
+      // Coming from blog page - navigate and scroll
       router.push(`/?scroll=${id}`);
+      
+      // Wait for navigation to complete, then scroll to section
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const navHeight =
+            document.querySelector(".nav-wrapper")?.offsetHeight || 78;
+          const extraPadding = 5;
+          window.scrollTo({
+            top: el.offsetTop - navHeight - extraPadding,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     }
   };
 

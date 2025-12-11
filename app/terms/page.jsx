@@ -141,10 +141,8 @@ IF ANY DISPUTE CANNOT BE RESOLVED BY THE ABOVE DISPUTE RESOLUTION PROCEDURE, YOU
       <div className="container">
         <Reveal>
           <h1 className="hero-title">Terms and Conditions</h1>
-          <p className="section-intro" style={{ marginBottom: "32px" }}>
-            Please read these terms carefully before using K3 Capital Solutions.
-            By accessing this website, you agree to be bound by these Terms and
-            Conditions.
+          <p className="section-intro" style={{ marginBottom: "32px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+            Please read these terms carefully before using K3 Capital Solutions. By accessing this website, you agree to be bound by these Terms and Conditions.
           </p>
         </Reveal>
 
@@ -244,14 +242,14 @@ IF ANY DISPUTE CANNOT BE RESOLVED BY THE ABOVE DISPUTE RESOLUTION PROCEDURE, YOU
           <p style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
             If you have any questions about these Terms, please contact us at{" "}
             <a
-              href="mailto:hello@k3capital.com"
+                href="mailto:krists.eiduks@k3capitalsolutions.com"
               style={{
                 color: "#3a7ca5",
                 textDecoration: "none",
                 fontWeight: "500",
               }}
             >
-              hello@k3capital.com
+                krists.eiduks@k3capitalsolutions.com
             </a>
           </p>
         </div>
