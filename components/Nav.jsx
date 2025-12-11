@@ -8,36 +8,40 @@ const sections = [
   { id: "home", label: "Home" },
   { id: "services", label: "Service List" },
   { id: "about", label: "About Me" },
-  { id: "insights", label: "Insights" }
+  { id: "insights", label: "Insights" },
 ];
 
 export default function Nav() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Track scroll shadow and which nav item is active
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState(
+    pathname === "/blog" ? "blog" : "home"
+  );
 
-  /* ---------------------------------------------
-     RockCo-style scroll tracking (no hide-on-scroll)
-     --------------------------------------------- */
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
 
-      // Blog page → force highlight on Blog
+      // Force blog highlight if on blog page
       if (pathname === "/blog") {
         setActiveSection("blog");
         return;
       }
 
-      // Home page: highlight based on scroll position
+      // ScrollSpy: highlight based on position only on home page
       if (pathname === "/") {
         const pos = y + 140;
         sections.forEach((section) => {
           const el = document.getElementById(section.id);
-          if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+          if (
+            el &&
+            el.offsetTop <= pos &&
+            el.offsetTop + el.offsetHeight > pos
+          ) {
             setActiveSection(section.id);
           }
         });
@@ -48,38 +52,28 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
-
-
-  /* ---------------------------------------------
-     Smooth Nav Behavior
-     --------------------------------------------- */
+  // Handle navigation clicks and smooth scroll
   const handleNavClick = (e, id) => {
     e.preventDefault();
-
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
-
-      const offset = document.querySelector(".nav-wrapper")?.offsetHeight || 70;
-
+      const navHeight =
+        document.querySelector(".nav-wrapper")?.offsetHeight || 78;
+      const extraPadding = 20;
       window.scrollTo({
-        top: el.offsetTop - offset,
+        top: el.offsetTop - navHeight - extraPadding,
         behavior: "smooth",
       });
-
-      return;
+    } else {
+      router.push(`/?scroll=${id}`);
     }
-
-    router.push(`/?scroll=${id}`);
   };
-
-  /* --------------------------------------------- */
 
   return (
     <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       <nav className="container nav-inner">
-
-        {/* LEFT SIDE — LOGO + TEXT (far left) */}
+        {/* Logo + Brand */}
         <div className="brand brand-left">
           <K3Logo size={48} />
           <div className="brand-text">
@@ -90,7 +84,7 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* CENTER — STATIC MENU ITEMS */}
+        {/* Menu */}
         <div className="nav-links nav-center">
           {sections.map((s) => (
             <a
@@ -102,17 +96,20 @@ export default function Nav() {
               {s.label}
             </a>
           ))}
-
-          <a href="/blog"
-            className={activeSection === "blog" || pathname === "/blog" ? "active" : ""}
-            onClick={() => {
+          {/* Blog link */}
+          <a
+            href="/blog"
+            className={activeSection === "blog" ? "active" : ""}
+            onClick={(e) => {
+              e.preventDefault();
+              // Navigate to blog route and mark as active
+              router.push("/blog");
               setActiveSection("blog");
             }}
           >
             Blog
-          </a>
+          </a>  
         </div>
-
       </nav>
     </header>
   );
