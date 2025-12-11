@@ -289,6 +289,9 @@ export default function Page() {
                 This website provides general information only and does not constitute regulated
                 investment advice. Engagements are subject to appropriate agreements and legal requirements.
               </p>
+              <ul style={{ marginTop: "12px" }}>
+                <li><a href="/terms">Terms and Conditions</a></li>
+              </ul>
             </div>
 
           </div>

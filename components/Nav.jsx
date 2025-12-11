@@ -22,15 +22,28 @@ export default function Nav() {
   );
 
   useEffect(() => {
+    // When returning to home page, trigger scroll spy to update active section
+    if (pathname === "/") {
+      const pos = window.scrollY + 140;
+      sections.forEach((section) => {
+        const el = document.getElementById(section.id);
+        if (
+          el &&
+          el.offsetTop <= pos &&
+          el.offsetTop + el.offsetHeight > pos
+        ) {
+          setActiveSection(section.id);
+        }
+      });
+    } else if (pathname === "/blog") {
+      setActiveSection("blog");
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
-
-      // Force blog highlight if on blog page
-      if (pathname === "/blog") {
-        setActiveSection("blog");
-        return;
-      }
 
       // ScrollSpy: highlight based on position only on home page
       if (pathname === "/") {
