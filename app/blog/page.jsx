@@ -2,23 +2,19 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import React from "react";
 import { Section } from "../../components/Section";
 import { Reveal } from "../../components/Reveal";
 
-const getImageSearchTerms = (title) => {
-  const titleLower = title.toLowerCase();
+const getImageUrl = (title, idx) => {
+  const images = [
+    "https://pixabay.com/api/?key=45949616-6e9ee3c7eb8d29a4cf9bfd65f&q=stock+market&image_type=photo&per_page=3&safesearch=true&image_type=photo&min_width=400&min_height=250",
+    "https://pixabay.com/api/?key=45949616-6e9ee3c7eb8d29a4cf9bfd65f&q=investment+strategy&image_type=photo&per_page=3&safesearch=true&image_type=photo&min_width=400&min_height=250",
+    "https://pixabay.com/api/?key=45949616-6e9ee3c7eb8d29a4cf9bfd65f&q=financial+graph&image_type=photo&per_page=3&safesearch=true&image_type=photo&min_width=400&min_height=250",
+    "https://pixabay.com/api/?key=45949616-6e9ee3c7eb8d29a4cf9bfd65f&q=global+markets&image_type=photo&per_page=3&safesearch=true&image_type=photo&min_width=400&min_height=250"
+  ];
   
-  if (titleLower.includes("market") || titleLower.includes("rollercoaster")) {
-    return "stock market graph finance";
-  } else if (titleLower.includes("emerging") || titleLower.includes("developed")) {
-    return "global market investment international";
-  } else if (titleLower.includes("alternative") || titleLower.includes("investment")) {
-    return "alternative investments portfolio";
-  } else if (titleLower.includes("size") || titleLower.includes("fit")) {
-    return "investment strategy financial planning";
-  }
-  
-  return "finance investment stock market";
+  return images[idx % images.length];
 };
 
 export const metadata = {
@@ -45,7 +41,7 @@ export default function BlogIndex() {
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
 
   return (
-    <Section id="blog">
+    <Section id="blog" style={{ paddingTop: "30px" }}>
       <div className="container">
         <Reveal>
           <div className="highlight-bar"></div>
@@ -74,17 +70,37 @@ export default function BlogIndex() {
                   Solutions.
                 </p>
               </div>
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>
-                <img 
-                  src={`https://source.unsplash.com/400x250/?${getImageSearchTerms(post.title)}`}
-                  alt={post.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
+              <PixabayImage title={post.title} idx={idx} />
             </Reveal>
           ))}
         </div>
       </div>
     </Section>
+  );
+}
+
+function PixabayImage({ title, idx }) {
+  const [imageUrl, setImageUrl] = React.useState("");
+
+  React.useEffect(() => {
+    const urls = [
+      "https://picsum.photos/400/250?random=1",
+      "https://picsum.photos/400/250?random=2",
+      "https://picsum.photos/400/250?random=3",
+      "https://picsum.photos/400/250?random=4"
+    ];
+    setImageUrl(urls[idx % urls.length]);
+  }, [idx]);
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>
+      {imageUrl && (
+        <img 
+          src={imageUrl}
+          alt={title}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      )}
+    </div>
   );
 }

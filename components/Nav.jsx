@@ -79,7 +79,7 @@ export default function Nav() {
       if (!el) return;
       const navHeight =
         document.querySelector(".nav-wrapper")?.offsetHeight || 78;
-      const extraPadding = -10;
+      const extraPadding = -30;
       window.scrollTo({
         top: el.offsetTop - navHeight - extraPadding,
         behavior: "smooth",
@@ -94,7 +94,7 @@ export default function Nav() {
         if (el) {
           const navHeight =
             document.querySelector(".nav-wrapper")?.offsetHeight || 78;
-          const extraPadding = -10;
+          const extraPadding = -30;
           window.scrollTo({
             top: el.offsetTop - navHeight - extraPadding,
             behavior: "smooth",

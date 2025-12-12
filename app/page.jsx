@@ -39,7 +39,7 @@ export default function Page() {
               </h1>
 
               <p className="hero-subtext">
-                K3 Capital Solutions provides institutional<div className="nav-links"></div>-grade investment strategy,
+                K3 Capital Solutions provides institutional-grade investment strategy,
                 portfolio architecture, and research-driven insight for sophisticated
                 private clients across global markets.
               </p>
