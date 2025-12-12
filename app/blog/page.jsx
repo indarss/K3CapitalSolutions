@@ -5,6 +5,22 @@ import Link from "next/link";
 import { Section } from "../../components/Section";
 import { Reveal } from "../../components/Reveal";
 
+const getImageSearchTerms = (title) => {
+  const titleLower = title.toLowerCase();
+  
+  if (titleLower.includes("market") || titleLower.includes("rollercoaster")) {
+    return "stock market graph finance";
+  } else if (titleLower.includes("emerging") || titleLower.includes("developed")) {
+    return "global market investment international";
+  } else if (titleLower.includes("alternative") || titleLower.includes("investment")) {
+    return "alternative investments portfolio";
+  } else if (titleLower.includes("size") || titleLower.includes("fit")) {
+    return "investment strategy financial planning";
+  }
+  
+  return "finance investment stock market";
+};
+
 export const metadata = {
   title: "Blog — K3 Capital Solutions",
   description:
@@ -60,7 +76,7 @@ export default function BlogIndex() {
               </div>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>
                 <img 
-                  src={`https://images.unsplash.com/photo-${["1611974887142-e4c91267eaa8", "1552821756-5174d1b6145f", "1611974887142-e4c91267eaa8"][idx % 3]}?w=400&h=250&fit=crop`}
+                  src={`https://source.unsplash.com/400x250/?${getImageSearchTerms(post.title)}`}
                   alt={post.title}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
