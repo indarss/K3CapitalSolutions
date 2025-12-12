@@ -32,6 +32,7 @@ export default function BlogIndex() {
     <Section id="blog">
       <div className="container">
         <Reveal>
+          <div className="highlight-bar"></div>
           <p className="eyebrow">Capital · Character · Conviction</p>
           <h1 className="hero-title">Insights & Articles</h1>
           <p className="section-intro">
@@ -42,19 +43,28 @@ export default function BlogIndex() {
 
         <div className="service-grid" style={{ marginTop: "30px" }}>
           {posts.map((post, idx) => (
-            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card">
-              <h3>
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-              </h3>
-              {post.date && (
-                <p className="meta" style={{ fontSize: "0.8rem", marginBottom: "6px" }}>
-                  {new Date(post.date).toLocaleDateString()}
+            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", alignItems: "center" }}>
+              <div>
+                <h3>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                </h3>
+                {post.date && (
+                  <p className="meta" style={{ fontSize: "0.8rem", marginBottom: "6px" }}>
+                    {new Date(post.date).toLocaleDateString()}
+                  </p>
+                )}
+                <p className="meta">
+                  Capital · Character · Conviction — a perspective from K3 Capital
+                  Solutions.
                 </p>
-              )}
-              <p className="meta">
-                Capital · Character · Conviction — a perspective from K3 Capital
-                Solutions.
-              </p>
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "200px", backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>
+                <img 
+                  src={`https://images.unsplash.com/photo-${["1611974887142-e4c91267eaa8", "1552821756-5174d1b6145f", "1611974887142-e4c91267eaa8"][idx % 3]}?w=400&h=250&fit=crop`}
+                  alt={post.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
             </Reveal>
           ))}
         </div>

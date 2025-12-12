@@ -12,7 +12,7 @@ export default function Page() {
   const scrollToId = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const navHeight = 90;
+    const navHeight = 73;
 
     window.scrollTo({
       top: el.offsetTop - navHeight,
@@ -61,8 +61,8 @@ export default function Page() {
             <div className="hero-right">
               <div className="hero-image-card">
                 <img
-                  src="/img/krists.webp"
-                  alt="Krists Eiduks"
+                  src="/img/K3_Image.avif"
+                  alt="K3 Capital Solutions"
                   className="hero-image"
                 />
               </div>
