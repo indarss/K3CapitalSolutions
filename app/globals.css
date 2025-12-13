@@ -820,7 +820,7 @@ section[id] {
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.08),
     0 3px 8px rgba(0, 0, 0, 0.05);
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .insights-card h3 {
@@ -890,7 +890,7 @@ section[id] {
   background: #eaf0f5;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 48px 0 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
@@ -919,7 +919,7 @@ section[id] {
 }
 
 .footer-col:last-child {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .footer-disclaimer {
@@ -927,6 +927,7 @@ section[id] {
   color: #5f6b75;
   white-space: normal;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Nav list */
