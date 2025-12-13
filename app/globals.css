@@ -246,9 +246,11 @@ p {
 }
 
 .section-intro {
-  max-width: 640px;
+  max-width: 100%;
   color: var(--text-muted);
   font-size: 1.03rem;
+  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 /* Correct scroll anchoring for sticky nav */
@@ -701,7 +703,7 @@ section[id] {
 .about-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 /* Profile grid (second card) */
@@ -916,10 +918,15 @@ section[id] {
   white-space: nowrap;
 }
 
+.footer-col:last-child {
+  padding-left: 10px;
+}
+
 .footer-disclaimer {
   font-size: 0.85rem;
   color: #5f6b75;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 /* Nav list */
@@ -960,7 +967,7 @@ section[id] {
 @media (max-width: 1024px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 25px;
   }
 
   .hero-left {

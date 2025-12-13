@@ -46,8 +46,7 @@ export default function BlogIndex() {
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
-          <p className="eyebrow">Capital · Character · Conviction</p>
-          <span className="hero-eyebrow">Insights & Research</span>
+          <span className="hero-eyebrow">Capital · Character · Conviction</span>
           <h1 className="hero-title">Insights & Articles</h1>
           <p className="section-intro">
             Long-form reflections, frameworks and perspectives rooted in real-world
