@@ -543,7 +543,7 @@ section[id] {
 /* Header block */
 .services-header {
   max-width: 780px;
-  margin: 0 auto 32px;
+  margin: 0 0 32px 0;
   text-align: left;
 }
 
@@ -593,6 +593,7 @@ section[id] {
   font-size: 1.6rem;
   margin-bottom: 12px;
   font-family: var(--font-serif);
+  text-align: center;
 }
 
 .service-card--color p {
@@ -713,7 +714,7 @@ section[id] {
 }
 
 .profile-title {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
   font-weight: 600;
   color: #0c2d48;
   margin-bottom: 18px;
@@ -812,6 +813,7 @@ section[id] {
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.08),
     0 3px 8px rgba(0, 0, 0, 0.05);
+  margin-top: 90px;
 }
 
 .insights-card h3 {
@@ -886,7 +888,7 @@ section[id] {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1.6fr;
+  grid-template-columns: 1fr 2fr;
   gap: 48px;
   align-items: start;
 }

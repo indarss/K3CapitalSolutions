@@ -9,18 +9,6 @@ import K3Logo from "../components/K3Logo";
 
 export default function Page() {
 
-  const scrollToId = (id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const navHeight = 73;
-
-    window.scrollTo({
-      top: el.offsetTop - navHeight,
-      behavior: "smooth"
-    });
-  };
-
-
   return (
     <>
       <main>
@@ -43,18 +31,6 @@ export default function Page() {
                 portfolio architecture, and research-driven insight for sophisticated
                 private clients across global markets.
               </p>
-
-              <div className="hero-actions">
-                <a onClick={() => scrollToId("services")} className="btn btn-primary">Explore Services</a>
-                <a onClick={() => scrollToId("about")} className="btn btn-ghost">Meet the Founder</a>
-              </div>
-
-              {/* RockCo credibility row */}
-              <div className="hero-cred">
-                <span>Multi-asset research</span>
-                <span>Global market experience</span>
-                <span>Independent perspective</span>
-              </div>
             </div>
 
             {/* RIGHT SIDE — PHOTO (RockCo framing) */}
@@ -115,11 +91,6 @@ export default function Page() {
                 </div>
               ))}
             </div>
-
-            {/* Disclaimer under grid */}
-            <p className="services-disclaimer">
-              {branding.disclaimer}
-            </p>
           </div>
         </Section>
 
@@ -127,32 +98,6 @@ export default function Page() {
         {/* ABOUT */}
         <Section id="about">
           <div className="container about-grid">
-            <Reveal className="profile-card card">
-              <div className="highlight-bar"></div>
-              <p className="eyebrow">About the Founder</p>
-              <h2>Independent perspective. Institutional discipline.</h2>
-              <p>{branding.bio.p1}</p>
-              <p>{branding.bio.p2}</p>
-              <p>{branding.bio.p3}</p>
-              <p>{branding.bio.p4}</p>
-              <p>{branding.bio.p5}</p>
-
-              <div className="contact-block">
-                <h3>Contact</h3>
-                <p>
-                  For confidential discussions regarding mandate availability,
-                  please reach out:
-                </p>
-                <p>
-                  Email:{" "}
-                  <a href="mailto:krists.eiduks@k3capitalsolutions.com">
-                    krists.eiduks@k3capitalsolutions.com
-                  </a>
-                  <br />
-                  Location: Latvia · International clients by arrangement
-                </p>
-              </div>
-            </Reveal>
             <Reveal delay={0.15} className="profile-card">
               <div className="profile-grid">
 
@@ -168,12 +113,6 @@ export default function Page() {
                   <p>{branding.bio.p4}</p>
                   <p>{branding.bio.p5}</p>
 
-                  <div className="profile-badges">
-                    <span className="badge">Independent</span>
-                    <span className="badge">Research-driven</span>
-                    <span className="badge">Client-selective</span>
-                  </div>
-
                   <div className="profile-contact">
                     <h3>Contact</h3>
                     <p>For confidential discussions regarding mandate availability, please reach out:</p>
@@ -181,8 +120,6 @@ export default function Page() {
                       Email: <a href="mailto:krists.eiduks@k3capitalsolutions.com">
                         krists.eiduks@k3capitalsolutions.com
                       </a>
-                      <br />
-                      Location: Latvia · International clients by arrangement
                     </p>
                   </div>
                 </div>
@@ -271,15 +208,18 @@ export default function Page() {
               <p>
                 Independent investment advisory for sophisticated and high-net-worth clients.
               </p>
-            </div>
-
-            <div className="footer-col">
-              <h4>Navigation</h4>
-              <ul>
-                <li><a href="/#home">Home</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#insights">Insights</a></li>
-                <li><a href="/blog">Blog</a></li>
+              <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
+                <strong>Location:</strong> Riga, Latvia
+              </p>
+              <p style={{ marginTop: "8px", fontSize: "0.9rem" }}>
+                <strong>Global Reach:</strong> Serving international clients across Europe and beyond.
+              </p>
+              <ul style={{ marginTop: "12px", listStyle: "none", padding: 0 }}>
+                <li>
+                  <a href="https://www.linkedin.com/in/krists-eiduks-83331939/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn Profile
+                  </a>
+                </li>
               </ul>
             </div>
 
