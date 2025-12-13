@@ -800,6 +800,11 @@ section[id] {
   max-width: 1100px;
 }
 
+.insights-main h2 {
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  margin-bottom: 16px;
+}
+
 .insights-main p {
   line-height: 1.7;
 }
@@ -813,7 +818,7 @@ section[id] {
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.08),
     0 3px 8px rgba(0, 0, 0, 0.05);
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .insights-card h3 {
@@ -888,7 +893,7 @@ section[id] {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
 }
@@ -905,11 +910,17 @@ section[id] {
   line-height: 1.55;
   color: #42505a;
   max-width: 380px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .footer-disclaimer {
   font-size: 0.85rem;
   color: #5f6b75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Nav list */

@@ -216,7 +216,10 @@ export default function Page() {
               </p>
               <ul style={{ marginTop: "12px", listStyle: "none", padding: 0 }}>
                 <li>
-                  <a href="https://www.linkedin.com/in/krists-eiduks-83331939/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/krists-eiduks-83331939/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.731-2.004 1.438-.103.25-.129.599-.129.948v5.419h-3.554s.047-8.789 0-9.703h3.554v1.374c.43-.664 1.199-1.61 2.922-1.61 2.134 0 3.733 1.389 3.733 4.377v5.562zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.704 0-.963.79-1.704 1.96-1.704 1.168 0 1.913.741 1.938 1.704 0 .946-.77 1.704-1.983 1.704zm1.581 11.597H3.635V9.549h3.283v10.903zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                    </svg>
                     LinkedIn Profile
                   </a>
                 </li>
