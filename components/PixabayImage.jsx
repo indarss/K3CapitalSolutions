@@ -6,7 +6,7 @@ export default function PixabayImage({ title, idx, size = "medium" }) {
   const [imageUrl, setImageUrl] = React.useState("");
 
   const sizeConfig = {
-    small: { width: 120, height: 90 },
+    small: { width: 150, height: 90 },
     medium: { width: 300, height: 150 },
     large: { width: 460, height: 300 }
   };
