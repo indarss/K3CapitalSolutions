@@ -319,7 +319,7 @@ section[id] {
 .hero-subtext {
   font-size: 1.15rem;
   color: #4a5b6b;
-  max-width: 520px;
+  max-width: 100%;
   margin-bottom: 32px;
 }
 
@@ -701,7 +701,7 @@ section[id] {
 .about-grid {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 12px;
 }
 
 /* Profile grid (second card) */
@@ -889,13 +889,17 @@ section[id] {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 48px 0 20px;
   margin-top: 40px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 0;
   align-items: start;
+  width: 100%;
+  padding: 0 40px;
 }
 
 .footer-col h4 {
@@ -909,18 +913,13 @@ section[id] {
   font-size: 0.9rem;
   line-height: 1.55;
   color: #42505a;
-  max-width: 380px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .footer-disclaimer {
   font-size: 0.85rem;
   color: #5f6b75;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Nav list */

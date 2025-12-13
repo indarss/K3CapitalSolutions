@@ -54,12 +54,12 @@ export default function Page() {
 
             {/* RockCo-style header */}
             <div className="services-header">
-               <div className="highlight-bar"></div>
-               <p className="eyebrow">Service List</p>
-              <h2 className="services-title">
+              <div className="highlight-bar"></div>
+              <span className="hero-eyebrow">Service List</span>
+              <h2 className="services-title" style={{ whiteSpace: "nowrap" }}>
                 Advisory built around sophisticated capital.
               </h2>
-              <p className="services-intro">
+              <p className="services-intro" style={{ whiteSpace: "nowrap" }}>
                 K3 Capital Solutions works with a focused set of clients to design,
                 refine, and oversee investment architecture across public and private
                 markets — from strategy and structure to ongoing portfolio dialogue.
@@ -104,7 +104,7 @@ export default function Page() {
                 {/* LEFT — TEXT */}
                 <div className="profile-text">
                   <div className="highlight-bar"></div>
-                  <p className="eyebrow">About the Founder</p>
+                  <span className="hero-eyebrow">About the Founder</span>
                   <h2 className="profile-title">Independent perspective. Institutional discipline.</h2>
 
                   <p>{branding.bio.p1}</p>
@@ -147,11 +147,8 @@ export default function Page() {
     {/* LEFT SIDE — MAIN COPY + SUBSCRIBE */}
     <Reveal className="insights-main">
       <div className="highlight-bar"></div>
-      <p className="eyebrow">Insights & Research</p>
-
-
+      <span className="hero-eyebrow">Insights & Research</span>
       <h2>Capital · Character · Conviction</h2>
-
       <p>
         K3 Capital Solutions publishes long-form research, regime analysis, and
         practitioner-level commentary at the intersection of markets, risk,

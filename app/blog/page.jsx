@@ -42,11 +42,12 @@ export default function BlogIndex() {
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
 
   return (
-    <Section id="blog" style={{ paddingTop: "30px" }}>
-      <div className="container">
+    <Section id="blog" style={{ paddingTop: "10px", marginLeft: "-24px" }}>
+      <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
           <p className="eyebrow">Capital · Character · Conviction</p>
+          <span className="hero-eyebrow">Insights & Research</span>
           <h1 className="hero-title">Insights & Articles</h1>
           <p className="section-intro">
             Long-form reflections, frameworks and perspectives rooted in real-world
@@ -56,7 +57,7 @@ export default function BlogIndex() {
 
         <div className="service-grid" style={{ marginTop: "30px" }}>
           {posts.map((post, idx) => (
-            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", alignItems: "center" }}>
+            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "20px", alignItems: "flex-start" }}>
               <div>
                 <h3>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
