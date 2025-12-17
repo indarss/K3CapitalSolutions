@@ -56,7 +56,7 @@ export default function BlogIndex() {
 
         <div className="service-grid" style={{ marginTop: "30px" }}>
           {posts.map((post, idx) => (
-            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ position: "relative", paddingRight: "140px" }}>
+            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ position: "relative", paddingRight: "187px" }}>
               <div>
                 <h3>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
@@ -67,7 +67,7 @@ export default function BlogIndex() {
                   </p>
                 )}
               </div>
-              <div style={{ position: "absolute", top: "12px", right: "22px", width: "150px", height: "90px", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: "4px", right: "22px", width: "150px", height: "90px", overflow: "hidden" }}>
                 <PixabayImage title={post.title} idx={idx} size="small" />
               </div>
             </Reveal>
