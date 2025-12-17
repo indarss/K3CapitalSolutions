@@ -32,11 +32,17 @@ export default function BlogIndex() {
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => {
       const raw = fs.readFileSync(path.join(postsDir, file), "utf8");
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
+      // Extract first 150 characters of content as excerpt
+      const excerpt = content
+        .replace(/^#+\s+/gm, "")
+        .trim()
+        .substring(0, 150) + "...";
       return {
         slug: file.replace(".mdx", ""),
         title: data.title || file,
-        date: data.date || null
+        date: data.date || null,
+        excerpt: data.description || excerpt
       };
     })
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
@@ -54,26 +60,101 @@ export default function BlogIndex() {
           </p>
         </Reveal>
 
-        <div className="service-grid" style={{ marginTop: "30px" }}>
-          {posts.map((post, idx) => (
-            <Reveal key={post.slug} delay={0.05 * (idx + 1)} className="service-card" style={{ position: "relative", paddingRight: "187px" }}>
-              <div>
-                <h3>
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                {post.date && (
-                  <p className="meta" style={{ fontSize: "0.8rem", marginBottom: "6px" }}>
-                    {new Date(post.date).toLocaleDateString()}
+        <div style={{ marginTop: "40px" }}>
+          {/* Latest Posts Section */}
+          <div style={{ marginBottom: "60px" }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
+              Latest Posts
+            </h2>
+            {posts.slice(0, 3).map((post, idx) => (
+              <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
+                <div style={{ 
+                  borderBottom: "1px solid var(--border-color)", 
+                  paddingBottom: "24px", 
+                  marginBottom: "24px",
+                  paddingTop: idx === 0 ? "0px" : "24px"
+                }}>
+                  <div style={{ marginBottom: "8px" }}>
+                    {post.date && (
+                      <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
+                        {new Date(post.date).toLocaleDateString("en-US", { 
+                          year: "numeric", 
+                          month: "short", 
+                          day: "numeric" 
+                        })}
+                      </p>
+                    )}
+                  </div>
+                  <h3 style={{ marginBottom: "12px" }}>
+                    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="meta" style={{ fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)" }}>
+                    {post.excerpt}
                   </p>
-                )}
-              </div>
-              <div style={{ position: "absolute", top: "4px", right: "22px", width: "150px", height: "90px", overflow: "hidden" }}>
-                <PixabayImage title={post.title} idx={idx} size="small" />
-              </div>
-            </Reveal>
-          ))}
+                  <Link href={`/blog/${post.slug}`} style={{ 
+                    fontSize: "0.9rem", 
+                    fontWeight: "500",
+                    color: "var(--accent-color)",
+                    textDecoration: "none"
+                  }}>
+                    Read more →
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Archive Section */}
+          {posts.length > 3 && (
+            <div>
+              <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
+                Archive
+              </h2>
+              {posts.slice(3).map((post, idx) => (
+                <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
+                  <div style={{ 
+                    borderBottom: "1px solid var(--border-color)", 
+                    paddingBottom: "24px", 
+                    marginBottom: "24px",
+                    paddingTop: idx === 0 ? "0px" : "24px"
+                  }}>
+                    <div style={{ marginBottom: "8px" }}>
+                      {post.date && (
+                        <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
+                          {new Date(post.date).toLocaleDateString("en-US", { 
+                            year: "numeric", 
+                            month: "short", 
+                            day: "numeric" 
+                          })}
+                        </p>
+                      )}
+                    </div>
+                    <h3 style={{ marginBottom: "12px" }}>
+                      <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                        {post.title}
+                      </Link>
+                    </h3>
+                    <p className="meta" style={{ fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)" }}>
+                      {post.excerpt}
+                    </p>
+                    <Link href={`/blog/${post.slug}`} style={{ 
+                      fontSize: "0.9rem", 
+                      fontWeight: "500",
+                      color: "var(--accent-color)",
+                      textDecoration: "none"
+                    }}>
+                      Read more →
+                    </Link>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
-        <p className="meta" style={{ marginTop: "20px", textAlign: "center" }}>
+
+        <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center" }}>
           Capital · Character · Conviction — a perspective from K3 Capital Solutions.
         </p>
       </div>
