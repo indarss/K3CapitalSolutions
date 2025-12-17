@@ -96,7 +96,7 @@ export default function Page() {
 
 
         {/* ABOUT */}
-        <Section id="about">
+        <Section id="about" style={{ marginTop: "-40px" }}>
           <div className="container about-grid">
             <Reveal delay={0.15} className="profile-card">
               <div className="profile-grid">
@@ -237,11 +237,8 @@ export default function Page() {
           </div>
 
           <div className="footer-bottom">
-            © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved.
+            © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved. Website created by <a href="mailto:sparnins@hotmail.com" style={{ color: "#1c4e80", textDecoration: "none" }}>isContent LLC</a>
             <br />
-            <span style={{ fontSize: "0.85rem", color: "#6c7a87", marginTop: "8px", display: "block" }}>
-              Website created by <a href="mailto:sparnins@hotmail.com" style={{ color: "#1c4e80", textDecoration: "none" }}>isContent LLC</a>
-            </span>
           </div>
         </footer>
 

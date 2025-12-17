@@ -48,7 +48,7 @@ export default function BlogIndex() {
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
 
   return (
-    <Section id="blog" style={{ paddingTop: "0px", marginTop: "-40px", marginLeft: "-24px" }}>
+    <Section id="blog" style={{ paddingTop: "0px", marginTop: "-80px", marginLeft: "-24px" }}>
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
