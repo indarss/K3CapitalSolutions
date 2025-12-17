@@ -61,20 +61,30 @@ export default function BlogIndex() {
         </Reveal>
 
         <div style={{ marginTop: "40px" }}>
-          {/* Latest Posts Section */}
-          <div style={{ marginBottom: "60px" }}>
+          {/* Latest Posts Section - 3 Column Grid */}
+          <div style={{ marginBottom: "80px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
               Latest Posts
             </h2>
-            {posts.slice(0, 3).map((post, idx) => (
-              <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
-                <div style={{ 
-                  borderBottom: "1px solid var(--border-color)", 
-                  paddingBottom: "24px", 
-                  marginBottom: "24px",
-                  paddingTop: idx === 0 ? "0px" : "24px"
-                }}>
-                  <div style={{ marginBottom: "8px" }}>
+            <div style={{ 
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+              gap: "32px",
+              marginBottom: "40px"
+            }}>
+              {posts.slice(0, 3).map((post, idx) => (
+                <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
+                  <div style={{ 
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%"
+                  }}>
+                    {/* Image */}
+                    <div style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }}>
+                      <PixabayImage title={post.title} idx={idx} size="medium" />
+                    </div>
+                    
+                    {/* Date */}
                     {post.date && (
                       <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
                         {new Date(post.date).toLocaleDateString("en-US", { 
@@ -84,26 +94,31 @@ export default function BlogIndex() {
                         })}
                       </p>
                     )}
+                    
+                    {/* Title */}
+                    <h3 style={{ marginBottom: "12px", fontSize: "1.1rem", lineHeight: "1.4" }}>
+                      <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                        {post.title}
+                      </Link>
+                    </h3>
+                    
+                    {/* Excerpt */}
+                    <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
+                      {post.excerpt}
+                    </p>
+                    
+                    {/* Author */}
+                    <div style={{ 
+                      fontSize: "0.85rem", 
+                      color: "var(--text-secondary)",
+                      fontWeight: "500"
+                    }}>
+                      K3 Capital Solutions
+                    </div>
                   </div>
-                  <h3 style={{ marginBottom: "12px" }}>
-                    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                      {post.title}
-                    </Link>
-                  </h3>
-                  <p className="meta" style={{ fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)" }}>
-                    {post.excerpt}
-                  </p>
-                  <Link href={`/blog/${post.slug}`} style={{ 
-                    fontSize: "0.9rem", 
-                    fontWeight: "500",
-                    color: "var(--accent-color)",
-                    textDecoration: "none"
-                  }}>
-                    Read more →
-                  </Link>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
 
           {/* Archive Section */}
@@ -112,15 +127,24 @@ export default function BlogIndex() {
               <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
                 Archive
               </h2>
-              {posts.slice(3).map((post, idx) => (
-                <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
-                  <div style={{ 
-                    borderBottom: "1px solid var(--border-color)", 
-                    paddingBottom: "24px", 
-                    marginBottom: "24px",
-                    paddingTop: idx === 0 ? "0px" : "24px"
-                  }}>
-                    <div style={{ marginBottom: "8px" }}>
+              <div style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+                gap: "32px"
+              }}>
+                {posts.slice(3).map((post, idx) => (
+                  <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
+                    <div style={{ 
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%"
+                    }}>
+                      {/* Image */}
+                      <div style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }}>
+                        <PixabayImage title={post.title} idx={idx} size="medium" />
+                      </div>
+                      
+                      {/* Date */}
                       {post.date && (
                         <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
                           {new Date(post.date).toLocaleDateString("en-US", { 
@@ -130,26 +154,31 @@ export default function BlogIndex() {
                           })}
                         </p>
                       )}
+                      
+                      {/* Title */}
+                      <h3 style={{ marginBottom: "12px", fontSize: "1.1rem", lineHeight: "1.4" }}>
+                        <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                          {post.title}
+                        </Link>
+                      </h3>
+                      
+                      {/* Excerpt */}
+                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
+                        {post.excerpt}
+                      </p>
+                      
+                      {/* Author */}
+                      <div style={{ 
+                        fontSize: "0.85rem", 
+                        color: "var(--text-secondary)",
+                        fontWeight: "500"
+                      }}>
+                        K3 Capital Solutions
+                      </div>
                     </div>
-                    <h3 style={{ marginBottom: "12px" }}>
-                      <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                        {post.title}
-                      </Link>
-                    </h3>
-                    <p className="meta" style={{ fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)" }}>
-                      {post.excerpt}
-                    </p>
-                    <Link href={`/blog/${post.slug}`} style={{ 
-                      fontSize: "0.9rem", 
-                      fontWeight: "500",
-                      color: "var(--accent-color)",
-                      textDecoration: "none"
-                    }}>
-                      Read more →
-                    </Link>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                ))}
+              </div>
             </div>
           )}
         </div>
