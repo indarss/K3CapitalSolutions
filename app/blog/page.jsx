@@ -46,8 +46,8 @@ export default function BlogIndex() {
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
-          <span className="hero-eyebrow">Capital · Character · Conviction</span>
-          <h1 className="hero-title">Insights & Articles</h1>
+          <span className="hero-eyebrow">Insights and Thoughts from K3 Capital Solutions Perspective</span>
+          <h1 className="hero-title">Capital · Character · Conviction</h1>
           <p className="section-intro">
             Long-form reflections, frameworks and perspectives rooted in real-world
             investment experience and disciplined capital stewardship.
@@ -66,10 +66,6 @@ export default function BlogIndex() {
                     {new Date(post.date).toLocaleDateString()}
                   </p>
                 )}
-                <p className="meta">
-                  Capital · Character · Conviction — a perspective from K3 Capital
-                  Solutions.
-                </p>
               </div>
               <div style={{ position: "absolute", top: "22px", right: "22px" }}>
                 <PixabayImage title={post.title} idx={idx} size="small" />
@@ -77,6 +73,9 @@ export default function BlogIndex() {
             </Reveal>
           ))}
         </div>
+        <p className="meta" style={{ marginTop: "20px", textAlign: "center" }}>
+          Capital · Character · Conviction — a perspective from K3 Capital Solutions.
+        </p>
       </div>
     </Section>
   );

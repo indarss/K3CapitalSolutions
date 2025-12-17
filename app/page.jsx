@@ -238,6 +238,10 @@ export default function Page() {
 
           <div className="footer-bottom">
             © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved.
+            <br />
+            <span style={{ fontSize: "0.85rem", color: "#6c7a87", marginTop: "8px", display: "block" }}>
+              Website created by <a href="mailto:sparnins@hotmail.com" style={{ color: "#1c4e80", textDecoration: "none" }}>isContent LLC</a>
+            </span>
           </div>
         </footer>
 
