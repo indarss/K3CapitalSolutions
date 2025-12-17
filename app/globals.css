@@ -257,7 +257,7 @@ p {
 
 /* Correct scroll anchoring for sticky nav */
 section[id] {
-  scroll-margin-top: calc(var(--nav-height) + 16px);
+  scroll-margin-top: calc(var(--nav-height) + 80px);
 }
 
 .highlight-bar {
