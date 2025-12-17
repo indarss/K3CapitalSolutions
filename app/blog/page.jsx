@@ -42,7 +42,7 @@ export default function BlogIndex() {
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
 
   return (
-    <Section id="blog" style={{ paddingTop: "-40px", marginLeft: "-24px" }}>
+    <Section id="blog" style={{ paddingTop: "0px", marginTop: "-40px", marginLeft: "-24px" }}>
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
@@ -67,7 +67,7 @@ export default function BlogIndex() {
                   </p>
                 )}
               </div>
-              <div style={{ position: "absolute", top: "12px", right: "22px", width: "160px", height: "72px", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: "12px", right: "22px", width: "150px", height: "90px", overflow: "hidden" }}>
                 <PixabayImage title={post.title} idx={idx} size="small" />
               </div>
             </Reveal>
