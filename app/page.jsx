@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <main>
         {/* HERO */}
-        <section id="home" className="hero rockco-hero">
+        <section id="home" className="hero rockco-hero" style={{ marginTop: "-80px" }}>
           <div className="container hero-grid">
 
             {/* LEFT SIDE — ROCKCO TEXT */}
@@ -96,7 +96,7 @@ export default function Page() {
 
 
         {/* ABOUT */}
-        <Section id="about" style={{ marginTop: "-40px" }}>
+        <Section id="about" style={{ marginTop: "-40px", scrollMarginTop: "calc(var(--nav-height) + 56px)" }}>
           <div className="container about-grid">
             <Reveal delay={0.15} className="profile-card">
               <div className="profile-grid">
