@@ -11,6 +11,12 @@ export default function Page() {
 
   return (
     <>
+      {/* LEFT SIDEBAR — GOLDEN LINE WITH K3 */}
+      <div className="sidebar-k3">
+        <div className="sidebar-line"></div>
+        <div className="sidebar-text">K3</div>
+      </div>
+      
       <main>
         {/* HERO */}
         <section id="home" className="hero rockco-hero" style={{ marginTop: "-80px" }}>
@@ -19,17 +25,15 @@ export default function Page() {
             {/* LEFT SIDE — ROCKCO TEXT */}
             <div className="hero-left">
               <div className="highlight-bar"></div>
-              <span className="hero-eyebrow">Private Wealth · Independent Advisory</span>
+              <span className="hero-eyebrow">Private & Institutional Wealth · Independent Consultancy & Advisory</span>
 
 
               <h1 className="hero-title rockco-hero-title">
-                Clarity, Discipline & Institutional-Grade Insight for Private Capital
+                Discipline Is the Edge
               </h1>
 
               <p className="hero-subtext">
-                K3 Capital Solutions provides institutional-grade investment strategy,
-                portfolio architecture, and research-driven insight for sophisticated
-                private clients across global markets.
+                Transparent, research-driven portfolio architecture tailored to your objectives.
               </p>
             </div>
 

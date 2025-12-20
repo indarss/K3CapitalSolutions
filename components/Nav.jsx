@@ -5,10 +5,10 @@ import { useRouter, usePathname } from "next/navigation";
 import K3Logo from "./K3Logo";
 
 const sections = [
-  { id: "home", label: "Home" },
-  { id: "services", label: "Service List" },
-  { id: "about", label: "About Me" },
-  { id: "insights", label: "Insights" },
+  { id: "home", label: "HOME" },
+  { id: "services", label: "SERVICE LIST" },
+  { id: "about", label: "ABOUT ME" },
+  { id: "insights", label: "INSIGHTS" },
 ];
 
 export default function Nav() {
@@ -109,11 +109,10 @@ export default function Nav() {
       <nav className="container nav-inner">
         {/* Logo + Brand */}
         <div className="brand brand-left">
-          <K3Logo size={48} />
           <div className="brand-text">
-            <div className="brand-name">K3 Capital Solutions</div>
+            <div className="brand-name">K3 CAPITAL SOLUTIONS</div>
             <div className="brand-tagline">
-              Independent Wealth & Capital Advisory
+              CAPITAL MANAGMENT
             </div>
           </div>
         </div>
@@ -141,7 +140,7 @@ export default function Nav() {
               setActiveSection("blog");
             }}
           >
-            Blog
+            BLOG
           </a>  
         </div>
       </nav>
