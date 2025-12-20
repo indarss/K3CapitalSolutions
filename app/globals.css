@@ -416,14 +416,14 @@ section[id] {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr);
   gap: 60px;
   align-items: center;
 }
 
 /* Left column */
 .hero-left {
-  max-width: 640px;
+  max-width: 100%;
 }
 
 .hero-eyebrow {
@@ -728,6 +728,7 @@ section#about .profile-card:hover {
 .services-header-right {
   display: flex;
   align-items: flex-start;
+  margin-top: 48px;
 }
 
 .services-header .highlight-bar {
