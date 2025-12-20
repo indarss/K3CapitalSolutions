@@ -306,7 +306,7 @@ section#about .profile-title {
 }
 
 section#about p {
-  color: #3a3a3a !important;
+  color: #ffffff !important;
 }
 
 section#about a {
@@ -314,11 +314,11 @@ section#about a {
 }
 
 section#about .profile-contact h3 {
-  color: #3a3a3a !important;
+  color: #d4af37 !important;
 }
 
 section#about .profile-contact p {
-  color: #3a3a3a !important;
+  color: #ffffff !important;
 }
 
 section#about .profile-contact a {
@@ -608,6 +608,20 @@ section#about .hero-eyebrow {
   transition: 0.2s ease;
 }
 
+/* Remove card styling for profile in about section */
+section#about .profile-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+section#about .profile-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .service-card:hover,
 .insights-card:hover,
 .profile-card:hover {
@@ -697,7 +711,7 @@ section#about .hero-eyebrow {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 48px;
 }
 
@@ -713,11 +727,11 @@ section#about .hero-eyebrow {
 
 .services-header-right {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .services-header .highlight-bar {
-  display: none;
+  display: block;
 }
 
 .services-title {

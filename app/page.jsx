@@ -58,6 +58,7 @@ export default function Page() {
             {/* RockCo-style header with two-column layout */}
             <div className="services-header-wrapper">
               <div className="services-header-left">
+                <div className="highlight-bar"></div>
                 <span className="hero-eyebrow">Service List</span>
                 <h2 className="services-title">
                   Advisory built around sophisticated capital.
