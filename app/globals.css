@@ -87,6 +87,7 @@ body.app-root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
+  margin-left: 80px;
 }
 
 /* Typography */
@@ -124,30 +125,35 @@ p {
   left: 0;
   top: var(--nav-height);
   height: calc(100vh - var(--nav-height));
-  width: 60px;
+  width: 80px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   z-index: 1000;
+  pointer-events: none;
 }
 
 .sidebar-line {
+  position: sticky;
+  top: var(--nav-height);
   width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, #d4af37 0%, #d4af37 60%, rgba(212, 175, 55, 0) 100%);
+  height: 400px;
+  background: linear-gradient(to bottom, transparent 0%, #d4af37 5%, #d4af37 95%, rgba(212, 175, 55, 0) 100%);
+  margin-left: 38px;
+  will-change: height;
 }
 
 .sidebar-text {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: sticky;
+  top: calc(var(--nav-height) + 40px);
   font-size: 0.9rem;
   font-weight: 600;
   color: #d4af37;
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
-  transform: translateX(-50%) rotate(180deg);
+  transform: rotate(180deg);
+  margin-left: 12px;
+  pointer-events: auto;
 }
 
 /* ============================================================
@@ -255,7 +261,7 @@ p {
 }
 
 .nav-links a.active {
-  color: #ffffff;
+  color: #d4af37;
 }
 
 .nav-links a.active::after {
@@ -293,12 +299,20 @@ section#about .profile-title {
   color: #ffffff;
 }
 
+section#about .hero-eyebrow {
+  color: #d4af37 !important;
+}
+
 section#about .profile-title {
-  color: #d4af37;
+  color: #d4af37 !important;
 }
 
 section#about p {
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff !important;
+}
+
+section#about a {
+  color: #d4af37;
 }
 
 /* Blog section — Warm orange with map texture */
@@ -322,6 +336,7 @@ section#blog {
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(0, 0, 0, 0.08) 0%, transparent 50%);
   color: #ffffff;
+  padding-left: 40px;
 }
 
 section#blog .hero-eyebrow,
@@ -406,6 +421,10 @@ section[id] {
   font-weight: 500;
   display: block;
   margin-bottom: 16px;
+}
+
+section#about .hero-eyebrow {
+  color: #d4af37 !important;
 }
 
 .hero-title {
@@ -650,14 +669,38 @@ section[id] {
   max-width: 100%;
   margin: 0 0 48px 0;
   text-align: left;
-  border: 3px solid #d4af37;
-  border-radius: 8px;
-  padding: 32px 40px;
-  background: #fefbf7;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
   align-items: center;
+}
+
+/* New two-column layout for services header */
+.services-header-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+.services-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services-header-left .hero-eyebrow {
+  color: #3a7ca5;
+}
+
+.services-header-right {
+  display: flex;
+  align-items: flex-start;
 }
 
 .services-header .highlight-bar {
@@ -841,11 +884,19 @@ section[id] {
   margin-bottom: 18px;
 }
 
+section#about .profile-title {
+  color: #d4af37 !important;
+}
+
 .profile-text p {
   font-size: 1.05rem;
   line-height: 1.6;
   color: #435361;
   margin-bottom: 14px;
+}
+
+section#about .profile-text p {
+  color: #ffffff !important;
 }
 
 /* Badges */

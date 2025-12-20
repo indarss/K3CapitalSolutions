@@ -52,22 +52,24 @@ export default function Page() {
         </section>
 
         {/* SERVICES */}
-        {/* SERVICES */}
         <Section id="services" className="services-section">
           <div className="container">
 
-            {/* RockCo-style header */}
-            <div className="services-header">
-              <div className="highlight-bar"></div>
-              <span className="hero-eyebrow">Service List</span>
-              <h2 className="services-title" style={{ whiteSpace: "nowrap" }}>
-                Advisory built around sophisticated capital.
-              </h2>
-              <p className="services-intro" style={{ whiteSpace: "nowrap" }}>
-                K3 Capital Solutions works with a focused set of clients to design,
-                refine, and oversee investment architecture across public and private
-                markets — from strategy and structure to ongoing portfolio dialogue.
-              </p>
+            {/* RockCo-style header with two-column layout */}
+            <div className="services-header-wrapper">
+              <div className="services-header-left">
+                <span className="hero-eyebrow">Service List</span>
+                <h2 className="services-title">
+                  Advisory built around sophisticated capital.
+                </h2>
+              </div>
+              <div className="services-header-right">
+                <p className="services-intro">
+                  K3 Capital Solutions works with a focused set of clients to design,
+                  refine, and oversee investment architecture across public and private
+                  markets — from strategy and structure to ongoing portfolio dialogue.
+                </p>
+              </div>
             </div>
 
             {/* RockCo-style services grid */}
