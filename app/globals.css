@@ -711,7 +711,7 @@ section#about .profile-card:hover {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 48px;
 }
 
@@ -727,7 +727,7 @@ section#about .profile-card:hover {
 
 .services-header-right {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .services-header .highlight-bar {
@@ -982,6 +982,11 @@ section#about .profile-text p {
   color: #435361;
   line-height: 1.4;
   margin-top: 6px;
+}
+
+section#about .profile-photo-caption {
+  color: #d4af37;
+  font-weight: 600;
 }
 
 /* ============================================================
