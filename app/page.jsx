@@ -25,10 +25,7 @@ export default function Page() {
             {/* LEFT SIDE — ROCKCO TEXT */}
             <div className="hero-left">
               <div className="highlight-bar"></div>
-              <span className="hero-eyebrow">Private & Institutional Wealth · Independent Consultancy & Advisory</span>
-
-
-              <h1 className="hero-title rockco-hero-title">
+           <h1 className="hero-title rockco-hero-title">
                 Discipline Is the Edge
               </h1>
 

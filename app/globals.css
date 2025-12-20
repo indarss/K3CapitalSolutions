@@ -87,7 +87,6 @@ body.app-root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
-  margin-left: 40px;
 }
 
 /* Typography */
@@ -162,9 +161,6 @@ p {
   top: 0;
   z-index: 3000;
   background: #f5ede4;
-  background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: 0 0;
   border-bottom: none;
   height: var(--nav-height);
   display: flex;
@@ -205,13 +201,14 @@ p {
 .brand-name {
   font-size: 1rem;
   font-weight: 600;
-  color: #3a3a3a;
+  color: #d4af37;
 }
 
 .brand-tagline {
   font-size: 0.78rem;
-  color: #9d8b6d;
+  color: #d4af37;
   margin-top: -2px;
+  text-align: center;
 }
 
 /* Desktop nav links — centered */
@@ -410,8 +407,9 @@ section[id] {
   background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0;
-  padding: 80px 0 100px;
+  padding: 80px 0 300px;
   position: relative;
+  min-height: 100vh;
 }
 
 .hero-grid {
