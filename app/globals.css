@@ -477,7 +477,7 @@ section#about .hero-eyebrow {
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.08),
     0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: -80px;
 }
 
@@ -693,22 +693,25 @@ section#about .profile-card:hover {
   gap: 60px;
   align-items: flex-start;
   margin-bottom: 48px;
+  row-gap: 24px;
 }
 
 .services-header-left {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  grid-column: 1 / -1;
+  gap: 0;
 }
 
 .services-header-left .hero-eyebrow {
   color: #3a7ca5;
+  grid-column: 1 / -1;
+  margin-bottom: 16px;
 }
 
 .services-header-right {
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
 }
 
 .services-header .highlight-bar {
