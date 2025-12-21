@@ -112,7 +112,7 @@ export default function Nav() {
           <div className="brand-text">
             <div className="brand-name">K3 CAPITAL SOLUTIONS</div>
             <div className="brand-tagline">
-              CAPITAL MANAGMENT
+              CAPITAL MANAGEMENT
             </div>
           </div>
         </div>

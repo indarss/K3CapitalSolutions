@@ -109,7 +109,7 @@ export default function Page() {
                 <div className="profile-text">
                   <div className="highlight-bar"></div>
                   <span className="hero-eyebrow">About the Founder</span>
-                  <h2 className="profile-title">Independent perspective. Institutional discipline.</h2>
+                  <h2 className="profile-title">Independent perspective.<br />Institutional discipline.</h2>
 
                   <p>{branding.bio.p1}</p>
                   <p>{branding.bio.p2}</p>
@@ -151,7 +151,7 @@ export default function Page() {
     {/* LEFT SIDE — MAIN COPY + SUBSCRIBE */}
     <Reveal className="insights-main">
       <div className="highlight-bar"></div>
-      <span className="hero-eyebrow">Insights & Research</span>
+      <span className="hero-eyebrow">Insights</span>
       <h2>Capital · Character · Conviction</h2>
       <p>
         K3 Capital Solutions publishes long-form research, regime analysis, and
