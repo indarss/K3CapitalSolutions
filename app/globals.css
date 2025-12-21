@@ -696,24 +696,23 @@ section#about .profile-card:hover {
 }
 
 .services-header-left {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  grid-column: 1 / -1;
-  margin-bottom: 32px;
+  display: contents;
 }
 
 .services-header-left .hero-eyebrow {
   color: #3a7ca5;
-  margin-bottom: 16px;
+  grid-column: 1 / -1;
+  order: -2;
+}
+
+.services-header-left .highlight-bar {
+  grid-column: 1 / -1;
+  order: -3;
 }
 
 .services-header-right {
   display: flex;
   align-items: flex-start;
-  flex-direction: column;
-  grid-column: 2;
-  margin-top: -32px;
 }
 
 .services-header .highlight-bar {
