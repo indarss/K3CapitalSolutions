@@ -465,8 +465,8 @@ section#about .hero-eyebrow {
 /* Right column — image card */
 .hero-right {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   height: 100%;
 }
 
@@ -477,12 +477,13 @@ section#about .hero-eyebrow {
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.08),
     0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-top: 80px;
+  margin-top: 0;
+  margin-bottom: -80px;
 }
 
 .hero-image {
   width: 100%;
-  max-width: 460px;
+  max-width: 550px;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
@@ -688,8 +689,8 @@ section#about .profile-card:hover {
 /* New two-column layout for services header */
 .services-header-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: flex-start;
   margin-bottom: 48px;
 }
@@ -698,6 +699,7 @@ section#about .profile-card:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 24px;
 }
 
 .services-header-left .hero-eyebrow {
@@ -705,8 +707,11 @@ section#about .profile-card:hover {
 }
 
 .services-header-right {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
   align-items: flex-start;
+  width: 100%;
 }
 
 .services-header .highlight-bar {
@@ -992,7 +997,7 @@ section#about .profile-photo-caption {
 
 .insights-main p {
   line-height: 1.7;
-  color: #ffffff;
+  color: #c7b783;
 }
 
 /* Insights card */
