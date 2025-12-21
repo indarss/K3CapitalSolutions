@@ -473,11 +473,11 @@ section#about .hero-eyebrow {
 .hero-image-card {
   background: #ffffff;
   border-radius: 18px;
-  padding: 12px;
+  padding: 22px;
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.08),
     0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-top: 0;
+  margin-top: 120px;
   margin-bottom: -80px;
 }
 
@@ -689,8 +689,8 @@ section#about .profile-card:hover {
 /* New two-column layout for services header */
 .services-header-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
   align-items: flex-start;
   margin-bottom: 48px;
 }
@@ -699,7 +699,7 @@ section#about .profile-card:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 24px;
+  grid-column: 1 / -1;
 }
 
 .services-header-left .hero-eyebrow {
@@ -707,11 +707,8 @@ section#about .profile-card:hover {
 }
 
 .services-header-right {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  display: flex;
   align-items: flex-start;
-  width: 100%;
 }
 
 .services-header .highlight-bar {
