@@ -693,22 +693,18 @@ section#about .profile-card:hover {
   gap: 60px;
   align-items: flex-start;
   margin-bottom: 48px;
-  row-gap: 24px;
-  grid-template-areas: 
-    "header header"
-    "left right";
 }
 
 .services-header-left {
   display: flex;
   flex-direction: column;
   gap: 0;
-  grid-area: left;
+  grid-column: 1 / -1;
+  margin-bottom: 32px;
 }
 
 .services-header-left .hero-eyebrow {
   color: #3a7ca5;
-  grid-column: unset;
   margin-bottom: 16px;
 }
 
@@ -716,7 +712,8 @@ section#about .profile-card:hover {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  grid-area: right;
+  grid-column: 2;
+  margin-top: -32px;
 }
 
 .services-header .highlight-bar {
