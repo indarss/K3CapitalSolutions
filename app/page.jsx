@@ -34,17 +34,17 @@ export default function Page() {
               </p>
             </div>
 
-            {/* RIGHT SIDE — PHOTO (RockCo framing) */}
-            <div className="hero-right">
-              <div className="hero-image-card">
-                <img
-                  src="/img/K3_Image.avif"
-                  alt="K3 Capital Solutions"
-                  className="hero-image"
-                />
-              </div>
-            </div>
+          </div>
 
+          {/* IMAGE BELOW TEXT */}
+          <div className="container" style={{ marginTop: "40px" }}>
+            <div className="hero-image-card">
+              <img
+                src="/img/Skyscrapers.webp"
+                alt="K3 Capital Solutions"
+                className="hero-image"
+              />
+            </div>
           </div>
         </section>
 
@@ -183,16 +183,9 @@ export default function Page() {
       </div>
     </Reveal>
 
-    {/* RIGHT SIDE — ROCKCO CARD */}
+    {/* RIGHT SIDE — LOGO IMAGE */}
     <Reveal delay={0.15} className="insights-card card">
-      <h3>What You'll Find Inside</h3>
-      <ul>
-        <li>Macro & regime analysis using institutional frameworks</li>
-        <li>Portfolio construction principles across market cycles</li>
-        <li>Risk, liquidity & behavioral insights for serious allocators</li>
-        <li>Case-based commentary from real investment mandates</li>
-        <li>Decision-making frameworks for uncertain environments</li>
-      </ul>
+      <img src="/img/k3_logo.jpg" alt="K3 Capital Solutions Logo" style={{ width: "100%", height: "auto" }} />
     </Reveal>
 
   </div>
@@ -207,13 +200,10 @@ export default function Page() {
             <div className="footer-col">
               <h4>K3 Capital Solutions</h4>
               <p>
-                Independent investment advisory for sophisticated and high-net-worth clients.
+                Independent portfolio architecture and strategic management for private and institutional investors.
               </p>
               <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
-                <strong>Location:</strong> Riga, Latvia
-              </p>
-              <p style={{ marginTop: "8px", fontSize: "0.9rem" }}>
-                <strong>Global Reach:</strong> Serving international clients across Europe and beyond.
+                <strong>Global Reach:</strong><br /> 🇺🇸 USA, New York +1775 2223 5553 <br /> 🇱🇻 Latvia, Riga +371 28448481
               </p>
               <ul style={{ marginTop: "12px", listStyle: "none", padding: 0 }}>
                 <li>

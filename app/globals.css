@@ -139,7 +139,7 @@ p {
   width: 2px;
   height: 400px;
   background: linear-gradient(to bottom, transparent 0%, #d4af37 5%, #d4af37 95%, rgba(212, 175, 55, 0) 100%);
-  margin-left: 25px;
+  margin-left: 12px;
   will-change: height;
 }
 
@@ -289,6 +289,12 @@ section#about {
   color: #ffffff;
 }
 
+/* Insights section — Orange/Brown */
+section#insights {
+  background: #c97941;
+  color: #ffffff;
+}
+
 section#about .profile-text,
 section#about .hero-eyebrow,
 section#about .profile-title {
@@ -430,7 +436,8 @@ section#about .hero-eyebrow {
 }
 
 .hero-subtext {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
+  font-style: italic;
   color: #4a5b6b;
   max-width: 100%;
   margin-bottom: 32px;
@@ -479,12 +486,12 @@ section#about .hero-eyebrow {
     0 4px 12px rgba(0, 0, 0, 0.04);
   margin-top: 70px;
   margin-bottom: -70px;
+  width: 100%;
 }
 
 .hero-image {
   width: 100%;
-  max-width: 550px;
-  height: auto;
+  height: 500px;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -703,6 +710,7 @@ section#about .profile-card:hover {
   color: #3a7ca5;
   grid-column: 1 / -1;
   order: -2;
+  margin-top: 0;
 }
 
 .services-header-left .highlight-bar {
@@ -730,7 +738,7 @@ section#about .profile-card:hover {
   font-size: 0.95rem;
   color: #666666;
   line-height: 1.65;
-  text-align: left;
+  text-align: justify;
 }
 
 /* Grid layout */
@@ -999,6 +1007,7 @@ section#about .profile-photo-caption {
 .insights-main p {
   line-height: 1.7;
   color: #c7b783;
+  text-align: justify;
 }
 
 /* Insights card */
@@ -1228,5 +1237,9 @@ section#about .profile-photo-caption {
   .profile-photo {
     width: 200px;
     height: 200px;
+  }
+
+  section#blog {
+    padding-left: 0;
   }
 }
