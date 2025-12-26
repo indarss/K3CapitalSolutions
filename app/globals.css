@@ -87,7 +87,7 @@ body.app-root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
-  padding-left: 80px;
+  padding-left: 50px;
 }
 
 /* Typography */
@@ -137,9 +137,9 @@ p {
   position: sticky;
   top: var(--nav-height);
   width: 2px;
-  height: 400px;
+  height: 600px;
   background: linear-gradient(to bottom, transparent 0%, #d4af37 5%, #d4af37 95%, rgba(212, 175, 55, 0) 100%);
-  margin-left: 12px;
+  margin-left: 22px;
   will-change: height;
 }
 
@@ -369,7 +369,7 @@ section[id] {
   height: 5px;
   background: var(--highlight-bar);
   border-radius: 2px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   animation: barGrow 0.7s ease forwards;
 }
 
@@ -394,9 +394,9 @@ section[id] {
   background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0;
-  padding: 80px 0 300px;
+  padding: 60px 0 180px;
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .hero-grid {
@@ -418,7 +418,7 @@ section[id] {
   color: #3a7ca5;
   font-weight: 500;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 
 section#about .hero-eyebrow {
@@ -436,7 +436,7 @@ section#about .hero-eyebrow {
 }
 
 .hero-subtext {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-style: italic;
   color: #4a5b6b;
   max-width: 100%;
@@ -478,14 +478,12 @@ section#about .hero-eyebrow {
 }
 
 .hero-image-card {
-  background: #ffffff;
-  border-radius: 25px;
-  padding: 10px;
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-top: 70px;
-  margin-bottom: -70px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 20px;
+  margin-bottom: 0;
   width: 100%;
 }
 
@@ -1006,7 +1004,7 @@ section#about .profile-photo-caption {
 
 .insights-main p {
   line-height: 1.7;
-  color: #c7b783;
+  color: #eab60c;
   text-align: justify;
 }
 
@@ -1089,7 +1087,7 @@ section#about .profile-photo-caption {
   background: #1e3a52;
   border-top: 1px solid #d4af37;
   padding: 48px 0 20px;
-  margin-top: 20px;
+  margin-top: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   position: relative;

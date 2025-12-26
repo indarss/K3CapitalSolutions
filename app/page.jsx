@@ -203,7 +203,7 @@ export default function Page() {
                 Independent portfolio architecture and strategic management for private and institutional investors.
               </p>
               <p style={{ marginTop: "12px", fontSize: "0.9rem" }}>
-                <strong>Global Reach:</strong><br /> 🇺🇸 USA, New York +1775 2223 5553 <br /> 🇱🇻 Latvia, Riga +371 28448481
+                <strong>Global Reach:</strong><br /> 🇺🇸 USA, New York +1 775 2223 5553 <br /> 🇱🇻 Latvia, Riga +371 28448481
               </p>
               <ul style={{ marginTop: "12px", listStyle: "none", padding: 0 }}>
                 <li>
