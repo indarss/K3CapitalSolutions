@@ -72,6 +72,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body.app-root {
@@ -87,7 +88,7 @@ body.app-root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
-  padding-left: 50px;
+  padding-left: 30px;
 }
 
 /* Typography */
@@ -137,9 +138,9 @@ p {
   position: sticky;
   top: var(--nav-height);
   width: 2px;
-  height: 600px;
+  height: 500px;
   background: linear-gradient(to bottom, transparent 0%, #d4af37 5%, #d4af37 95%, rgba(212, 175, 55, 0) 100%);
-  margin-left: 22px;
+  margin-left: 28px;
   will-change: height;
 }
 
@@ -150,7 +151,7 @@ p {
   font-weight: 600;
   color: #d4af37;
   letter-spacing: 0.1em;
-  margin-left: 5px;
+  margin-left: 2px;
   pointer-events: auto;
 }
 
@@ -697,7 +698,7 @@ section#about .profile-card:hover {
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
   align-items: flex-start;
-  margin-bottom: 48px;
+  margin-bottom: 20px;
 }
 
 .services-header-left {
