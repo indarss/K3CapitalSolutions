@@ -190,7 +190,7 @@ p {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  margin-left: -40px;
+  margin-left: -60px;
 }
 
 .brand-left {
@@ -694,40 +694,7 @@ section#about .profile-card:hover {
   align-items: center;
 }
 
-/* New two-column layout for services header */
-.services-header-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
-  align-items: flex-start;
-  margin-bottom: 0;
-}
-
-.services-header-left {
-  display: contents;
-}
-
-.services-header-left .hero-eyebrow {
-  color: #3a7ca5;
-  grid-column: 1 / -1;
-  order: -2;
-  margin-top: 0;
-}
-
-.services-header-left .highlight-bar {
-  grid-column: 1 / -1;
-  order: -3;
-  margin-bottom: 2px;
-}
-
-.services-header-right {
-  display: flex;
-  align-items: flex-start;
-}
-
-.services-header .highlight-bar {
-  display: block;
-}
+/* Services header removed - using inline flex layout */
 
 .services-title {
   font-size: clamp(1.9rem, 3vw, 2.3rem);

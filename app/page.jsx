@@ -53,15 +53,15 @@ export default function Page() {
           <div className="container">
 
             {/* RockCo-style header with two-column layout */}
-            <div className="services-header-wrapper">
-              <div className="services-header-left">
+            <div style={{ display: 'flex', gap: '60px', marginBottom: '0' }}>
+              <div>
                 <div className="highlight-bar"></div>
                 <span className="hero-eyebrow">Service List</span>
                 <h2 className="services-title">
                   Advisory built around sophisticated capital.
                 </h2>
               </div>
-              <div className="services-header-right">
+              <div>
                 <p className="services-intro">
                   K3 Capital Solutions works with a focused set of clients to design,
                   refine, and oversee investment architecture across public and private
