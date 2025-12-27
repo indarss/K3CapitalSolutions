@@ -37,7 +37,7 @@ export default function Page() {
           </div>
 
           {/* IMAGE BELOW TEXT */}
-          <div className="container" style={{ marginTop: "40px" }}>
+          <div className="container" style={{ marginTop: "20px" }}>
             <div className="hero-image-card">
               <img
                 src="/img/Skyscrapers.webp"

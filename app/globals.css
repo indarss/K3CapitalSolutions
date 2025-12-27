@@ -138,9 +138,9 @@ p {
   position: sticky;
   top: var(--nav-height);
   width: 2px;
-  height: 500px;
+  height: 700px;
   background: linear-gradient(to bottom, transparent 0%, #d4af37 5%, #d4af37 95%, rgba(212, 175, 55, 0) 100%);
-  margin-left: 28px;
+  margin-left: 40px;
   will-change: height;
 }
 
@@ -181,6 +181,7 @@ p {
   height: 100%;
   width: 100%;
   gap: 60px;
+    padding-left: 40px;
 }
 
 /* Brand block — stays on far left */
@@ -395,7 +396,7 @@ section[id] {
   background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0;
-  padding: 60px 0 180px;
+  padding: 60px 0 20px;
   position: relative;
   min-height: auto;
 }
@@ -437,7 +438,7 @@ section#about .hero-eyebrow {
 }
 
 .hero-subtext {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-style: italic;
   color: #4a5b6b;
   max-width: 100%;
@@ -673,7 +674,7 @@ section#about .profile-card:hover {
 
 .services-section {
   background: #f5ede4;
-  padding: 56px 0 72px;
+  padding: 20px 0 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -943,7 +944,7 @@ section#about .profile-text p {
 }
 
 .profile-contact a {
-  color: #1c4e80;
+  color: #9777f6;
   text-decoration: none;
 }
 
@@ -1013,7 +1014,7 @@ section#about .profile-photo-caption {
 .insights-card {
   border-radius: 16px;
   padding: 28px;
-  background: var(--rock-green);
+  background: transparent;
   border: 1px solid rgba(12, 45, 72, 0.2);
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.08),
@@ -1034,7 +1035,7 @@ section#about .profile-photo-caption {
 }
 
 .insights-card li {
-  color: #c7b783;
+  color: #108800;
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 8px;
