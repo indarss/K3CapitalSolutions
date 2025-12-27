@@ -49,7 +49,7 @@ export default function Page() {
         </section>
 
         {/* SERVICES */}
-        <Section id="services" className="services-section">
+        <Section id="services" className="services-section" style={{ scrollMarginTop: "calc(var(--nav-height) + 100px)" }}>
           <div className="container">
 
             {/* RockCo-style header with two-column layout */}
@@ -100,7 +100,7 @@ export default function Page() {
 
 
         {/* ABOUT */}
-        <Section id="about" style={{ marginTop: "-40px", scrollMarginTop: "calc(var(--nav-height) + 56px)" }}>
+        <Section id="about" style={{ marginTop: "-100px", scrollMarginTop: "calc(var(--nav-height) + 56px)" }}>
           <div className="container about-grid">
             <Reveal delay={0.15} className="profile-card">
               <div className="profile-grid">

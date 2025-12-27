@@ -190,7 +190,7 @@ p {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  margin-left: -60px;
+  margin-left: -80px;
 }
 
 .brand-left {
@@ -404,7 +404,7 @@ section[id] {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.8fr);
+  grid-template-columns: 1fr;
   gap: 60px;
   align-items: center;
 }
@@ -708,6 +708,7 @@ section#about .profile-card:hover {
   color: #666666;
   line-height: 1.65;
   text-align: justify;
+  margin-top: 50px;
 }
 
 /* Grid layout */
