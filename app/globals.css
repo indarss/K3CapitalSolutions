@@ -368,7 +368,7 @@ section[id] {
 }
 
 section#services {
-  scroll-margin-top: calc(var(--nav-height) + 85px);
+  scroll-margin-top: calc(var(--nav-height) + 115px);
 }
 
 .highlight-bar {
