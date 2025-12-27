@@ -367,10 +367,6 @@ section[id] {
   scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
-section#services {
-  scroll-margin-top: calc(var(--nav-height) + 115px);
-}
-
 .highlight-bar {
   width: 0;
   height: 5px;
