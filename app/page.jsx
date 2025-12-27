@@ -37,7 +37,7 @@ export default function Page() {
           </div>
 
           {/* IMAGE BELOW TEXT */}
-          <div className="container" style={{ marginTop: "10px" }}>
+          <div className="container" style={{ marginTop: "-5px" }}>
             <div className="hero-image-card">
               <img
                 src="/img/Skyscrapers.webp"
@@ -49,7 +49,7 @@ export default function Page() {
         </section>
 
         {/* SERVICES */}
-        <Section id="services" className="services-section" style={{ scrollMarginTop: "calc(var(--nav-height) + 20px)" }}>
+        <Section id="services" className="services-section" style={{ scrollMarginTop: "80px" }}>
           <div className="container">
 
             {/* RockCo-style header with two-column layout */}
