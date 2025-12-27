@@ -151,7 +151,7 @@ p {
   font-weight: 600;
   color: #d4af37;
   letter-spacing: 0.1em;
-  margin-left: 2px;
+  margin-left: 20px;
   pointer-events: auto;
 }
 
@@ -190,6 +190,7 @@ p {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  margin-left: -40px;
 }
 
 .brand-left {
@@ -403,7 +404,7 @@ section[id] {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.8fr);
   gap: 60px;
   align-items: center;
 }
@@ -699,7 +700,7 @@ section#about .profile-card:hover {
   grid-template-columns: 1fr 1.2fr;
   gap: 60px;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .services-header-left {
@@ -716,6 +717,7 @@ section#about .profile-card:hover {
 .services-header-left .highlight-bar {
   grid-column: 1 / -1;
   order: -3;
+  margin-bottom: 2px;
 }
 
 .services-header-right {
@@ -1111,7 +1113,7 @@ section#about .profile-photo-caption {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 0.7fr;
   gap: 0;
   align-items: start;
   width: 100%;

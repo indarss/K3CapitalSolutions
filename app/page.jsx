@@ -37,7 +37,7 @@ export default function Page() {
           </div>
 
           {/* IMAGE BELOW TEXT */}
-          <div className="container" style={{ marginTop: "20px" }}>
+          <div className="container" style={{ marginTop: "10px" }}>
             <div className="hero-image-card">
               <img
                 src="/img/Skyscrapers.webp"
@@ -231,7 +231,7 @@ export default function Page() {
           </div>
 
           <div className="footer-bottom">
-            © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved. Website created by <a href="mailto:sparnins@hotmail.com" style={{ color: "#1c4e80", textDecoration: "none" }}>isContent LLC</a>
+            © {new Date().getFullYear()} K3 Capital Solutions. All rights reserved. Website created by <a href="mailto:sparnins@hotmail.com" style={{ color: "#98c2ecff", textDecoration: "none" }}>isContent LLC</a>
             <br />
           </div>
         </footer>
