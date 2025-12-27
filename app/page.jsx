@@ -49,7 +49,7 @@ export default function Page() {
         </section>
 
         {/* SERVICES */}
-        <Section id="services" className="services-section" style={{ scrollMarginTop: "80px" }}>
+        <Section id="services" className="services-section" style={{ scrollMarginTop: "120px" }}>
           <div className="container">
 
             {/* RockCo-style header with two-column layout */}

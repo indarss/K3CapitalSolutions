@@ -675,7 +675,7 @@ section#about .profile-card:hover {
 
 .services-section {
   background: #f5ede4;
-  padding: 20px 0 130px;
+  padding: 20px 0 160px;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -716,7 +716,7 @@ section#about .profile-card:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
-  margin-top: 28px;
+  margin-top: 40px;
 }
 
 /* Service cards */
@@ -971,7 +971,7 @@ section#about .profile-photo-caption {
 .insights-main h2 {
   font-size: clamp(1.9rem, 3vw, 2.3rem);
   margin-bottom: 16px;
-  color: #6479f0;
+  color: #4f515f;
 }
 
 .insights-main p {
