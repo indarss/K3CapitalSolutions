@@ -147,7 +147,7 @@ p {
 .sidebar-text {
   position: sticky;
   top: calc(var(--nav-height) + 40px);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #d4af37;
   letter-spacing: 0.1em;
@@ -365,6 +365,10 @@ section#blog a {
 /* Correct scroll anchoring for sticky nav */
 section[id] {
   scroll-margin-top: calc(var(--nav-height) + 16px);
+}
+
+section#services {
+  scroll-margin-top: calc(var(--nav-height) + 56px);
 }
 
 .highlight-bar {
@@ -675,7 +679,7 @@ section#about .profile-card:hover {
 
 .services-section {
   background: #f5ede4;
-  padding: 20px 0 160px;
+  padding: 30px 0 170px;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
