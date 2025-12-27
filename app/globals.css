@@ -397,7 +397,7 @@ section[id] {
   background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
   background-size: 30px 30px;
   background-position: 0 0;
-  padding: 60px 0 20px;
+  padding: 60px 0 50px;
   position: relative;
   min-height: auto;
 }
@@ -675,7 +675,7 @@ section#about .profile-card:hover {
 
 .services-section {
   background: #f5ede4;
-  padding: 20px 0 110px;
+  padding: 20px 0 130px;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -971,7 +971,7 @@ section#about .profile-photo-caption {
 .insights-main h2 {
   font-size: clamp(1.9rem, 3vw, 2.3rem);
   margin-bottom: 16px;
-  color: #9d8b6d;
+  color: #6479f0;
 }
 
 .insights-main p {
