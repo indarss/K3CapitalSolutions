@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { welcomeTemplate } from "@/lib/email-templates";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
@@ -55,6 +59,19 @@ export async function POST(req) {
         { error: `Database error: ${res.statusText}` },
         { status: res.status }
       );
+    }
+
+    // Send welcome email via Resend
+    try {
+      await resend.emails.send({
+        from: "noreply@k3capitalsolutions.com",
+        to: email,
+        subject: `Welcome to K3 Capital Solutions, ${name}!`,
+        html: welcomeTemplate(name),
+      });
+    } catch (emailError) {
+      console.error("Email sending failed:", emailError);
+      // Don't fail the subscription if email fails, but log it
     }
 
     return NextResponse.json({ success: true });
