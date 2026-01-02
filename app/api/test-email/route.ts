@@ -1,25 +1,27 @@
 import { NextResponse } from "next/server";
-import { sendEmail } from "@/lib/email";
-import { testTemplate } from "@/lib/email-templates";
+import { Resend } from "resend";
 
-const SECRET = process.env.INTERNAL_API_SECRET;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req: Request) {
-  const auth = req.headers.get("authorization");
-  if (!SECRET || auth !== `Bearer ${SECRET}`) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
+export async function GET() {
   try {
-    const result = await sendEmail({
-      to: "you@example.com",
-      subject: "Template test",
-      html: testTemplate(),
+    const result = await resend.emails.send({
+      from: "noreply@k3capitalsolutions.com",
+      to: ["kristseiduks3@gmail.com"],
+      cc: ["sparnins@hotmail.com"],
+      subject: "Resend test from Vercel",
+      html: `
+        <h2>Success 🎉</h2>
+        <p>This email was sent from your Vercel app using Resend.</p>
+      `,
     });
 
-    return NextResponse.json({ ok: true, result });
-  } catch (err) {
-    console.error(err);
-    return NextResponse.json({ ok: false, error: String(err) }, { status: 500 });
+    return NextResponse.json({ success: true, result });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 }
+    );
   }
 }
