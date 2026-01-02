@@ -10,12 +10,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { to, cc, subject, html } = await req.json();
-
   try {
     const result = await sendEmail({
       to: "you@example.com",
-      cc,
       subject: "Template test",
       html: testTemplate(),
     });

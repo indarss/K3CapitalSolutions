@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { sendEmail } from "@/lib/email";
 import { welcomeTemplate } from "@/lib/email-templates";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
@@ -63,8 +61,7 @@ export async function POST(req) {
 
     // Send welcome email via Resend
     try {
-      await resend.emails.send({
-        from: "noreply@k3capitalsolutions.com",
+      await sendEmail({
         to: email,
         subject: `Welcome to K3 Capital Solutions, ${name}!`,
         html: welcomeTemplate(name),
