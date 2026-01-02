@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { sendEmail } from "@/lib/email";
-import { welcomeTemplate } from "@/lib/email-templates";
+import { sendEmail } from "../../lib/email.ts";
+import { welcomeTemplate } from "../../lib/email-templates.ts";
 
 export async function POST(req) {
   try {
