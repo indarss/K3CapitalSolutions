@@ -32,7 +32,7 @@ export async function sendEmail(args: SendEmailArgs) {
     to: args.to,
     cc: args.cc,
     bcc: args.bcc,
-    replyTo: args.replyTo,
+    reply_to: args.replyTo,
     subject: args.subject,
     html: args.html,
     text: args.text,
