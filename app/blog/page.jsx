@@ -60,7 +60,7 @@ export default function BlogIndex() {
                 investment experience and disciplined capital stewardship.
               </p>
             </div>
-            <div style={{ flex: 0 0 auto, marginTop: "10px" }}>
+            <div style={{ flex: "0 0 auto", marginTop: "10px" }}>
               <img 
                 src="/img/k3_logo.jpg" 
                 alt="K3 Capital Solutions" 
@@ -164,7 +164,7 @@ export default function BlogIndex() {
                       </h3>
                       
                       {/* Excerpt */}
-                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
+                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1", textAlign: "justify" }}>
                         {post.excerpt}
                       </p>
                     </div>
@@ -175,9 +175,23 @@ export default function BlogIndex() {
           )}
         </div>
 
-        <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center", color: "#d4af37" }}>
-          Capital · Character · Conviction
-        </p>
+        <div style={{ position: "relative" }}>
+          <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center", color: "#d4af37" }}>
+            Capital · Character · Conviction
+          </p>
+          <div style={{ 
+            position: "absolute", 
+            bottom: "24px", 
+            right: "-40px", 
+            fontSize: "200px", 
+            fontWeight: "bold", 
+            color: "rgba(212, 175, 55, 0.1)", 
+            lineHeight: "1",
+            fontFamily: "serif"
+          }}>
+            K3
+          </div>
+        </div>
       </div>
     </Section>
   );
