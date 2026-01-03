@@ -52,18 +52,28 @@ export default function BlogIndex() {
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
           <div className="highlight-bar"></div>
-          <span className="hero-eyebrow">Insights and Thoughts from K3 Capital Solutions Perspective</span>
-          <h1 className="hero-title">Capital · Character · Conviction</h1>
-          <p className="section-intro">
-            Long-form reflections, frameworks and perspectives rooted in real-world
-            investment experience and disciplined capital stewardship.
-          </p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}>
+            <div style={{ flex: 1 }}>
+              <h1 className="hero-title" style={{ color: "#0c2d48" }}>Capital · Character · Conviction</h1>
+              <p className="section-intro">
+                Long-form reflections, frameworks and perspectives rooted in real-world
+                investment experience and disciplined capital stewardship.
+              </p>
+            </div>
+            <div style={{ flex: 0 0 auto, marginTop: "10px" }}>
+              <img 
+                src="/img/k3_logo.jpg" 
+                alt="K3 Capital Solutions" 
+                style={{ width: "180px", height: "auto", borderRadius: "8px" }}
+              />
+            </div>
+          </div>
         </Reveal>
 
         <div style={{ marginTop: "40px" }}>
           {/* Latest Posts Section - 3 Column Grid */}
           <div style={{ marginBottom: "80px" }}>
-            <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#0c2d48" }}>
               Latest Posts
             </h2>
             <div style={{ 
@@ -86,7 +96,7 @@ export default function BlogIndex() {
                     
                     {/* Date */}
                     {post.date && (
-                      <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
+                      <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#d4af37" }}>
                         {new Date(post.date).toLocaleDateString("en-US", { 
                           year: "numeric", 
                           month: "short", 
@@ -106,15 +116,6 @@ export default function BlogIndex() {
                     <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
                       {post.excerpt}
                     </p>
-                    
-                    {/* Author */}
-                    <div style={{ 
-                      fontSize: "0.85rem", 
-                      color: "var(--text-secondary)",
-                      fontWeight: "500"
-                    }}>
-                      K3 Capital Solutions
-                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -124,7 +125,7 @@ export default function BlogIndex() {
           {/* Archive Section */}
           {posts.length > 3 && (
             <div>
-              <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "var(--text-primary)" }}>
+              <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#d4af37" }}>
                 Archive
               </h2>
               <div style={{ 
@@ -146,7 +147,7 @@ export default function BlogIndex() {
                       
                       {/* Date */}
                       {post.date && (
-                        <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "var(--text-secondary)" }}>
+                        <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#d4af37" }}>
                           {new Date(post.date).toLocaleDateString("en-US", { 
                             year: "numeric", 
                             month: "short", 
@@ -166,15 +167,6 @@ export default function BlogIndex() {
                       <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
                         {post.excerpt}
                       </p>
-                      
-                      {/* Author */}
-                      <div style={{ 
-                        fontSize: "0.85rem", 
-                        color: "var(--text-secondary)",
-                        fontWeight: "500"
-                      }}>
-                        K3 Capital Solutions
-                      </div>
                     </div>
                   </Reveal>
                 ))}
@@ -183,8 +175,8 @@ export default function BlogIndex() {
           )}
         </div>
 
-        <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center" }}>
-          Capital · Character · Conviction — a perspective from K3 Capital Solutions.
+        <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center", color: "#d4af37" }}>
+          Capital · Character · Conviction
         </p>
       </div>
     </Section>

@@ -6,6 +6,9 @@ export const metadata = {
   title: "K3 Capital Solutions",
   description:
     "Independent investment advisory for sophisticated and high-net-worth clients.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
