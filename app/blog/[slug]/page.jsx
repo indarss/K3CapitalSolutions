@@ -20,7 +20,14 @@ export default function BlogPost({ params }) {
   const { content, data } = matter(source);
 
   return (
-    <main>
+    <>
+      {/* LEFT SIDEBAR — GOLDEN LINE WITH K3 */}
+      <div className="sidebar-k3">
+        <div className="sidebar-line"></div>
+        <div className="sidebar-text">K3</div>
+      </div>
+
+      <main>
       <div className="container" style={{ paddingTop: "20px", paddingBottom: "12px" }}>
         <nav style={{ fontSize: "0.9rem", color: "#666" }}>
           <Link href="/blog" style={{ color: "#1c4e80", textDecoration: "none", fontWeight: "500" }}>
@@ -31,26 +38,32 @@ export default function BlogPost({ params }) {
         </nav>
       </div>
       <div className="container" style={{ paddingTop: "100px", paddingBottom: "64px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "40px", alignItems: "flex-start", marginBottom: "40px" }}>
-          <div>
+        <div style={{ 
+          display: "grid", 
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+          gap: "40px", 
+          marginBottom: "40px" 
+        }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
             <h1 className="hero-title" style={{ fontSize: "2rem", marginBottom: "12px" }}>
               {data.title}
             </h1>
             {data.date && (
-              <p style={{ fontSize: "0.8rem", opacity: 0.7, marginBottom: "24px" }}>
+              <p style={{ fontSize: "0.8rem", opacity: 0.7, marginBottom: "24px", color: "#d4af37" }}>
                 {new Date(data.date).toLocaleDateString()}
               </p>
             )}
-            <p style={{ fontSize: "0.9rem", color: "#666", marginBottom: "0" }}>
+            <PixabayImage title={data.title} idx={0} style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }} />
+            <p style={{ fontSize: "0.9rem", color: "#d4af37", marginBottom: "0", flex: "1" }}>
               Capital · Character · Conviction — a perspective from K3 Capital Solutions.
             </p>
           </div>
-          <PixabayImage title={data.title} idx={0} />
         </div>
         <article className="service-card">
           <MDXRemote source={content} />
         </article>
       </div>
     </main>
+    </>
   );
 }
