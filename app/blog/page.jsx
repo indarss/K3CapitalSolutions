@@ -49,9 +49,10 @@ export default function BlogIndex() {
 
   return (
     <>
-      {/* LEFT SIDEBAR — GOLDEN LINE */}
+      {/* LEFT SIDEBAR — GOLDEN LINE WITH K3 */}
       <div className="sidebar-k3">
         <div className="sidebar-line"></div>
+        <div className="sidebar-text">K3</div>
       </div>
 
       <Section id="blog" style={{ paddingTop: "0px", marginTop: "0px", marginLeft: "-24px" }}>
@@ -135,8 +136,9 @@ export default function BlogIndex() {
               </h2>
               <div style={{ 
                 display: "grid", 
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
-                gap: "32px"
+                gridTemplateColumns: "repeat(3, 1fr)", 
+                gap: "32px",
+                marginBottom: "40px"
               }}>
                 {posts.slice(3).map((post, idx) => (
                   <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
