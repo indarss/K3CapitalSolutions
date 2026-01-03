@@ -48,10 +48,15 @@ export default function BlogIndex() {
     .sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
 
   return (
-    <Section id="blog" style={{ paddingTop: "0px", marginTop: "0px", marginLeft: "-24px" }}>
+    <>
+      {/* LEFT SIDEBAR — GOLDEN LINE */}
+      <div className="sidebar-k3">
+        <div className="sidebar-line"></div>
+      </div>
+
+      <Section id="blog" style={{ paddingTop: "0px", marginTop: "0px", marginLeft: "-24px" }}>
       <div className="container" style={{ paddingLeft: "24px" }}>
         <Reveal>
-          <div className="highlight-bar"></div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}>
             <div style={{ flex: 1 }}>
               <h1 className="hero-title" style={{ color: "#0c2d48" }}>Capital · Character · Conviction</h1>
@@ -113,7 +118,7 @@ export default function BlogIndex() {
                     </h3>
                     
                     {/* Excerpt */}
-                    <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1" }}>
+                    <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "#d4af37", flex: "1" }}>
                       {post.excerpt}
                     </p>
                   </div>
@@ -124,7 +129,7 @@ export default function BlogIndex() {
 
           {/* Archive Section */}
           {posts.length > 3 && (
-            <div>
+            <div style={{ marginBottom: "80px" }}>
               <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#d4af37" }}>
                 Archive
               </h2>
@@ -164,7 +169,7 @@ export default function BlogIndex() {
                       </h3>
                       
                       {/* Excerpt */}
-                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "var(--text-secondary)", flex: "1", textAlign: "justify" }}>
+                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "#d4af37", flex: "1", textAlign: "justify" }}>
                         {post.excerpt}
                       </p>
                     </div>
@@ -181,11 +186,11 @@ export default function BlogIndex() {
           </p>
           <div style={{ 
             position: "absolute", 
-            bottom: "24px", 
+            bottom: "-60px", 
             right: "-40px", 
             fontSize: "200px", 
             fontWeight: "bold", 
-            color: "rgba(212, 175, 55, 0.1)", 
+            color: "rgba(212, 175, 55, 0.15)", 
             lineHeight: "1",
             fontFamily: "serif"
           }}>
@@ -194,5 +199,6 @@ export default function BlogIndex() {
         </div>
       </div>
     </Section>
+    </>
   );
 }
