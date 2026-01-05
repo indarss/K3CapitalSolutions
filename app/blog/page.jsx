@@ -60,8 +60,8 @@ export default function BlogIndex() {
         <Reveal>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}>
             <div style={{ flex: 1 }}>
-              <h1 className="hero-title" style={{ color: "#0c2d48" }}>Capital · Character · Conviction</h1>
-              <p className="section-intro">
+              <h1 className="hero-title" style={{ color: "#0c2d48", fontWeight: "bold" }}>Capital   Character   Conviction</h1>
+              <p className="section-intro" style={{ color: "#555", fontSize: "1rem", lineHeight: "1.6" }}>
                 Long-form reflections, frameworks and perspectives rooted in real-world
                 investment experience and disciplined capital stewardship.
               </p>
@@ -93,68 +93,22 @@ export default function BlogIndex() {
                   <div style={{ 
                     display: "flex",
                     flexDirection: "column",
-                    height: "100%"
+                    height: "100%",
+                    backgroundColor: "#ffffff",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+                    transition: "box-shadow 0.3s ease"
                   }}>
                     {/* Image */}
-                    <div style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }}>
+                    <div style={{ marginBottom: "0", borderRadius: "0", overflow: "hidden" }}>
                       <PixabayImage title={post.title} idx={idx} size="medium" />
                     </div>
                     
-                    {/* Date */}
-                    {post.date && (
-                      <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#d4af37" }}>
-                        {new Date(post.date).toLocaleDateString("en-US", { 
-                          year: "numeric", 
-                          month: "short", 
-                          day: "numeric" 
-                        })}
-                      </p>
-                    )}
-                    
-                    {/* Title */}
-                    <h3 style={{ marginBottom: "12px", fontSize: "1.1rem", lineHeight: "1.4" }}>
-                      <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                        {post.title}
-                      </Link>
-                    </h3>
-                    
-                    {/* Excerpt */}
-                    <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "#d4af37", flex: "1" }}>
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          {/* Archive Section */}
-          {posts.length > 3 && (
-            <div style={{ marginBottom: "80px" }}>
-              <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#d4af37" }}>
-                Archive
-              </h2>
-              <div style={{ 
-                display: "grid", 
-                gridTemplateColumns: "repeat(3, 1fr)", 
-                gap: "32px",
-                marginBottom: "40px"
-              }}>
-                {posts.slice(3).map((post, idx) => (
-                  <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
-                    <div style={{ 
-                      display: "flex",
-                      flexDirection: "column",
-                      height: "100%"
-                    }}>
-                      {/* Image */}
-                      <div style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }}>
-                        <PixabayImage title={post.title} idx={idx} size="medium" />
-                      </div>
-                      
+                    <div style={{ padding: "20px" }}>
                       {/* Date */}
                       {post.date && (
-                        <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#d4af37" }}>
+                        <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#0c2d48", fontWeight: "500" }}>
                           {new Date(post.date).toLocaleDateString("en-US", { 
                             year: "numeric", 
                             month: "short", 
@@ -171,9 +125,69 @@ export default function BlogIndex() {
                       </h3>
                       
                       {/* Excerpt */}
-                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "12px", color: "#d4af37", flex: "1", textAlign: "justify" }}>
+                      <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "0", color: "#555", flex: "1" }}>
                         {post.excerpt}
                       </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Archive Section */}
+          {posts.length > 3 && (
+            <div style={{ marginBottom: "80px" }}>
+              <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#0c2d48" }}>
+                Archive
+              </h2>
+              <div style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(3, 1fr)", 
+                gap: "32px",
+                marginBottom: "40px"
+              }}>
+                {posts.slice(3).map((post, idx) => (
+                  <Reveal key={post.slug} delay={0.05 * (idx + 1)}>
+                    <div style={{ 
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                      backgroundColor: "#ffffff",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+                      transition: "box-shadow 0.3s ease"
+                    }}>
+                      {/* Image */}
+                      <div style={{ marginBottom: "0", borderRadius: "0", overflow: "hidden" }}>
+                        <PixabayImage title={post.title} idx={idx} size="medium" />
+                      </div>
+                      
+                      <div style={{ padding: "20px" }}>
+                        {/* Date */}
+                        {post.date && (
+                          <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "8px", color: "#0c2d48", fontWeight: "500" }}>
+                            {new Date(post.date).toLocaleDateString("en-US", { 
+                              year: "numeric", 
+                              month: "short", 
+                              day: "numeric" 
+                            })}
+                          </p>
+                        )}
+                        
+                        {/* Title */}
+                        <h3 style={{ marginBottom: "12px", fontSize: "1.1rem", lineHeight: "1.4" }}>
+                          <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+                            {post.title}
+                          </Link>
+                        </h3>
+                        
+                        {/* Excerpt */}
+                        <p className="meta" style={{ fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "0", color: "#555", flex: "1", textAlign: "justify" }}>
+                          {post.excerpt}
+                        </p>
+                      </div>
                     </div>
                   </Reveal>
                 ))}
@@ -183,7 +197,7 @@ export default function BlogIndex() {
         </div>
 
         <div style={{ position: "relative" }}>
-          <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid var(--border-color)", textAlign: "center", color: "#d4af37" }}>
+          <p className="meta" style={{ marginTop: "40px", paddingTop: "24px", borderTop: "1px solid #d4b99e", textAlign: "center", color: "#0c2d48", fontWeight: "500" }}>
             Capital · Character · Conviction
           </p>
           <div style={{ 
@@ -192,9 +206,10 @@ export default function BlogIndex() {
             right: "-40px", 
             fontSize: "200px", 
             fontWeight: "bold", 
-            color: "rgba(212, 175, 55, 0.15)", 
+            color: "rgba(212, 175, 55, 0.08)", 
             lineHeight: "1",
-            fontFamily: "serif"
+            fontFamily: "serif",
+            pointerEvents: "none"
           }}>
             K3
           </div>

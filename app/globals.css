@@ -78,7 +78,7 @@ html {
 body.app-root {
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-sans), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--font-sans), "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: var(--fs-base);
   line-height: var(--lh-base);
   -webkit-font-smoothing: antialiased;
@@ -335,7 +335,7 @@ section#about .profile-contact a {
 /* Blog section — Warm orange with map texture */
 section#blog {
   background: #f5ede4;
-  color: #ffffff;
+  color: #333;
   padding-left: 40px;
 }
 
@@ -352,19 +352,26 @@ section#blog h3 {
   -webkit-box-orient: vertical;
   overflow: hidden;
   min-height: 2.4em;
+  color: #0c2d48;
 }
 
 section#blog p,
 section#blog .meta {
-  color: rgba(255, 255, 255, 0.95);
+  color: #555;
 }
 
 section#blog .section-intro {
-  color: #d4af37;
+  color: #555;
+  font-weight: 400;
 }
 
 section#blog a {
-  color: #d4af37;
+  color: #0c2d48;
+}
+
+section#blog img {
+  border: 1px solid #d4b99e;
+  display: block;
 }
 
 .section-intro {
@@ -407,9 +414,6 @@ section[id] {
 
 .hero.rockco-hero {
   background: #f5ede4;
-  background-image: radial-gradient(circle, #d4c4b0 1px, transparent 1px);
-  background-size: 30px 30px;
-  background-position: 0 0;
   padding: 60px 0 50px;
   position: relative;
   min-height: auto;
@@ -1126,7 +1130,7 @@ section#about .profile-photo-caption {
   color: rgba(255, 255, 255, 0.85);
   word-break: break-word;
   overflow-wrap: break-word;
-  font-family: inherit, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: inherit, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .footer-col:last-child {

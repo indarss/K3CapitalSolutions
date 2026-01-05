@@ -55,7 +55,7 @@ export default function BlogPost({ params }) {
             )}
             <PixabayImage title={data.title} idx={0} style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }} />
             <p style={{ fontSize: "0.9rem", color: "#d4af37", marginBottom: "0", flex: "1" }}>
-              Capital · Character · Conviction — a perspective from K3 Capital Solutions.
+              Capital · Character · Conviction
             </p>
           </div>
         </div>
