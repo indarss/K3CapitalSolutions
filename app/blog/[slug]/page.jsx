@@ -20,15 +20,17 @@ export default function BlogPost({ params }) {
   const { content, data } = matter(source);
 
   // Extract the opening blockquote
-  const blockquoteMatch = content.match(/^>\s*(.+?)(?:\n>\s*(.+?))?(?:\n*(?=[^>])|$)/m);
+  const blockquoteMatch = content.match(/^>\s*"(.+?)"[\s\n]*(?:>\s*\n)?>\s*—\s*(.+?)(?:\n|$)/ms);
   let blockquote = null;
   let contentWithoutBlockquote = content;
   
   if (blockquoteMatch) {
-    const quote = blockquoteMatch[1].trim();
-    const attribution = blockquoteMatch[2]?.trim();
-    blockquote = { quote, attribution };
-    contentWithoutBlockquote = content.replace(/^>\s*(.+?)(?:\n>\s*(.+?))?(?:\n*)/, "").trim();
+    blockquote = {
+      quote: blockquoteMatch[1],
+      attribution: blockquoteMatch[2]
+    };
+    // Remove the blockquote from content
+    contentWithoutBlockquote = content.replace(/^>\s*"(.+?)"[\s\n]*(?:>\s*\n)?>\s*—\s*(.+?)(?:\n\n?)/ms, '').trim();
   }
 
   return (
