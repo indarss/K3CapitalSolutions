@@ -208,7 +208,7 @@ export function BlogContent({ initialPosts }) {
             <div style={{ 
               position: "absolute", 
               bottom: "-100px", 
-              right: "-105px", 
+              right: "-120px", 
               fontSize: "200px", 
               fontWeight: "bold", 
               color: "rgba(212, 175, 55, 0.08)", 
