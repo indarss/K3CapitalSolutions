@@ -347,11 +347,6 @@ section#blog h2 {
 
 section#blog h3 {
   text-align: center;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 2.4em;
   color: #0c2d48;
 }
 
@@ -764,6 +759,9 @@ section#about .profile-card:hover {
 .service-card ol li {
   margin-left: 20px;
   text-align: justify;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.6;
 }
 
 

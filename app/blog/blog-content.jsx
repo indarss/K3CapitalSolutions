@@ -33,7 +33,7 @@ export function BlogContent({ initialPosts }) {
           <Reveal>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "40px" }}>
               <div style={{ flex: 1 }}>
-                <h1 className="hero-title" style={{ color: "#0c2d48", fontWeight: "bold" }}>Learnings, frameworks, and market notes</h1>
+                <h1 className="hero-title" style={{ color: "#0c2d48", fontWeight: "bold", fontSize: "clamp(2rem, 3vw, 2.8rem)" }}>Learnings, frameworks and market notes</h1>
               </div>
               <div style={{ flex: "0 0 auto", marginTop: "0px" }}>
                 <img 
@@ -207,7 +207,7 @@ export function BlogContent({ initialPosts }) {
             </h2>
             <div style={{ 
               position: "absolute", 
-              bottom: "-40px", 
+              bottom: "40px", 
               right: "-40px", 
               fontSize: "200px", 
               fontWeight: "bold", 

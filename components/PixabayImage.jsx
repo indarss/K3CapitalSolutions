@@ -34,7 +34,7 @@ export default function PixabayImage({ title, idx, size = "medium", slug }) {
   }, [idx, slug, config.width, config.height]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: `${config.width}px`, height: `${config.height}px`, backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "auto", aspectRatio: "2 / 1", backgroundColor: "var(--surface-alt)", borderRadius: "0", overflow: "hidden" }}>
       {imageUrl && (
         <img 
           src={imageUrl}
