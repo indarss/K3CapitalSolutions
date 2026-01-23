@@ -146,7 +146,7 @@ p {
 
 .sidebar-text {
   position: sticky;
-  top: calc(var(--nav-height) + 40px);
+  top: calc(var(--nav-height) + 120px);
   font-size: 1.1rem;
   font-weight: 600;
   color: #d4af37;
