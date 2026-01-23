@@ -207,8 +207,8 @@ export function BlogContent({ initialPosts }) {
             </h2>
             <div style={{ 
               position: "absolute", 
-              bottom: "-120px", 
-              right: "20px", 
+              bottom: "-110px", 
+              right: "-70px", 
               fontSize: "200px", 
               fontWeight: "bold", 
               color: "rgba(212, 175, 55, 0.08)", 
