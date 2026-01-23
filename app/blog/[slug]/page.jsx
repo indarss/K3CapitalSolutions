@@ -19,6 +19,18 @@ export default function BlogPost({ params }) {
   const source = fs.readFileSync(filePath, "utf8");
   const { content, data } = matter(source);
 
+  // Extract the opening blockquote
+  const blockquoteMatch = content.match(/^>\s*(.+?)(?:\n>\s*(.+?))?(?:\n*(?=[^>])|$)/m);
+  let blockquote = null;
+  let contentWithoutBlockquote = content;
+  
+  if (blockquoteMatch) {
+    const quote = blockquoteMatch[1].trim();
+    const attribution = blockquoteMatch[2]?.trim();
+    blockquote = { quote, attribution };
+    contentWithoutBlockquote = content.replace(/^>\s*(.+?)(?:\n>\s*(.+?))?(?:\n*)/, "").trim();
+  }
+
   return (
     <>
       {/* LEFT SIDEBAR — GOLDEN LINE WITH K3 */}
@@ -29,38 +41,63 @@ export default function BlogPost({ params }) {
 
       <main>
       <div className="container" style={{ paddingTop: "20px", paddingBottom: "12px" }}>
-        <nav style={{ fontSize: "0.9rem", color: "#666" }}>
-          <Link href="/blog" style={{ color: "#1c4e80", textDecoration: "none", fontWeight: "500" }}>
-            Blog
-          </Link>
-          <span style={{ margin: "0 8px" }}>/</span>
-          <span>{data.title}</span>
-        </nav>
       </div>
-      <div className="container" style={{ paddingTop: "100px", paddingBottom: "64px" }}>
+      <div className="container" style={{ paddingTop: "40px", paddingBottom: "64px" }}>
         <div style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
-          gap: "40px", 
+          display: "flex",
+          justifyContent: "center",
           marginBottom: "40px" 
         }}>
-          <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-            <h1 className="hero-title" style={{ fontSize: "2rem", marginBottom: "12px" }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", maxWidth: "600px", width: "100%" }}>
+            <h1 className="hero-title" style={{ marginBottom: "12px", color: "#0c2d48" }}>
               {data.title}
             </h1>
             {data.date && (
-              <p style={{ fontSize: "0.8rem", opacity: 0.7, marginBottom: "24px", color: "#d4af37" }}>
-                {new Date(data.date).toLocaleDateString()}
+              <p className="meta" style={{ fontSize: "0.85rem", marginBottom: "24px", color: "#0c2d48", fontWeight: "500" }}>
+                {new Date(data.date).toLocaleDateString("en-US", { 
+                  year: "numeric", 
+                  month: "short", 
+                  day: "numeric" 
+                })}
               </p>
             )}
-            <PixabayImage title={data.title} idx={0} style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }} />
-            <p style={{ fontSize: "0.9rem", color: "#d4af37", marginBottom: "0", flex: "1" }}>
-              Capital · Character · Conviction
-            </p>
+            <PixabayImage title={data.title} idx={0} slug={params.slug} style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }} />
           </div>
         </div>
+
+        {/* Opening Quote */}
+        {blockquote && (
+          <div style={{ 
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "40px"
+          }}>
+            <blockquote style={{
+              maxWidth: "600px",
+              width: "100%",
+              textAlign: "center",
+              fontSize: "1.3rem",
+              fontStyle: "italic",
+              color: "#0c2d48",
+              borderLeft: "4px solid #d4b99e",
+              paddingLeft: "24px",
+              margin: "0 0 0 24px",
+              lineHeight: "1.6"
+            }}>
+              <p style={{ marginBottom: "12px", margin: "0 0 12px 0" }}>
+                {blockquote.quote}
+              </p>
+              {blockquote.attribution && (
+                <p style={{ fontStyle: "normal", fontSize: "1rem", color: "#0c2d48", margin: "0" }}>
+                  {blockquote.attribution}
+                </p>
+              )}
+            </blockquote>
+          </div>
+        )}
+
         <article className="service-card">
-          <MDXRemote source={content} />
+          <MDXRemote source={contentWithoutBlockquote} />
         </article>
       </div>
     </main>

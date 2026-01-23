@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import { getBlogImagePath } from "../lib/blog-images";
 
-export default function PixabayImage({ title, idx, size = "medium" }) {
+export default function PixabayImage({ title, idx, size = "medium", slug }) {
   const [imageUrl, setImageUrl] = React.useState("");
 
   const sizeConfig = {
@@ -14,14 +15,23 @@ export default function PixabayImage({ title, idx, size = "medium" }) {
   const config = sizeConfig[size] || sizeConfig.medium;
 
   React.useEffect(() => {
-    // Use Lorem Picsum which provides reliable placeholder images
+    // If a slug is provided, try to use the static blog image
+    if (slug) {
+      const blogImagePath = getBlogImagePath(slug);
+      if (blogImagePath) {
+        setImageUrl(blogImagePath);
+        return;
+      }
+    }
+
+    // Fallback to Lorem Picsum placeholder images
     // Different seeds for different posts to get variety
     const seeds = [10, 20, 30, 40, 50, 60, 70, 80];
     const seed = seeds[idx % seeds.length];
     
     const url = `https://picsum.photos/${config.width}/${config.height}?random=${seed}`;
     setImageUrl(url);
-  }, [idx, config.width, config.height]);
+  }, [idx, slug, config.width, config.height]);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: `${config.width}px`, height: `${config.height}px`, backgroundColor: "var(--surface-alt)", borderRadius: "8px", overflow: "hidden" }}>

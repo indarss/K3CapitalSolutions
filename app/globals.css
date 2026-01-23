@@ -751,6 +751,21 @@ section#about .profile-card:hover {
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
+.service-card p {
+  text-align: justify;
+}
+
+.service-card ul,
+.service-card ol {
+  margin-left: 40px;
+}
+
+.service-card ul li,
+.service-card ol li {
+  margin-left: 20px;
+  text-align: justify;
+}
+
 
 /* Base styling for colored service cards */
 .service-card--color {
