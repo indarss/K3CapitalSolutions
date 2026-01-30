@@ -47,10 +47,9 @@ export default function BlogPost({ params }) {
       <div className="container" style={{ paddingTop: "40px", paddingBottom: "64px" }}>
         <div style={{ 
           display: "flex",
-          justifyContent: "center",
-          marginBottom: "40px" 
+          justifyContent: "center"
         }}>
-          <div style={{ display: "flex", flexDirection: "column", height: "100%", maxWidth: "600px", width: "100%" }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%", maxWidth: "700px" }}>
             <h1 className="hero-title" style={{ marginBottom: "12px", color: "#0c2d48" }}>
               {data.title}
             </h1>
@@ -63,7 +62,7 @@ export default function BlogPost({ params }) {
                 })}
               </p>
             )}
-            <PixabayImage title={data.title} idx={0} slug={params.slug} style={{ marginBottom: "16px", borderRadius: "8px", overflow: "hidden" }} />
+            <PixabayImage title={data.title} idx={0} slug={params.slug} style={{ marginBottom: "40px", borderRadius: "8px", overflow: "hidden" }} />
           </div>
         </div>
 
@@ -75,8 +74,8 @@ export default function BlogPost({ params }) {
             marginBottom: "40px"
           }}>
             <blockquote style={{
-              maxWidth: "600px",
               width: "100%",
+              maxWidth: "700px",
               textAlign: "center",
               fontSize: "1.3rem",
               fontStyle: "italic",
@@ -98,9 +97,14 @@ export default function BlogPost({ params }) {
           </div>
         )}
 
-        <article className="service-card">
-          <MDXRemote source={contentWithoutBlockquote} />
-        </article>
+        <div style={{ 
+          display: "flex",
+          justifyContent: "center"
+        }}>
+          <article className="service-card" style={{ width: "100%", maxWidth: "700px" }}>
+            <MDXRemote source={contentWithoutBlockquote} />
+          </article>
+        </div>
       </div>
     </main>
     </>

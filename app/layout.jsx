@@ -9,6 +9,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=5.0",
 };
 
 export default function RootLayout({ children }) {

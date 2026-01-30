@@ -90,8 +90,8 @@ export function BlogContent({ initialPosts }) {
                 </h2>
                 <div style={{ 
                   display: "grid", 
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
-                  gap: "32px",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", 
+                  gap: "24px",
                   marginBottom: "40px"
                 }}>
                   {latestPosts.map((post, idx) => (
@@ -145,8 +145,8 @@ export function BlogContent({ initialPosts }) {
                 </h2>
                 <div style={{ 
                   display: "grid", 
-                  gridTemplateColumns: searchTerm ? "repeat(auto-fit, minmax(280px, 1fr))" : "repeat(3, 1fr)", 
-                  gap: "32px",
+                  gridTemplateColumns: searchTerm ? "repeat(auto-fit, minmax(250px, 1fr))" : "repeat(auto-fit, minmax(250px, 1fr))", 
+                  gap: "24px",
                   marginBottom: "40px"
                 }}>
                   {archivePosts.map((post, idx) => (

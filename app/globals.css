@@ -355,6 +355,11 @@ section#blog .meta {
   color: #555;
 }
 
+section#blog ul li,
+section#blog ol li {
+  color: #555;
+}
+
 section#blog .section-intro {
   color: #555;
   font-weight: 400;
@@ -1243,16 +1248,478 @@ section#about .profile-photo-caption {
 }
 
 @media (max-width: 768px) {
-  .hero.rockco-hero {
-    padding: 70px 0 70px;
+  /* ===== LAYOUT & SPACING ===== */
+  .container {
+    padding: 0 16px;
+    padding-left: 22px;
+    max-width: 100%;
   }
 
+  body {
+    font-size: 15px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .nav-inner {
+    gap: 20px;
+    padding-left: 16px;
+  }
+
+  .brand {
+    margin-left: -50px;
+  }
+
+  .brand-name {
+    font-size: 0.85rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.65rem;
+  }
+
+  .nav-links {
+    gap: 14px;
+    flex: 1;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 0 6px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar-k3 {
+    width: 50px;
+  }
+
+  .sidebar-line {
+    margin-left: 20px;
+    height: 400px;
+  }
+
+  .sidebar-text {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    top: calc(var(--nav-height) + 80px);
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero.rockco-hero {
+    padding: 50px 0 40px;
+    margin-top: -80px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-subtext {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-image {
+    height: 300px;
+  }
+
+  .highlight-bar {
+    width: 32px;
+  }
+
+  /* ===== SERVICES SECTION ===== */
+  .services-section {
+    padding: 20px 0 80px;
+  }
+
+  .services-title {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+  }
+
+  .services-intro {
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card--color {
+    padding: 20px;
+  }
+
+  .service-card--color h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card--color p {
+    font-size: 0.9rem;
+  }
+
+  /* ===== HERO CONTENT LAYOUT ===== */
+  div[style*="display: flex"][style*="gap: 60px"] {
+    gap: 30px !important;
+    flex-direction: column !important;
+  }
+
+  /* ===== PROFILE SECTION ===== */
   .profile-photo {
-    width: 200px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* ===== INSIGHTS SECTION ===== */
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ===== BLOG SECTION ===== */
+  section#blog {
+    padding-left: 0;
+  }
+
+  .blog-grid-latest {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid-archive {
+    grid-template-columns: 1fr;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer {
+    padding: 30px 0 20px;
+  }
+
+  .footer-logo {
+    width: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* ===== EXTRA SMALL DEVICES ===== */
+  .container {
+    padding: 0 12px;
+    padding-left: 18px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .nav-wrapper {
+    height: 70px;
+  }
+
+  .nav-inner {
+    gap: 12px;
+    padding-left: 12px;
+  }
+
+  .brand {
+    margin-left: -40px;
+  }
+
+  .brand-name {
+    font-size: 0.75rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.6rem;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 0.65rem;
+    padding: 0 4px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar-k3 {
+    width: 40px;
+  }
+
+  .sidebar-line {
+    margin-left: 15px;
+    height: 300px;
+  }
+
+  .sidebar-text {
+    font-size: 0.8rem;
+    margin-left: 2px;
+  }
+
+  /* ===== HERO ===== */
+  .hero.rockco-hero {
+    padding: 40px 0 30px;
+    margin-top: -70px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-subtext {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-image {
     height: 200px;
   }
 
-  section#blog {
-    padding-left: 0;
+  /* ===== SERVICES ===== */
+  .services-section {
+    padding: 15px 0 60px;
+  }
+
+  .services-title {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+
+  .services-intro {
+    font-size: 0.85rem;
+    margin-top: 15px;
+  }
+
+  .service-card--color {
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+
+  .service-card--color h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .service-card--color p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .service-card-list {
+    font-size: 0.85rem;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1 {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    margin-bottom: 0.5em;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* ===== FORMS ===== */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px !important;
+    padding: 10px 12px !important;
+  }
+
+  /* ===== PROFILE ===== */
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ===== SPACING ===== */
+  section {
+    padding: 40px 0 60px;
+  }
+
+  .hero-grid {
+    gap: 20px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 25px 0 15px;
+  }
+
+  .footer-logo {
+    width: 120px;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* ===== PHONES ONLY ===== */
+  .container {
+    padding: 0 12px;
+    padding-left: 16px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .nav-wrapper {
+    height: 65px;
+  }
+
+  .brand {
+    margin-left: -30px;
+  }
+
+  .brand-name {
+    font-size: 0.7rem;
+  }
+
+  .nav-links a {
+    font-size: 0.6rem;
+    padding: 0 3px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar-k3 {
+    width: 35px;
+  }
+
+  .sidebar-line {
+    margin-left: 12px;
+    height: 250px;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .hero.rockco-hero {
+    padding: 35px 0 25px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+
+  .hero-image {
+    height: 180px;
+  }
+
+  .services-title {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+  }
+
+  h1 {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+  }
+
+  h2 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  /* ===== SPACING REDUCTION ===== */
+  section {
+    padding: 30px 0 45px;
+  }
+
+  .services-section {
+    padding: 15px 0 50px;
+  }
+
+  .service-card--color {
+    padding: 14px;
+  }
+
+  .service-card--color h3 {
+    font-size: 1rem;
+  }
+
+  .service-card--color p {
+    font-size: 0.8rem;
+  }
+
+  /* ===== FORMS ===== */
+  input,
+  textarea {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 20px 0 12px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 0.8rem;
+  }
+
+  .footer-logo {
+    width: 100px;
   }
 }
