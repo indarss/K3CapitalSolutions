@@ -84,7 +84,7 @@ export function BlogContent({ initialPosts }) {
 
             {/* Latest Posts Section - 3 Column Grid */}
             {filteredPosts.length > 0 && (
-              <div style={{ marginBottom: "80px" }}>
+              <div style={{ marginBottom: "80px", maxWidth: "1100px", margin: "0 auto 80px auto" }}>
                 <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#0c2d48" }}>
                   {searchTerm ? "Results" : "Latest Posts"}
                 </h2>
@@ -139,7 +139,7 @@ export function BlogContent({ initialPosts }) {
 
             {/* Archive Section */}
             {archivePosts.length > 0 && (
-              <div style={{ marginBottom: "80px" }}>
+              <div style={{ marginBottom: "80px", maxWidth: "1100px", margin: "0 auto 80px auto" }}>
                 <h2 style={{ fontSize: "1.2rem", fontWeight: "600", marginBottom: "32px", color: "#0c2d48" }}>
                   {searchTerm ? "" : "Archive"}
                 </h2>
