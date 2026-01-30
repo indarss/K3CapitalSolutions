@@ -49,7 +49,7 @@ export default function BlogPost({ params }) {
           display: "flex",
           justifyContent: "center"
         }}>
-          <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%", maxWidth: "900px" }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%", maxWidth: "1000px" }}>
             <h1 className="hero-title" style={{ marginBottom: "12px", color: "#0c2d48" }}>
               {data.title}
             </h1>
@@ -75,7 +75,7 @@ export default function BlogPost({ params }) {
           }}>
             <div style={{
               width: "100%",
-              maxWidth: "900px",
+              maxWidth: "1000px",
               display: "flex"
             }}>
               <div style={{
@@ -109,7 +109,7 @@ export default function BlogPost({ params }) {
           display: "flex",
           justifyContent: "center"
         }}>
-          <article className="service-card" style={{ width: "100%", maxWidth: "900px" }}>
+          <article className="service-card" style={{ width: "100%", maxWidth: "1000px" }}>
             <MDXRemote source={contentWithoutBlockquote} />
           </article>
         </div>
