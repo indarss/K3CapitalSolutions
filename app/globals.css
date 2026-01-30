@@ -360,6 +360,11 @@ section#blog ol li {
   color: #555 !important;
 }
 
+article.service-card ul li,
+article.service-card ol li {
+  color: #555 !important;
+}
+
 section#blog .section-intro {
   color: #555;
   font-weight: 400;

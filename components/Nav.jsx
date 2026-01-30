@@ -18,7 +18,7 @@ export default function Nav() {
   // Track scroll shadow and which nav item is active
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState(
-    pathname === "/blog" ? "blog" : "home"
+    pathname.startsWith("/blog") ? "blog" : "home"
   );
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Nav() {
           setActiveSection(section.id);
         }
       });
-    } else if (pathname === "/blog") {
+    } else if (pathname.startsWith("/blog")) {
       setActiveSection("blog");
     } else if (pathname === "/terms") {
       setActiveSection(null);
