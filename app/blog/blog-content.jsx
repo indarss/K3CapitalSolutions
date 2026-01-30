@@ -90,7 +90,9 @@ export function BlogContent({ initialPosts }) {
                 </h2>
                 <div style={{ 
                   display: "grid", 
-                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", 
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  maxWidth: "900px",
+                  margin: "0 auto",
                   gap: "24px",
                   marginBottom: "40px"
                 }}>
@@ -145,7 +147,9 @@ export function BlogContent({ initialPosts }) {
                 </h2>
                 <div style={{ 
                   display: "grid", 
-                  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", 
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  maxWidth: "900px",
+                  margin: "0 auto",
                   gap: "24px",
                   marginBottom: "40px"
                 }}>
