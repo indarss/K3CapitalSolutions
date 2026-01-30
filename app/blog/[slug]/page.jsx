@@ -49,7 +49,7 @@ export default function BlogPost({ params }) {
           display: "flex",
           justifyContent: "center"
         }}>
-          <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%", maxWidth: "700px" }}>
+          <div style={{ display: "flex", flexDirection: "column", height: "100%", width: "100%", maxWidth: "900px" }}>
             <h1 className="hero-title" style={{ marginBottom: "12px", color: "#0c2d48" }}>
               {data.title}
             </h1>
@@ -73,27 +73,35 @@ export default function BlogPost({ params }) {
             justifyContent: "center",
             marginBottom: "40px"
           }}>
-            <blockquote style={{
+            <div style={{
               width: "100%",
-              maxWidth: "700px",
-              textAlign: "center",
-              fontSize: "1.3rem",
-              fontStyle: "italic",
-              color: "#0c2d48",
-              borderLeft: "4px solid #d4b99e",
-              paddingLeft: "24px",
-              margin: "0 0 0 24px",
-              lineHeight: "1.6"
+              maxWidth: "900px",
+              display: "flex"
             }}>
-              <p style={{ marginBottom: "12px", margin: "0 0 12px 0" }}>
-                {blockquote.quote}
-              </p>
-              {blockquote.attribution && (
-                <p style={{ fontStyle: "normal", fontSize: "1rem", color: "#0c2d48", margin: "0" }}>
-                  {blockquote.attribution}
+              <div style={{
+                width: "4px",
+                background: "#d4b99e"
+              }}></div>
+              <blockquote style={{
+                flex: 1,
+                textAlign: "center",
+                fontSize: "1.3rem",
+                fontStyle: "italic",
+                color: "#0c2d48",
+                paddingLeft: "24px",
+                margin: "0",
+                lineHeight: "1.6"
+              }}>
+                <p style={{ marginBottom: "12px", margin: "0 0 12px 0" }}>
+                  {blockquote.quote}
                 </p>
-              )}
-            </blockquote>
+                {blockquote.attribution && (
+                  <p style={{ fontStyle: "normal", fontSize: "1rem", color: "#0c2d48", margin: "0" }}>
+                    {blockquote.attribution}
+                  </p>
+                )}
+              </blockquote>
+            </div>
           </div>
         )}
 
@@ -101,7 +109,7 @@ export default function BlogPost({ params }) {
           display: "flex",
           justifyContent: "center"
         }}>
-          <article className="service-card" style={{ width: "100%", maxWidth: "700px" }}>
+          <article className="service-card" style={{ width: "100%", maxWidth: "900px" }}>
             <MDXRemote source={contentWithoutBlockquote} />
           </article>
         </div>

@@ -357,7 +357,7 @@ section#blog .meta {
 
 section#blog ul li,
 section#blog ol li {
-  color: #555;
+  color: #555 !important;
 }
 
 section#blog .section-intro {
