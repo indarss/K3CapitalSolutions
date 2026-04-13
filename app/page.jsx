@@ -4,7 +4,7 @@ import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
 import branding from "../lib/branding";
 import "./globals.css";
-import SubscribeForm from "../components/SubscribeForm";
+
 import K3Logo from "../components/K3Logo";
 
 export default function Page() {
@@ -173,12 +173,9 @@ export default function Page() {
         investors make better decisions across cycles.
       </p>
 
-      {/* SUBSCRIBE FORM — KEEP EXACTLY AS IS */}
-      <SubscribeForm />
-
       <div className="hero-actions" style={{ marginTop: "20px" }}>
-        <a href="/blog" className="btn btn-ghost">
-          Visit the Blog
+        <a href="https://substack.com/@capitalcharacterconviction" className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          Visit the Substack
         </a>
       </div>
     </Reveal>
