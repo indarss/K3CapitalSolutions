@@ -127,7 +127,7 @@ export default function Nav() {
           ))}
           {/* Substack link */}
           <a
-            href="https://substack.com"
+            href="https://substack.com/@capitalcharacterconviction"
             target="_blank"
             rel="noopener noreferrer"
           >
