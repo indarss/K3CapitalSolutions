@@ -17,9 +17,7 @@ export default function Nav() {
 
   // Track scroll shadow and which nav item is active
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState(
-    pathname.startsWith("/blog") ? "blog" : "home"
-  );
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     // When returning to home page, trigger scroll spy to update active section
@@ -35,8 +33,6 @@ export default function Nav() {
           setActiveSection(section.id);
         }
       });
-    } else if (pathname.startsWith("/blog")) {
-      setActiveSection("blog");
     } else if (pathname === "/terms") {
       setActiveSection(null);
     }
@@ -129,18 +125,13 @@ export default function Nav() {
               {s.label}
             </a>
           ))}
-          {/* Blog link */}
+          {/* Substack link */}
           <a
-            href="/blog"
-            className={activeSection === "blog" ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              // Navigate to blog route and mark as active
-              router.push("/blog");
-              setActiveSection("blog");
-            }}
+            href="https://substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            BLOG
+            SUBSTACK
           </a>  
         </div>
       </nav>
