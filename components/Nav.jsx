@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import K3Logo from "./K3Logo";
 
 const sections = [
@@ -18,6 +19,7 @@ export default function Nav() {
   // Track scroll shadow and which nav item is active
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // When returning to home page, trigger scroll spy to update active section
@@ -100,6 +102,11 @@ export default function Nav() {
     }
   };
 
+  // Close menu when navigating
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       <nav className="container nav-inner">
@@ -113,8 +120,8 @@ export default function Nav() {
           </div>
         </div>
 
-        {/* Menu */}
-        <div className="nav-links nav-center">
+        {/* Desktop Menu */}
+        <div className="nav-links nav-center nav-desktop">
           {sections.map((s) => (
             <a
               key={s.id}
@@ -134,7 +141,49 @@ export default function Nav() {
             SUBSTACK
           </a>  
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          {mobileMenuOpen ? (
+            <X size={24} strokeWidth={2} />
+          ) : (
+            <Menu size={24} strokeWidth={2} />
+          )}
+        </button>
       </nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="mobile-nav">
+          {sections.map((s) => (
+            <a
+              key={s.id}
+              href={`/#${s.id}`}
+              className={`mobile-nav-link ${activeSection === s.id ? "active" : ""}`}
+              onClick={(e) => {
+                handleNavClick(e, s.id);
+                setMobileMenuOpen(false);
+              }}
+            >
+              {s.label}
+            </a>
+          ))}
+          <a
+            href="https://substack.com/@capitalcharacterconviction"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-nav-link"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            SUBSTACK
+          </a>  
+        </div>
+      )}
     </header>
   );
 }
