@@ -1334,6 +1334,7 @@ section#about .profile-photo-caption {
   .brand {
     margin-left: -50px;
     flex-shrink: 0;
+    justify-content: center;
   }
 
   .brand-name {
@@ -1712,8 +1713,8 @@ section#about .profile-photo-caption {
 @media (max-width: 480px) {
   /* ===== PHONES ONLY ===== */
   .container {
-    padding: 0 12px;
-    padding-left: 16px;
+    padding: 0 24px;
+    padding-left: 28px;
   }
 
   /* ===== NAVIGATION ===== */
@@ -1727,6 +1728,7 @@ section#about .profile-photo-caption {
 
   .brand {
     margin-left: -30px;
+    justify-content: center;
   }
 
   .brand-name {
@@ -1776,6 +1778,25 @@ section#about .profile-photo-caption {
 
   .services-title {
     font-size: clamp(1.1rem, 3vw, 1.3rem);
+    text-align: center;
+  }
+
+  .profile-title {
+    text-align: center;
+  }
+
+  .services-section > .container > div:first-child {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .services-intro {
+    text-align: center !important;
+    margin-top: 0 !important;
+  }
+
+  .services-section .hero-eyebrow {
+    text-align: center;
   }
 
   h1 {
