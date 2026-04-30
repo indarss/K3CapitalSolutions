@@ -58,7 +58,7 @@ export default function Page() {
                 <div className="highlight-bar"></div>
                 <span className="hero-eyebrow">Service List</span>
                 <h2 className="services-title">
-                  Advisory built around sophisticated capital.
+                  Advisory built around sophisticated capital
                 </h2>
               </div>
               <div>

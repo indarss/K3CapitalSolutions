@@ -794,7 +794,7 @@ section#about .profile-card:hover {
   color: #666666;
   line-height: 1.65;
   text-align: justify;
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 /* Grid layout */
@@ -1724,11 +1724,15 @@ section#about .profile-photo-caption {
 
   .nav-inner {
     padding-left: 10px;
+    justify-content: center;
   }
 
   .brand {
-    margin-left: -30px;
+    margin-left: 0;
     justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .brand-name {
@@ -1785,6 +1789,10 @@ section#about .profile-photo-caption {
     text-align: center;
   }
 
+  section#about .profile-title {
+    text-align: center;
+  }
+
   .services-section > .container > div:first-child {
     flex-direction: column;
     gap: 30px;
@@ -1797,6 +1805,27 @@ section#about .profile-photo-caption {
 
   .services-section .hero-eyebrow {
     text-align: center;
+  }
+
+  section#about .hero-eyebrow {
+    text-align: center;
+  }
+
+  section#about .profile-text p {
+    line-height: 1.7;
+  }
+
+  .service-card-list {
+    margin: 0 0 0 8px;
+  }
+
+  .service-card-list li {
+    padding-left: 8px;
+    margin-left: 0;
+  }
+
+  .service-card-list li::before {
+    left: -4px;
   }
 
   h1 {
@@ -1831,6 +1860,10 @@ section#about .profile-photo-caption {
 
   .services-section {
     padding: 15px 0 50px;
+  }
+
+  section#about {
+    padding-top: 50px;
   }
 
   .service-card--color {
