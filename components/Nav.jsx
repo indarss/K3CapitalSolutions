@@ -108,82 +108,92 @@ export default function Nav() {
   }, [pathname]);
 
   return (
-    <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
-      <nav className="container nav-inner">
-        {/* Logo + Brand */}
-        <div className="brand brand-left">
-          <div className="brand-text">
-            <div className="brand-name">K3 CAPITAL SOLUTIONS</div>
-            <div className="brand-tagline">
-              CAPITAL MANAGEMENT
+    <>
+      {/* Mobile Menu Backdrop */}
+      {mobileMenuOpen && (
+        <div 
+          className="mobile-menu-backdrop open" 
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+      
+      <header className={`nav-wrapper ${scrolled ? "scrolled" : ""}`}>
+        <nav className="container nav-inner">
+          {/* Logo + Brand */}
+          <div className="brand brand-left">
+            <div className="brand-text">
+              <div className="brand-name">K3 CAPITAL SOLUTIONS</div>
+              <div className="brand-tagline">
+                CAPITAL MANAGEMENT
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Desktop Menu */}
-        <div className="nav-links nav-center nav-desktop">
-          {sections.map((s) => (
+          {/* Desktop Menu */}
+          <div className="nav-links nav-center nav-desktop">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`/#${s.id}`}
+                className={activeSection === s.id ? "active" : ""}
+                onClick={(e) => handleNavClick(e, s.id)}
+              >
+                {s.label}
+              </a>
+            ))}
+            {/* Substack link */}
             <a
-              key={s.id}
-              href={`/#${s.id}`}
-              className={activeSection === s.id ? "active" : ""}
-              onClick={(e) => handleNavClick(e, s.id)}
+              href="https://substack.com/@capitalcharacterconviction"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {s.label}
-            </a>
-          ))}
-          {/* Substack link */}
-          <a
-            href="https://substack.com/@capitalcharacterconviction"
-            target="_blank"
-            rel="noopener noreferrer"
+              SUBSTACK
+            </a>  
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
-            SUBSTACK
-          </a>  
-        </div>
+            {mobileMenuOpen ? (
+              <X size={24} strokeWidth={2} />
+            ) : (
+              <Menu size={24} strokeWidth={2} />
+            )}
+          </button>
+        </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="mobile-menu-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? (
-            <X size={24} strokeWidth={2} />
-          ) : (
-            <Menu size={24} strokeWidth={2} />
-          )}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="mobile-nav">
-          {sections.map((s) => (
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="mobile-nav">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`/#${s.id}`}
+                className={`mobile-nav-link ${activeSection === s.id ? "active" : ""}`}
+                onClick={(e) => {
+                  handleNavClick(e, s.id);
+                  setMobileMenuOpen(false);
+                }}
+              >
+                {s.label}
+              </a>
+            ))}
             <a
-              key={s.id}
-              href={`/#${s.id}`}
-              className={`mobile-nav-link ${activeSection === s.id ? "active" : ""}`}
-              onClick={(e) => {
-                handleNavClick(e, s.id);
-                setMobileMenuOpen(false);
-              }}
+              href="https://substack.com/@capitalcharacterconviction"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-nav-link"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              {s.label}
-            </a>
-          ))}
-          <a
-            href="https://substack.com/@capitalcharacterconviction"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mobile-nav-link"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            SUBSTACK
-          </a>  
-        </div>
-      )}
-    </header>
+              SUBSTACK
+            </a>  
+          </div>
+        )}
+      </header>
+    </>
   );
 }
