@@ -1513,12 +1513,16 @@ section#about .profile-photo-caption {
   /* Add spacing and extend about section background */
   section#about {
     margin-top: 40px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -16px;
-    margin-right: -16px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 60px 0 80px;
+  }
+
+  section#about .container {
+    padding: 0 16px;
+    padding-left: 22px;
+  }
+
+  section#about .highlight-bar {
+    width: 32px;
   }
 
   /* ===== INSIGHTS SECTION ===== */
