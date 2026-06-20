@@ -309,22 +309,15 @@ p {
   }
 }
 
-/* Mobile Navigation */
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: var(--nav-height);
-  right: 0;
-  width: 100%;
-  max-width: 100%;
-  background: #f5ede4;
-  border-bottom: 1px solid var(--border);
-  flex-direction: column;
-  z-index: 2999;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-  animation: slideDown 0.2s ease;
-  overflow-y: auto;
-  max-height: calc(100vh - var(--nav-height));
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideDown {
@@ -336,6 +329,24 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 75%;
+  max-width: 75vw;
+  background: #f5ede4;
+  border-right: 1px solid var(--border);
+  flex-direction: column;
+  z-index: 2999;
+  box-shadow: 6px 0 24px rgba(0, 0, 0, 0.08);
+  animation: slideInLeft 0.3s ease;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--nav-height));
 }
 
 .mobile-nav-link {
@@ -1467,6 +1478,17 @@ section#about .profile-photo-caption {
 
   .service-card--color p {
     font-size: 0.9rem;
+  }
+
+  /* Reduce left margin for bullet points on mobile */
+  .service-card ul,
+  .service-card ol {
+    margin-left: 20px;
+  }
+
+  .service-card ul li,
+  .service-card ol li {
+    margin-left: 10px;
   }
 
   /* ===== HERO CONTENT LAYOUT ===== */
