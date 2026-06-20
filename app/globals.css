@@ -1372,9 +1372,10 @@ section#about .profile-photo-caption {
   }
 
   .brand {
-    margin-left: -50px;
+    margin-left: -30px;
     flex-shrink: 0;
     justify-content: center;
+    flex: 1;
   }
 
   .brand-name {
@@ -1392,6 +1393,7 @@ section#about .profile-photo-caption {
 
   .mobile-menu-btn {
     display: block !important;
+    margin-left: auto;
   }
 
   .mobile-nav {
@@ -1483,12 +1485,12 @@ section#about .profile-photo-caption {
   /* Reduce left margin for bullet points on mobile */
   .service-card ul,
   .service-card ol {
-    margin-left: 20px;
+    margin-left: 15px;
   }
 
   .service-card ul li,
   .service-card ol li {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 
   /* ===== HERO CONTENT LAYOUT ===== */
@@ -1506,6 +1508,17 @@ section#about .profile-photo-caption {
   .profile-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  /* Add spacing and extend about section background */
+  section#about {
+    margin-top: 40px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   /* ===== INSIGHTS SECTION ===== */
