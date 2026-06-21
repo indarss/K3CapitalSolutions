@@ -1453,7 +1453,7 @@ section#about .profile-photo-caption {
 
   /* ===== SERVICES SECTION ===== */
   .services-section {
-    padding: 20px 0 80px;
+    padding: 20px 0 100px;
   }
 
   .services-title {
@@ -1512,8 +1512,8 @@ section#about .profile-photo-caption {
 
   /* Add spacing and extend about section background */
   section#about {
-    margin-top: 40px;
-    padding: 60px 0 80px;
+    margin-top: 0;
+    padding: 80px 0 80px;
   }
 
   section#about .container {
@@ -1523,6 +1523,12 @@ section#about .profile-photo-caption {
 
   section#about .highlight-bar {
     width: 32px;
+  }
+
+  section#about .profile-text p,
+  section#about p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   /* ===== INSIGHTS SECTION ===== */
